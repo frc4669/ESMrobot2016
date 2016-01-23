@@ -18,6 +18,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
+/**
+ * @author ZWT
+ *
+ */
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
@@ -33,8 +37,9 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 //		Subsystem instantiate
-    	oi = new OI();
 		driveTrain = new DriveTrain();
+		
+    	oi = new OI();
 		
         chooser = new SendableChooser();
         chooser.addDefault("Default Auto", new ExampleCommand());
@@ -102,6 +107,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        execute();
     }
     
     /**
@@ -109,5 +115,13 @@ public class Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
+    }
+    
+    /**
+     * Puts all data listed onto the SmartDashboard.
+     */
+    public void execute() {
+    	SmartDashboard.putNumber("Left Encoder Position", driveTrain.getLeftEncoder());
+    	SmartDashboard.putNumber("Right Encoder Position", driveTrain.getRightEncoder());
     }
 }

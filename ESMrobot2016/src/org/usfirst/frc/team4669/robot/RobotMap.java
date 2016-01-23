@@ -17,11 +17,33 @@ public class RobotMap {
     // public static int rangefinderModule = 1;
 	
 	// MOTORS
-	public static final int rightDrive = 3;
-	public static final int leftDrive = 5;
+	public static final int rightDrive = 5;
+	public static final int leftDrive = 3;
+	
+	public static final double speedProportion = 0.5;
 	
 	// JOYSTICKS
 	public static final int leftJoy = 0;
 	public static final int rightJoy = 1;
+	
+	//SENSORS
+	public static final double encoderCounts = 1440;
+	
+	
+	// OTHER
+	public static final double wheelDiameter = 4;
+	/**
+	 * Calculates circumference of wheel given diameter.
+	 */
+	public static final double wheelCircumference = Math.PI * wheelDiameter;
+	
+	public static final int distanceToTravel = 6;
+	
+	public static final double encoderCountConstant = wheelCircumference / encoderCounts;
+	
+	
+	// VARIABLE DATA
+	
+	
 	
 }
