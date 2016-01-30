@@ -2,9 +2,12 @@
 package org.usfirst.frc.team4669.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
+
 import org.usfirst.frc.team4669.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.ExampleSubsystem;
@@ -30,7 +33,13 @@ public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
     SendableChooser chooser;
+    
+    NetworkTable visionTable0;
 
+    
+    public Robot() {
+    	visionTable0 = NetworkTable.getTable("GRIP/myContoursReport");
+    }
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -45,6 +54,18 @@ public class Robot extends IterativeRobot {
         chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
+        
+        double[] defaultValue = new double[0];
+        while (true) {
+        	double[] centerX = visionTable0.getNumberArray("centerX", defaultValue);
+        	double[] centerY = visionTable0.getNumberArray("centerY", defaultValue);
+        	System.out.print("Center (X,Y): ");
+        	for (int i = 0; i < centerX.length; i++) {
+        		System.out.print("(" + centerX[i] + ", " + centerY[i] + ") ");
+        	}
+        	System.out.println();
+        	Timer.delay(0.1);
+        }
     }
 	
 	/**
