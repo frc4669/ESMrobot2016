@@ -34,9 +34,12 @@ public class Robot extends IterativeRobot {
     Command autonomousCommand;
     SendableChooser chooser;
     
+    //Initialize GRIP network table arrays;
     NetworkTable visionTable0;
+    double[] defaultValue = new double[0];
+	double[] centerX;
+	double[] centerY;
 
-    
     public Robot() {
     	visionTable0 = NetworkTable.getTable("GRIP/myContoursReport");
     }
@@ -52,20 +55,8 @@ public class Robot extends IterativeRobot {
 		
         chooser = new SendableChooser();
         chooser.addDefault("Default Auto", new ExampleCommand());
-//        chooser.addObject("My Auto", new MyAutoCommand());
+//      chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
-        
-        double[] defaultValue = new double[0];
-        while (true) {
-        	double[] centerX = visionTable0.getNumberArray("centerX", defaultValue);
-        	double[] centerY = visionTable0.getNumberArray("centerY", defaultValue);
-        	System.out.print("Center (X,Y): ");
-        	for (int i = 0; i < centerX.length; i++) {
-        		System.out.print("(" + centerX[i] + ", " + centerY[i] + ") ");
-        	}
-        	System.out.println();
-        	Timer.delay(0.1);
-        }
     }
 	
 	/**
@@ -144,5 +135,11 @@ public class Robot extends IterativeRobot {
     public void execute() {
     	SmartDashboard.putNumber("Left Encoder Position", driveTrain.getLeftEncoder());
     	SmartDashboard.putNumber("Right Encoder Position", driveTrain.getRightEncoder());
+    	
+    	//Get centerX and centerY from GRIP network tables
+    	centerX = visionTable0.getNumberArray("centerX", defaultValue);
+    	centerY = visionTable0.getNumberArray("centerY", defaultValue);
+		SmartDashboard.putNumber("Center X", centerX[0]);
+		SmartDashboard.putNumber("Center Y", centerY[0]);
     }
 }
