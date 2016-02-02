@@ -37,8 +37,8 @@ public class Robot extends IterativeRobot {
     //Initialize GRIP network table arrays;
     NetworkTable visionTable0;
     double[] defaultValue = new double[0];
-	double[] centerX;
-	double[] centerY;
+	double[] centerX = new double[1];
+	double[] centerY = new double[1];
 
     public Robot() {
     	visionTable0 = NetworkTable.getTable("GRIP/myContoursReport");
@@ -135,11 +135,13 @@ public class Robot extends IterativeRobot {
     public void execute() {
     	SmartDashboard.putNumber("Left Encoder Position", driveTrain.getLeftEncoder());
     	SmartDashboard.putNumber("Right Encoder Position", driveTrain.getRightEncoder());
-    	
+    	visionTable0 = NetworkTable.getTable("GRIP/myContoursReport");
     	//Get centerX and centerY from GRIP network tables
     	centerX = visionTable0.getNumberArray("centerX", defaultValue);
     	centerY = visionTable0.getNumberArray("centerY", defaultValue);
-		SmartDashboard.putNumber("Center X", centerX[0]);
-		SmartDashboard.putNumber("Center Y", centerY[0]);
+    	for(int i = 0; i<centerX.length; i++){ 
+    		SmartDashboard.putNumber("Center X", centerX[0]);
+    		SmartDashboard.putNumber("Center Y", centerY[0]);
+    	}
     }
 }

@@ -17,8 +17,10 @@ public class RobotMap {
     // public static int rangefinderModule = 1;
 	
 	// MOTORS
-	public static final int rightDrive = 5;
-	public static final int leftDrive = 3;
+	public static final int frontRightDrive = 5;
+	public static final int frontLeftDrive = 3;
+	public static final int rearRightDrive = 4;
+	public static final int rearLeftDrive = 2;
 	
 	public static final double speedProportion = 0.5;
 	

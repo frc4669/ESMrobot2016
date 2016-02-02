@@ -9,36 +9,50 @@ import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
 import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
+
 /**
- *
- */
-/**
- * @author ZWT
+ * @author FRC4669
  *
  */
 public class DriveTrain extends Subsystem {
-    private CANTalon leftDrive;
-    private CANTalon rightDrive;
+    private CANTalon frontLeftDrive;
+    private CANTalon rearLeftDrive;
+    private CANTalon frontRightDrive;
+    private CANTalon rearRightDrive;
     private RobotDrive driveTrain;
     
     public DriveTrain() {
     	super();
-    	leftDrive = new CANTalon(RobotMap.leftDrive);
-    	rightDrive = new CANTalon(RobotMap.rightDrive);
-    	driveTrain = new RobotDrive(leftDrive, rightDrive);
+    	frontLeftDrive = new CANTalon(RobotMap.frontLeftDrive);
+    	frontRightDrive = new CANTalon(RobotMap.frontRightDrive);
+    	rearLeftDrive = new CANTalon(RobotMap.rearLeftDrive);
+    	rearRightDrive = new CANTalon(RobotMap.rearRightDrive);
+    	driveTrain = new RobotDrive(frontLeftDrive, rearLeftDrive, frontRightDrive, rearRightDrive);
     	
     	// Configuring the Talons
-    	leftDrive.changeControlMode(TalonControlMode.PercentVbus);
-    	leftDrive.enableBrakeMode(true);
-    	leftDrive.reverseOutput(true);
-    	leftDrive.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-    	leftDrive.setPosition(0);
+    	frontLeftDrive.changeControlMode(TalonControlMode.PercentVbus);
+    	frontLeftDrive.enableBrakeMode(true);
+    	frontLeftDrive.reverseOutput(true);
+    	frontLeftDrive.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+    	frontLeftDrive.setPosition(0);
     	
-    	rightDrive.changeControlMode(TalonControlMode.PercentVbus);
-    	rightDrive.enableBrakeMode(true);
-    	rightDrive.reverseOutput(true);
-    	rightDrive.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-    	rightDrive.setPosition(0);
+    	rearLeftDrive.changeControlMode(TalonControlMode.PercentVbus);
+    	rearLeftDrive.enableBrakeMode(true);
+    	rearLeftDrive.reverseOutput(true);
+    	rearLeftDrive.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+    	rearLeftDrive.setPosition(0);
+    	
+    	frontRightDrive.changeControlMode(TalonControlMode.PercentVbus);
+    	frontRightDrive.enableBrakeMode(true);
+    	frontRightDrive.reverseOutput(true);
+    	frontRightDrive.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+    	frontRightDrive.setPosition(0);
+    	
+    	rearRightDrive.changeControlMode(TalonControlMode.PercentVbus);
+    	rearRightDrive.enableBrakeMode(true);
+    	rearRightDrive.reverseOutput(true);
+    	rearRightDrive.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+    	rearRightDrive.setPosition(0);
     }
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -69,7 +83,7 @@ public class DriveTrain extends Subsystem {
      * @return The encoder's position
      */
     public double getLeftEncoder() {
-    	return leftDrive.getPosition();
+    	return frontLeftDrive.getPosition();
     }
     
     /**
@@ -77,7 +91,7 @@ public class DriveTrain extends Subsystem {
      * @return The encoder's position
      */
     public double getRightEncoder() {
-    	return -rightDrive.getPosition();
+    	return -frontRightDrive.getPosition();
     }
     
     public double avgEncoderPosition() {
@@ -88,14 +102,14 @@ public class DriveTrain extends Subsystem {
      * Set current position of left encoder to zero.
      */
     public void zeroLeftEncoder() {
-    	leftDrive.setPosition(0);
+    	frontLeftDrive.setPosition(0);
     }
     
     /**
      * Set current position of right encoder to zero.
      */
     public void zeroRightEncoder() {
-    	rightDrive.setPosition(0);
+    	frontRightDrive.setPosition(0);
     }
     
     public void zeroEncoders() {
