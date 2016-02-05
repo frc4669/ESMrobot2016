@@ -142,6 +142,7 @@ public class Robot extends IterativeRobot {
     	for(int i = 0; i<centerX.length; i++){ 
     		SmartDashboard.putNumber("Center X", centerX[0]);
     		SmartDashboard.putNumber("Center Y", centerY[0]);
+    		
     	}
     }
 }
