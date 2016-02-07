@@ -133,8 +133,11 @@ public class Robot extends IterativeRobot {
      * Puts all data listed onto the SmartDashboard.
      */
     public void execute() {
+    	
     	SmartDashboard.putNumber("Left Encoder Position", driveTrain.getLeftEncoder());
     	SmartDashboard.putNumber("Right Encoder Position", driveTrain.getRightEncoder());
+    	SmartDashboard.putNumber("Left Shooter RPM:", value);
+    	
     	visionTable0 = NetworkTable.getTable("GRIP/myContoursReport");
     	//Get centerX and centerY from GRIP network tables
     	centerX = visionTable0.getNumberArray("centerX", defaultValue);

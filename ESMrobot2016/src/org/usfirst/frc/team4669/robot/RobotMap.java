@@ -22,6 +22,9 @@ public class RobotMap {
 	public static final int rearRightDrive = 4;
 	public static final int rearLeftDrive = 2;
 	
+	public static final int rightShooter = 8;
+	public static final int leftShooter = 7;
+	
 	public static final double speedProportion = 0.5;
 	
 	// JOYSTICKS
