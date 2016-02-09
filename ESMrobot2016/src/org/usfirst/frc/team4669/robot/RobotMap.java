@@ -16,13 +16,19 @@ public class RobotMap {
     // public static int rangefinderPort = 1;
     // public static int rangefinderModule = 1;
 	
-	// MOTORS
+	// DRIVE MOTORS
 	public static final int frontRightDrive = 5;
 	public static final int frontLeftDrive = 3;
 	public static final int rearRightDrive = 4;
 	public static final int rearLeftDrive = 2;
 	
-	public static final double speedProportion = 0.5;
+	//SHOOTER MOTORS
+	public static final int tiltMotor = 1;
+	public static final int leftShooter = 6;
+	public static final int rightShooter = 7;
+	
+	//SPEED PROPORTION
+	public static final double speedProportion = 1.0;
 	
 	// JOYSTICKS
 	public static final int leftJoy = 0;
@@ -33,7 +39,7 @@ public class RobotMap {
 	
 	
 	// OTHER
-	public static final double wheelDiameter = 4;
+	public static final double wheelDiameter = 7.8;
 	/**
 	 * Calculates circumference of wheel given diameter.
 	 */
