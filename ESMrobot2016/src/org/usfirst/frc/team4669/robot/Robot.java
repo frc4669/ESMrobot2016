@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import org.usfirst.frc.team4669.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team4669.robot.subsystems.Shooter;
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -22,7 +24,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * directory.
  */
 /**
- * @author ZWT
+ * @author FRC4669
  *
  */
 public class Robot extends IterativeRobot {
@@ -30,6 +32,7 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static DriveTrain driveTrain;
+	public static Shooter shooter;
 
     Command autonomousCommand;
     SendableChooser chooser;

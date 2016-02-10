@@ -44,6 +44,10 @@ public class Shooter extends Subsystem {
 	public void setRightShooterSpeed(double speed) {
 		rightShooter.set(speed);
 	}
+	
+	public void setLeftShooterSpeed(double speed) {
+		leftShooter.set(speed);
+	}
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
