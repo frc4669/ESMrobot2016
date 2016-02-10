@@ -4,6 +4,7 @@ package org.usfirst.frc.team4669.robot.subsystems;
 import org.usfirst.frc.team4669.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
 import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -14,6 +15,7 @@ public class Shooter extends Subsystem {
     
 	private CANTalon rightShooter;
 	private CANTalon leftShooter;
+	private CANTalon tiltMotor;
 	
 	public Shooter() {
 		// rightShooter setup.
@@ -21,9 +23,16 @@ public class Shooter extends Subsystem {
 		rightShooter.changeControlMode(TalonControlMode.Speed);
 		rightShooter.configEncoderCodesPerRev((int) RobotMap.encoderCounts);
 		
+		// leftShooter setup
 		leftShooter = new CANTalon(RobotMap.leftShooter);
 		leftShooter.changeControlMode(TalonControlMode.Speed);
 		leftShooter.configEncoderCodesPerRev((int) RobotMap.encoderCounts);
+		
+		// tiltMotor setup
+		tiltMotor = new CANTalon (RobotMap.tiltMotor);
+		tiltMotor.changeControlMode(TalonControlMode.PercentVbus);
+		tiltMotor.reverseOutput(true);
+    	tiltMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 	}
 	
     // Put methods for controlling this subsystem
