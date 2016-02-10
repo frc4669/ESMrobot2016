@@ -29,10 +29,11 @@ public class Shooter extends Subsystem {
 		leftShooter.configEncoderCodesPerRev((int) RobotMap.encoderCounts);
 		
 		// tiltMotor setup
-		tiltMotor = new CANTalon (RobotMap.tiltMotor);
+		tiltMotor = new CANTalon(RobotMap.tiltMotor);
 		tiltMotor.changeControlMode(TalonControlMode.PercentVbus);
 		tiltMotor.reverseOutput(true);
     	tiltMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+    	tiltMotor.setPosition(0);
 	}
 	
     // Put methods for controlling this subsystem
@@ -57,7 +58,10 @@ public class Shooter extends Subsystem {
 	public void setLeftShooterSpeed(double speed) {
 		leftShooter.set(speed);
 	}
-
+	
+	public void setTiltMotorSpeed(double speed) {
+		tiltMotor.set(speed);
+	}
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

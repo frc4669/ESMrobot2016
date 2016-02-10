@@ -9,13 +9,13 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class TiltShooterUp extends Command {
+public class Shoot extends Command {
 	
 	private Shooter shooter;
 	private double distanceToTravel;
 	private boolean end;
 
-    public TiltShooterUp() {
+    public Shoot() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	
@@ -32,7 +32,8 @@ public class TiltShooterUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	shooter.setTiltMotorSpeed(0.7);;
+    	shooter.setLeftShooterSpeed(1);
+    	shooter.setRightShooterSpeed(1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -51,3 +52,4 @@ public class TiltShooterUp extends Command {
     	end();
     }
 }
+
