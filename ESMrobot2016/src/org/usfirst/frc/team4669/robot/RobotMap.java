@@ -27,6 +27,8 @@ public class RobotMap {
 	public static final int leftShooter = 6;
 	public static final int rightShooter = 7;
 	
+	public static final int servo = 0;
+	
 	//SPEED PROPORTION
 	public static final double speedProportion = 1.0;
 	
@@ -39,7 +41,7 @@ public class RobotMap {
 	
 	
 	// OTHER
-	public static final double wheelDiameter = 7.8;
+	public static final double wheelDiameter = 7.6;
 	/**
 	 * Calculates circumference of wheel given diameter.
 	 */
