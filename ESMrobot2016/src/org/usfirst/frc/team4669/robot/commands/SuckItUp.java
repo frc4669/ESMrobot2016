@@ -10,12 +10,12 @@ import org.usfirst.frc.team4669.robot.subsystems.Shooter;
 /**
  *
  */
-public class Shoot extends Command {
+public class SuckItUp extends Command {
 	
 	private Shooter shooter;
 	private Timer timer;
-	
-    public Shoot() {
+
+    public SuckItUp() {
     	shooter = Robot.shooter;
     	timer = new Timer();
         // Use requires() here to declare subsystem dependencies
@@ -24,23 +24,21 @@ public class Shoot extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	timer.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	shooter.setLeftShooterSpeed(1);
-    	shooter.setRightShooterSpeed(-1);
+    	shooter.setLeftShooterSpeed(-0.3);
+    	shooter.setRightShooterSpeed(0.3);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return timer.get() > 1;
+    	return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	timer.stop();
     	shooter.setLeftShooterSpeed(0);
     	shooter.setRightShooterSpeed(0);
     }

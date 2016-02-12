@@ -1,11 +1,14 @@
 package org.usfirst.frc.team4669.robot;
 
 import org.usfirst.frc.team4669.robot.commands.MoveSixInches;
+import org.usfirst.frc.team4669.robot.commands.Shoot;
+import org.usfirst.frc.team4669.robot.commands.SuckItUp;
 import org.usfirst.frc.team4669.robot.commands.ZeroEncoder;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -21,6 +24,9 @@ public class OI {
     	
     	leftTrigger.whenPressed(new ZeroEncoder());
     	rightTrigger.whenPressed(new MoveSixInches());
+    	
+    	SmartDashboard.putData("Shoot", new Shoot());
+    	SmartDashboard.putData("SuckItUp", new SuckItUp());
     }
     
     public double getLeftY() {

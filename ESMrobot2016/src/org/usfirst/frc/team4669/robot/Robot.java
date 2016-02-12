@@ -54,6 +54,9 @@ public class Robot extends IterativeRobot {
 //		Subsystem instantiate
 		driveTrain = new DriveTrain();
 		
+        //Initialize Shooter
+        shooter = new Shooter();
+        
     	oi = new OI();
 		
         chooser = new SendableChooser();
@@ -61,8 +64,7 @@ public class Robot extends IterativeRobot {
 //      chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
         
-        //Initialize Shooter
-        shooter = new Shooter();
+
     }
 	
 	/**
