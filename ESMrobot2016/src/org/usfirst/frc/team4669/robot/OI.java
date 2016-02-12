@@ -18,15 +18,26 @@ public class OI {
     private Joystick leftStick = new Joystick(RobotMap.leftJoy);
     private Joystick rightStick = new Joystick(RobotMap.rightJoy);
     
-    public OI() {
+	public OI() {
+    	//Variables for joystick buttons
     	JoystickButton leftTrigger = new JoystickButton(leftStick, 1);
     	JoystickButton rightTrigger = new JoystickButton(rightStick, 1);
     	
+    	//Button commands
     	leftTrigger.whenPressed(new ZeroEncoder());
     	rightTrigger.whenPressed(new MoveSixInches());
     	
+    	//SmartDashboard commands
     	SmartDashboard.putData("Shoot", new Shoot());
     	SmartDashboard.putData("SuckItUp", new SuckItUp());
+    }
+    
+    public double getLeftThrottle() {
+    	return leftStick.getThrottle();
+    }
+    
+    public double getRightThrottle() {
+    	return rightStick.getThrottle();
     }
     
     public double getLeftY() {

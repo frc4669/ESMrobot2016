@@ -18,9 +18,9 @@ public class RobotMap {
 	
 	// DRIVE MOTORS
 	public static final int frontRightDrive = 7; //5
-	public static final int frontLeftDrive = 3;
-	public static final int rearRightDrive = 4;
-	public static final int rearLeftDrive = 5;
+	public static final int frontLeftDrive = 3; //3
+	public static final int rearRightDrive = 4; //4
+	public static final int rearLeftDrive = 5; //5
 	
 	//SHOOTER MOTORS
 	public static final int tiltMotor = 6; //1

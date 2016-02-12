@@ -2,6 +2,7 @@
 package org.usfirst.frc.team4669.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -33,6 +34,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static DriveTrain driveTrain;
 	public static Shooter shooter;
+	
 
     Command autonomousCommand;
     SendableChooser chooser;
@@ -142,9 +144,13 @@ public class Robot extends IterativeRobot {
      */
     public void execute() {
     	
+    	//Update encoder values on SmartDashboard
     	SmartDashboard.putNumber("Left Encoder Position", driveTrain.getLeftEncoder());
     	SmartDashboard.putNumber("Right Encoder Position", driveTrain.getRightEncoder());
+    	//SmartDashboard.putNumber("Left Throttle", OI.leftStick.getThrottle());
+    	//SmartDashboard.putNumber("Right Throttle", OI.rightStick.getThrottle());
     	
+    	//GRIP network table values on SmartDashboard
     	visionTable0 = NetworkTable.getTable("GRIP/myContoursReport");
     	//Get centerX and centerY from GRIP network tables
     	centerX = visionTable0.getNumberArray("centerX", defaultValue);

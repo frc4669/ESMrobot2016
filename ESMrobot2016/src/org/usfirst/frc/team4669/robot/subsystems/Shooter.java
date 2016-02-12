@@ -70,7 +70,9 @@ public class Shooter extends Subsystem {
 	}
 	
 	public void setTiltMotorSpeed(double speed) {
-		tiltMotor.set(speed);
+		if (speed >= -1.0 && speed <= 1.0){
+			tiltMotor.set(speed);
+		}
 	}
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
