@@ -33,7 +33,7 @@ public class OI {
     	JoystickButton right2 = new JoystickButton(rightStick, 2);
     	JoystickButton right3 = new JoystickButton(rightStick, 3);
     	
-    	JoystickButton arm1 = new JoystickButton(armStick, 1); //trigger
+    	Button arm1 = new JoystickButton(armStick, 1); //trigger
     	JoystickButton arm2 = new JoystickButton(armStick, 2); //side button
     	
     	//Button commands
