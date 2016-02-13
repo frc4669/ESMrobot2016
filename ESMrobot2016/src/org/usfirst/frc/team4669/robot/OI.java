@@ -3,6 +3,7 @@ package org.usfirst.frc.team4669.robot;
 import org.usfirst.frc.team4669.robot.commands.MoveSixInches;
 import org.usfirst.frc.team4669.robot.commands.Shoot;
 import org.usfirst.frc.team4669.robot.commands.SuckItUp;
+import org.usfirst.frc.team4669.robot.commands.TiltShooter;
 import org.usfirst.frc.team4669.robot.commands.ZeroEncoder;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -30,6 +31,7 @@ public class OI {
     	//SmartDashboard commands
     	SmartDashboard.putData("Shoot", new Shoot());
     	SmartDashboard.putData("SuckItUp", new SuckItUp());
+    	SmartDashboard.putData("TiltShooter", new TiltShooter());
     }
     
     public double getLeftY() {
