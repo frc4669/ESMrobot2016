@@ -20,8 +20,8 @@ public class OI {
     
 	public OI() {
     	//Variables for joystick buttons
-    	JoystickButton  = new JoystickButton(leftStick, 1);
-    	JoystickButton  = new JoystickButton(rightStick, 1);
+    	JoystickButton leftTrigger = new JoystickButton(leftStick, 1);
+    	JoystickButton rightTrigger = new JoystickButton(rightStick, 1);
     	
     	//Button commands
     	//leftTrigger.whenPressed(new ZeroEncoder());
