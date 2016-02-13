@@ -20,8 +20,8 @@ public class OI {
     
 	public OI() {
     	//Variables for joystick buttons
-    	JoystickButton leftTrigger = new JoystickButton(leftStick, 1);
-    	JoystickButton rightTrigger = new JoystickButton(rightStick, 1);
+    	JoystickButton  = new JoystickButton(leftStick, 1);
+    	JoystickButton  = new JoystickButton(rightStick, 1);
     	
     	//Button commands
     	//leftTrigger.whenPressed(new ZeroEncoder());
@@ -30,14 +30,6 @@ public class OI {
     	//SmartDashboard commands
     	SmartDashboard.putData("Shoot", new Shoot());
     	SmartDashboard.putData("SuckItUp", new SuckItUp());
-    }
-    
-    public double getLeftThrottle() {
-    	return leftStick.getThrottle();
-    }
-    
-    public double getRightThrottle() {
-    	return rightStick.getThrottle();
     }
     
     public double getLeftY() {
