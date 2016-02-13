@@ -153,20 +153,23 @@ public class Robot extends IterativeRobot {
      */
     public void updateSmartDashboard() {
     	
+    	//Update Shooter encoder values on SmartDashboard
+    	SmartDashboard.putNumber("Shooter Encoder", shooter.getTiltEncoder());
+    	
     	//Update driveTrain encoder values on SmartDashboard
-    	SmartDashboard.putNumber("Left Encoder Position", driveTrain.getLeftEncoder());
-    	SmartDashboard.putNumber("Right Encoder Position", driveTrain.getRightEncoder());
+    	SmartDashboard.putNumber("Left Encoder", driveTrain.getLeftEncoder());
+    	SmartDashboard.putNumber("Right Encoder", driveTrain.getRightEncoder());
     	
     	//Update IMU values on SmartDashboard
     	SmartDashboard.putNumber("IMU", imu.getAngle());
     	
     	//Get centerX and centerY from GRIP network tables
-    	centerX = visionTable0.getNumberArray("centerX", defaultValue);
-    	centerY = visionTable0.getNumberArray("centerY", defaultValue);
-    	for(int i = 0; i<centerX.length; i++){ 
-    		SmartDashboard.putNumber("Center X", centerX[0]);
-    		SmartDashboard.putNumber("Center Y", centerY[0]);
-    		
-    	}
+//    	centerX = visionTable0.getNumberArray("centerX", defaultValue);
+//    	centerY = visionTable0.getNumberArray("centerY", defaultValue);
+//    	for(int i = 0; i<centerX.length; i++){ 
+//    		SmartDashboard.putNumber("Center X", centerX[0]);
+//    		SmartDashboard.putNumber("Center Y", centerY[0]);
+//    		
+//    	}
     }
 }

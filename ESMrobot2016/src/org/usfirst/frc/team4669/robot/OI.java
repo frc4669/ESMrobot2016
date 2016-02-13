@@ -5,7 +5,8 @@ import org.usfirst.frc.team4669.robot.commands.Shoot;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterDown;
 import org.usfirst.frc.team4669.robot.commands.Intake;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterUp;
-import org.usfirst.frc.team4669.robot.commands.ZeroEncoder;
+import org.usfirst.frc.team4669.robot.commands.ZeroEncoderDriveTrain;
+import org.usfirst.frc.team4669.robot.commands.ZeroEncoderShooter;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -20,7 +21,7 @@ public class OI {
 	//Add joysticks
     private Joystick leftStick = new Joystick(RobotMap.leftJoy);
     private Joystick rightStick = new Joystick(RobotMap.rightJoy);
-    private Joystick armStick = new Joystick(RobotMap.armJoy);
+    private Joystick shooterStick = new Joystick(RobotMap.armJoy);
     
 	public OI() {
     	//Variables for joystick buttons
@@ -33,14 +34,14 @@ public class OI {
     	JoystickButton right2 = new JoystickButton(rightStick, 2);
     	JoystickButton right3 = new JoystickButton(rightStick, 3);
     	
-    	Button arm1 = new JoystickButton(armStick, 1); //trigger
-    	JoystickButton arm2 = new JoystickButton(armStick, 2); //side button
+    	Button shooter1 = new JoystickButton(shooterStick, 1); //trigger
+    	JoystickButton shooter2 = new JoystickButton(shooterStick, 2); //side button
     	
     	//Button commands
     			
     	//left1.whenPressed(new ZeroEncoder());
-    	arm1.whileHeld(new Intake());
-    	arm2.whenPressed(new Shoot());
+    	shooter1.whileHeld(new Intake());
+    	shooter2.whenPressed(new Shoot());
     	
     	//SmartDashboard commands
     	
@@ -48,6 +49,8 @@ public class OI {
     	SmartDashboard.putData("Intake", new Intake());
     	SmartDashboard.putData("TiltShooterUp", new TiltShooterUp());
     	SmartDashboard.putData("TiltShooterDown", new TiltShooterDown());
+    	SmartDashboard.putData("Zero Shooter Encoder", new ZeroEncoderShooter());
+    	SmartDashboard.putData("Zero DriveTrain Encoder", new ZeroEncoderDriveTrain());
     }
     
     public double getLeftY() {
@@ -58,8 +61,8 @@ public class OI {
     	return rightStick.getY();
     }
     
-    public double getArmY() {
-    	return armStick.getY();
+    public double getShooterY() {
+    	return shooterStick.getY();
     }
 }
 

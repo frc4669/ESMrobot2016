@@ -54,6 +54,14 @@ public class Shooter extends Subsystem {
 		return leftShooter.getEncVelocity();
 	}
 	
+	public double getTiltEncoder() {
+		return tiltMotor.getPosition();
+	}
+	
+	public void zeroTiltEncoder() {
+		tiltMotor.setPosition(0);
+	}
+	
 	/**
 	 * Sets the speed of the motor.
 	 * @param speed A number from -1.0 to 1.0
@@ -81,6 +89,7 @@ public class Shooter extends Subsystem {
 			servo.setAngle(angle);
 		}
 	}
+
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
