@@ -17,25 +17,33 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+	//Add joysticks
     private Joystick leftStick = new Joystick(RobotMap.leftJoy);
     private Joystick rightStick = new Joystick(RobotMap.rightJoy);
+    private Joystick armStick = new Joystick(RobotMap.armJoy);
     
 	public OI() {
     	//Variables for joystick buttons
-    	JoystickButton left3 = new JoystickButton(leftStick, 3); //TiltUp
-    	JoystickButton left2 = new JoystickButton(leftStick, 2); //TiltDown
-    	JoystickButton right3 = new JoystickButton(rightStick, 3); //Shoot
-    	JoystickButton right2 = new JoystickButton(rightStick, 2); //SuckItUp
+		
+    	JoystickButton left1 = new JoystickButton(leftStick, 1); //trigger
+    	JoystickButton left2 = new JoystickButton(leftStick, 2);
+    	JoystickButton left3 = new JoystickButton(leftStick, 3);
     	
-    	JoystickButton leftTrigger = new JoystickButton(leftStick, 1);
-    	JoystickButton rightTrigger = new JoystickButton(rightStick, 1);
+    	JoystickButton right1 = new JoystickButton(rightStick, 1); //trigger
+    	JoystickButton right2 = new JoystickButton(rightStick, 2);
+    	JoystickButton right3 = new JoystickButton(rightStick, 3);
+    	
+    	JoystickButton arm1 = new JoystickButton(armStick, 1); //trigger
+    	JoystickButton arm2 = new JoystickButton(armStick, 2); //side button
     	
     	//Button commands
-    	//leftTrigger.whenPressed(new ZeroEncoder());
-    	right3.whenPressed(new Shoot());
-    	right2.whenPressed(new Intake());
+    			
+    	//left1.whenPressed(new ZeroEncoder());
+    	arm1.whileHeld(new Intake());
+    	arm2.whenPressed(new Shoot());
     	
     	//SmartDashboard commands
+    	
     	SmartDashboard.putData("Shoot", new Shoot());
     	SmartDashboard.putData("Intake", new Intake());
     	SmartDashboard.putData("TiltShooterUp", new TiltShooterUp());
@@ -48,6 +56,10 @@ public class OI {
     
     public double getRightY() {
     	return rightStick.getY();
+    }
+    
+    public double getArmY() {
+    	return armStick.getY();
     }
 }
 

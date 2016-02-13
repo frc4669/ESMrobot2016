@@ -38,6 +38,7 @@ public class RobotMap {
 	// JOYSTICKS
 	public static final int leftJoy = 1;
 	public static final int rightJoy = 0;
+	public static final int armJoy = 2;
 	
 	//SENSORS
 	public static final double encoderCounts = 1440;
