@@ -20,12 +20,15 @@ public class OI {
     
 	public OI() {
     	//Variables for joystick buttons
-    	JoystickButton  = new JoystickButton(leftStick, 1);
-    	JoystickButton  = new JoystickButton(rightStick, 1);
+    	JoystickButton left3 = new JoystickButton(leftStick, 3); //TiltUp
+    	JoystickButton left2 = new JoystickButton(leftStick, 2); //TiltDown
+    	JoystickButton right3 = new JoystickButton(rightStick, 3); //Shoot
+    	JoystickButton right2 = new JoystickButton(rightStick, 2); //SuckItUp
     	
     	//Button commands
     	//leftTrigger.whenPressed(new ZeroEncoder());
-    	//rightTrigger.whenPressed(new MoveSixInches());
+    	right3.whenPressed(new Shoot());
+    	right2.whenPressed(new SuckItUp());
     	
     	//SmartDashboard commands
     	SmartDashboard.putData("Shoot", new Shoot());

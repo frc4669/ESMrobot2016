@@ -17,15 +17,15 @@ public class RobotMap {
     // public static int rangefinderModule = 1;
 	
 	// DRIVE MOTORS
-	public static final int frontRightDrive = 7; //5
-	public static final int frontLeftDrive = 3; //3
-	public static final int rearRightDrive = 4; //4
-	public static final int rearLeftDrive = 5; //5
+	public static final int frontRightDrive = 7;
+	public static final int frontLeftDrive = 3;
+	public static final int rearRightDrive = 4;
+	public static final int rearLeftDrive = 5;
 	
 	//SHOOTER MOTORS
-	public static final int tiltMotor = 6; //1
-	public static final int leftShooter = 1; //6
-	public static final int rightShooter = 2; //7
+	public static final int tiltMotor = 6;
+	public static final int leftShooter = 1;
+	public static final int rightShooter = 2;
 	
 	public static final int servo = 0;
 	
@@ -33,8 +33,8 @@ public class RobotMap {
 	public static final double speedProportion = 1.0;
 	
 	// JOYSTICKS
-	public static final int leftJoy = 0;
-	public static final int rightJoy = 1;
+	public static final int leftJoy = 1;
+	public static final int rightJoy = 0;
 	
 	//SENSORS
 	public static final double encoderCounts = 1440;
