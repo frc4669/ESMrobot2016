@@ -24,8 +24,8 @@ public class OI {
     	JoystickButton rightTrigger = new JoystickButton(rightStick, 1);
     	
     	//Button commands
-    	leftTrigger.whenPressed(new ZeroEncoder());
-    	rightTrigger.whenPressed(new MoveSixInches());
+    	//leftTrigger.whenPressed(new ZeroEncoder());
+    	//rightTrigger.whenPressed(new MoveSixInches());
     	
     	//SmartDashboard commands
     	SmartDashboard.putData("Shoot", new Shoot());

@@ -31,6 +31,9 @@ public class Shoot extends Command {
     protected void execute() {
     	shooter.setLeftShooterSpeed(1);
     	shooter.setRightShooterSpeed(-1);
+    	if (timer.get() > 0.5) {
+    		shooter.setServoAngle(0);
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -43,6 +46,7 @@ public class Shoot extends Command {
     	timer.stop();
     	shooter.setLeftShooterSpeed(0);
     	shooter.setRightShooterSpeed(0);
+    	shooter.setServoAngle(120);
     }
 
     // Called when another command which requires one or more of the same

@@ -20,6 +20,7 @@ public class Shooter extends Subsystem {
 	private Servo servo;
 	
 	public Shooter() {
+		super();
 		// rightShooter setup.
 		rightShooter = new CANTalon(RobotMap.rightShooter);
 		rightShooter.changeControlMode(TalonControlMode.PercentVbus);
@@ -39,7 +40,7 @@ public class Shooter extends Subsystem {
     	
     	// servo setup
     	servo = new Servo(RobotMap.servo);
-    	servo.setAngle(0);
+    	servo.setAngle(120);
 	}
 	
     // Put methods for controlling this subsystem
@@ -74,6 +75,13 @@ public class Shooter extends Subsystem {
 			tiltMotor.set(speed);
 		}
 	}
+	
+	public void setServoAngle(int angle) {
+		if (angle >= 0 && angle <= 170) {
+			servo.setAngle(angle);
+		}
+	}
+	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
