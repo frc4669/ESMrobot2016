@@ -2,8 +2,9 @@ package org.usfirst.frc.team4669.robot;
 
 import org.usfirst.frc.team4669.robot.commands.MoveSixInches;
 import org.usfirst.frc.team4669.robot.commands.Shoot;
-import org.usfirst.frc.team4669.robot.commands.SuckItUp;
-import org.usfirst.frc.team4669.robot.commands.TiltShooter;
+import org.usfirst.frc.team4669.robot.commands.TiltShooterDown;
+import org.usfirst.frc.team4669.robot.commands.Intake;
+import org.usfirst.frc.team4669.robot.commands.TiltShooterUp;
 import org.usfirst.frc.team4669.robot.commands.ZeroEncoder;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -32,12 +33,13 @@ public class OI {
     	//Button commands
     	//leftTrigger.whenPressed(new ZeroEncoder());
     	right3.whenPressed(new Shoot());
-    	right2.whenPressed(new SuckItUp());
+    	right2.whenPressed(new Intake());
     	
     	//SmartDashboard commands
     	SmartDashboard.putData("Shoot", new Shoot());
-    	SmartDashboard.putData("SuckItUp", new SuckItUp());
-    	SmartDashboard.putData("TiltShooter", new TiltShooter());
+    	SmartDashboard.putData("Intake", new Intake());
+    	SmartDashboard.putData("TiltShooterUp", new TiltShooterUp());
+    	SmartDashboard.putData("TiltShooterDown", new TiltShooterDown());
     }
     
     public double getLeftY() {

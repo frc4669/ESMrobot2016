@@ -65,7 +65,7 @@ public class DriveTrain extends Subsystem {
      * @param rightMotor Sets the speed of the right motor.
      */
     public void setMotors(double leftMotor, double rightMotor) {
-    	driveTrain.tankDrive(-leftMotor * RobotMap.speedProportion, -rightMotor * RobotMap.speedProportion, true);
+    	driveTrain.tankDrive(-leftMotor * RobotMap.driveTrainSpeedProportion, -rightMotor * RobotMap.driveTrainSpeedProportion, true);
     }
     
     /**

@@ -2,8 +2,6 @@
 package org.usfirst.frc.team4669.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -13,6 +11,8 @@ import org.usfirst.frc.team4669.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4669.robot.subsystems.Shooter;
+
+import com.analog.adis16448.frc.ADIS16448_IMU;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -44,22 +44,31 @@ public class Robot extends IterativeRobot {
     double[] defaultValue = new double[0];
 	double[] centerX = new double[1];
 	double[] centerY = new double[1];
+	
+	ADIS16448_IMU imu;
 
     public Robot() {
-    	visionTable0 = NetworkTable.getTable("GRIP/myContoursReport");
+    	
     }
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
-//		Subsystem instantiate
+    	//Initialize DriveTrain
 		driveTrain = new DriveTrain();
 		
         //Initialize Shooter
         shooter = new Shooter();
         
+        //Initialize operator interface
     	oi = new OI();
+    	
+    	//Initialize IMU
+    	imu = new ADIS16448_IMU();
+    	imu.startLiveWindowMode();
+    	
+    	visionTable0 = NetworkTable.getTable("GRIP/myContoursReport");
 		
         chooser = new SendableChooser();
         chooser.addDefault("Default Auto", new ExampleCommand());
@@ -129,7 +138,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        execute();
+        updateSmartDashboard();
     }
     
     /**
@@ -142,16 +151,15 @@ public class Robot extends IterativeRobot {
     /**
      * Puts all data listed onto the SmartDashboard.
      */
-    public void execute() {
+    public void updateSmartDashboard() {
     	
-    	//Update encoder values on SmartDashboard
+    	//Update driveTrain encoder values on SmartDashboard
     	SmartDashboard.putNumber("Left Encoder Position", driveTrain.getLeftEncoder());
     	SmartDashboard.putNumber("Right Encoder Position", driveTrain.getRightEncoder());
-    	//SmartDashboard.putNumber("Left Throttle", OI.leftStick.getThrottle());
-    	//SmartDashboard.putNumber("Right Throttle", OI.rightStick.getThrottle());
     	
-    	//GRIP network table values on SmartDashboard
-    	visionTable0 = NetworkTable.getTable("GRIP/myContoursReport");
+    	//Update IMU values on SmartDashboard
+    	SmartDashboard.putNumber("IMU", imu.getAngle());
+    	
     	//Get centerX and centerY from GRIP network tables
     	centerX = visionTable0.getNumberArray("centerX", defaultValue);
     	centerY = visionTable0.getNumberArray("centerY", defaultValue);

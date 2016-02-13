@@ -5,17 +5,18 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4669.robot.Robot;
+import org.usfirst.frc.team4669.robot.RobotMap;
 import org.usfirst.frc.team4669.robot.subsystems.Shooter;
 
 /**
  *
  */
-public class TiltShooter extends Command {
+public class TiltShooterDown extends Command {
 	
 	private Shooter shooter;
 	private Timer timer;
 
-    public TiltShooter() {
+    public TiltShooterDown() {
     	shooter = Robot.shooter;
     	timer = new Timer();
         // Use requires() here to declare subsystem dependencies
@@ -29,7 +30,7 @@ public class TiltShooter extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	shooter.setTiltMotorSpeed(0.5);
+    	shooter.setTiltMotorSpeed(-RobotMap.shooterTiltSpeedProportion);
     }
 
     // Make this return true when this Command no longer needs to run execute()
