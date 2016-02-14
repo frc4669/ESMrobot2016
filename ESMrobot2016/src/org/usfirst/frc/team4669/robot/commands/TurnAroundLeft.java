@@ -1,47 +1,43 @@
 
 package org.usfirst.frc.team4669.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
-import org.usfirst.frc.team4669.robot.OI;
 import org.usfirst.frc.team4669.robot.Robot;
 import org.usfirst.frc.team4669.robot.RobotMap;
-import org.usfirst.frc.team4669.robot.subsystems.Shooter;
+import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 
 /**
  *
  */
-public class TiltShooterWithSticks extends Command {
+public class TurnAroundLeft extends Command {
 	
-	private Shooter shooter;
-	private Timer timer;
-	private OI oi = Robot.oi;
+	private DriveTrain driveTrain = Robot.driveTrain;
+	private double distanceToTravel = RobotMap.distanceToTurnAround / RobotMap.encoderCountConstant;
 
-    public TiltShooterWithSticks() {
-    	shooter = Robot.shooter;
-    	timer = new Timer();
+    public TurnAroundLeft() {
         // Use requires() here to declare subsystem dependencies
-        requires(shooter);
+        requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	driveTrain.zeroEncoders();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	shooter.setTiltMotorSpeed(RobotMap.shooterTiltSpeedProportion*oi.getShooterY());
+    	driveTrain.setMotors(1, -1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return false;
+        return driveTrain.getRightEncoder() > distanceToTravel;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	shooter.setTiltMotorSpeed(0);
+    	driveTrain.stopMotors();
     }
 
     // Called when another command which requires one or more of the same

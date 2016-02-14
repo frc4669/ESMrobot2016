@@ -8,18 +8,20 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ZeroEncoder extends Command {
+public class ZeroEncoderDriveTrain extends Command {
 	
-    public ZeroEncoder() {
+	private DriveTrain driveTrain = Robot.driveTrain;
+	
+    public ZeroEncoderDriveTrain() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	
-    	requires(Robot.driveTrain);
+    	requires(driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.zeroEncoders();
+    	driveTrain.zeroEncoders();
     }
 
     // Called repeatedly when this Command is scheduled to run
