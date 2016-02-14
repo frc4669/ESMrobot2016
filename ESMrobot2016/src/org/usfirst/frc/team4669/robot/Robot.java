@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import org.usfirst.frc.team4669.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
 import org.usfirst.frc.team4669.robot.subsystems.Shooter;
 
 import com.analog.adis16448.frc.ADIS16448_IMU;
@@ -45,7 +46,7 @@ public class Robot extends IterativeRobot {
 	double[] centerX = new double[1];
 	double[] centerY = new double[1];
 	
-	ADIS16448_IMU imu;
+	public static IMUSubsystem imu = new IMUSubsystem();
 
     public Robot() {
     	
@@ -63,10 +64,6 @@ public class Robot extends IterativeRobot {
         
         //Initialize operator interface
     	oi = new OI();
-    	
-    	//Initialize IMU
-    	imu = new ADIS16448_IMU();
-    	imu.startLiveWindowMode();
     	
     	visionTable0 = NetworkTable.getTable("GRIP/myContoursReport");
 		
