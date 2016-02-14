@@ -2,6 +2,7 @@
 package org.usfirst.frc.team4669.robot.subsystems;
 
 import org.usfirst.frc.team4669.robot.RobotMap;
+import org.usfirst.frc.team4669.robot.commands.TiltShooterWithSticks;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
@@ -71,9 +72,7 @@ public class Shooter extends Subsystem {
 	}
 	
 	public void setTiltMotorSpeed(double speed) {
-		if (speed >= -1.0 && speed <= 1.0){
-			tiltMotor.set(speed);
-		}
+		tiltMotor.set(RobotMap.shooterTiltSpeedProportion*speed);
 	}
 	
 	public void setServoAngle(int angle) {
@@ -85,6 +84,11 @@ public class Shooter extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new TiltShooterWithSticks());
+    }
+    
+    public double getTiltPosition() {
+    	return tiltMotor.getPosition();
     }
 }
 

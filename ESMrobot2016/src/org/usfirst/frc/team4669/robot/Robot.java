@@ -160,6 +160,10 @@ public class Robot extends IterativeRobot {
     	//Update IMU values on SmartDashboard
     	SmartDashboard.putNumber("IMU", imu.getAngle());
     	
+    	//Shooter Tilt Angle Data Stuff
+    	SmartDashboard.putNumber("Current Angle:", (shooter.getTiltPosition()*(360/12288)));
+    	SmartDashboard.putNumber("Set Angle:", 0);
+    	
     	//Get centerX and centerY from GRIP network tables
     	centerX = visionTable0.getNumberArray("centerX", defaultValue);
     	centerY = visionTable0.getNumberArray("centerY", defaultValue);

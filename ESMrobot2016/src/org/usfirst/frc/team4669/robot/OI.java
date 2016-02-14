@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4669.robot;
 
 import org.usfirst.frc.team4669.robot.commands.MoveSixInches;
+import org.usfirst.frc.team4669.robot.commands.SetShooterAngle;
 import org.usfirst.frc.team4669.robot.commands.Shoot;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterDown;
 import org.usfirst.frc.team4669.robot.commands.Intake;
@@ -48,6 +49,7 @@ public class OI {
     	SmartDashboard.putData("Intake", new Intake());
     	SmartDashboard.putData("TiltShooterUp", new TiltShooterUp());
     	SmartDashboard.putData("TiltShooterDown", new TiltShooterDown());
+    	SmartDashboard.putData("Set Shooter Angle", new SetShooterAngle());
     }
     
     public double getLeftY() {

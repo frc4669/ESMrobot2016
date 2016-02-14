@@ -1,28 +1,21 @@
-
 package org.usfirst.frc.team4669.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
 
-import org.usfirst.frc.team4669.robot.OI;
 import org.usfirst.frc.team4669.robot.Robot;
-import org.usfirst.frc.team4669.robot.RobotMap;
-import org.usfirst.frc.team4669.robot.subsystems.Shooter;
+
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class TiltShooterWithSticks extends Command {
+public class SetShooterAngle extends Command {
+	private double position = SmartDashboard.getNumber("Set Angle:") * (12288/360);
 	
-	private Shooter shooter;
-	private Timer timer;
-	private OI oi = Robot.oi;
-
-    public TiltShooterWithSticks() {
-    	shooter = Robot.shooter;
-    	timer = new Timer();
+    public SetShooterAngle() {
         // Use requires() here to declare subsystem dependencies
-        requires(shooter);
+        // eg. requires(chassis);
+    	requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
@@ -31,22 +24,25 @@ public class TiltShooterWithSticks extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	shooter.setTiltMotorSpeed(oi.getArmY());
+    	if (Robot.shooter.getTiltPosition() < position) { 
+    		Robot.shooter.setTiltMotorSpeed(1.0);
+    	}
+    	if (Robot.shooter.getTiltPosition() > position) {
+    		Robot.shooter.setTiltMotorSpeed(-1.0);
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return false;
+        return position-68 < Robot.shooter.getTiltPosition() && Robot.shooter.getTiltPosition() < position+68;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	shooter.setTiltMotorSpeed(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     }
 }
