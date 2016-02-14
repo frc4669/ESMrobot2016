@@ -17,10 +17,10 @@ public class RobotMap {
     // public static int rangefinderModule = 1;
 	
 	// DRIVE MOTORS
-	public static final int frontRightDrive = 7;
 	public static final int frontLeftDrive = 6;
-	public static final int rearRightDrive = 4;
+	public static final int frontRightDrive = 7;
 	public static final int rearLeftDrive = 5;
+	public static final int rearRightDrive = 4;
 	
 	//SHOOTER MOTORS
 	public static final int tiltMotor = 3;
