@@ -50,7 +50,7 @@ public class OI {
     	SmartDashboard.putData("Shoot", new Shoot());
     	SmartDashboard.putData("Intake", new Intake());
     	
-    	SmartDashboard.putData("Set Shooter Angle", new SetShooterAngle());
+    	//SmartDashboard.putData("Set Shooter Angle", new SetShooterAngle());
     	SmartDashboard.putData("Tilt Shooter Up", new TiltShooterUp());
     	SmartDashboard.putData("Tilt Shooter Down", new TiltShooterDown());
     	

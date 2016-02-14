@@ -27,12 +27,12 @@ public class TurnAroundRight extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveTrain.setMotors(-1, 1);
+    	driveTrain.setMotors(1, -1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return driveTrain.getLeftEncoder() > distanceToTravel;
+        return driveTrain.getLeftEncoder() < distanceToTravel;
     }
 
     // Called once after isFinished returns true

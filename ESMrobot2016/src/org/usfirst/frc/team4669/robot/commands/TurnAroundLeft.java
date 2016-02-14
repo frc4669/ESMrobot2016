@@ -13,7 +13,7 @@ import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 public class TurnAroundLeft extends Command {
 	
 	private DriveTrain driveTrain = Robot.driveTrain;
-	private double distanceToTravel = RobotMap.distanceToTurnAround / RobotMap.encoderCountConstant;
+	private double distanceToTravel = RobotMap.distanceToTurnAround / 2*RobotMap.encoderCountConstant;
 
     public TurnAroundLeft() {
         // Use requires() here to declare subsystem dependencies
@@ -27,12 +27,12 @@ public class TurnAroundLeft extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveTrain.setMotors(1, -1);
+    	driveTrain.setMotors(-1, 1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return driveTrain.getRightEncoder() > distanceToTravel;
+        return driveTrain.getRightEncoder() < distanceToTravel;
     }
 
     // Called once after isFinished returns true
