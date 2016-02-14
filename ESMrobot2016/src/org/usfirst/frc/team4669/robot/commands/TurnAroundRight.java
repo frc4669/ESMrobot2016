@@ -4,16 +4,18 @@ package org.usfirst.frc.team4669.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4669.robot.Robot;
+import org.usfirst.frc.team4669.robot.RobotMap;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 
 /**
  *
  */
-public class TurnAround extends Command {
+public class TurnAroundRight extends Command {
 	
 	private DriveTrain driveTrain = Robot.driveTrain;
+	private double distanceToTravel = RobotMap.distanceToTurnAround / RobotMap.encoderCountConstant;
 
-    public TurnAround() {
+    public TurnAroundRight() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.driveTrain);
     }
@@ -25,15 +27,17 @@ public class TurnAround extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	driveTrain.setMotors(-1, 1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return driveTrain.getLeftEncoder() > distanceToTravel;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	driveTrain.stopMotors();
     }
 
     // Called when another command which requires one or more of the same

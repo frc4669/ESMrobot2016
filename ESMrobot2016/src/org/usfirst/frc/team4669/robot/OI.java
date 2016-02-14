@@ -5,6 +5,8 @@ import org.usfirst.frc.team4669.robot.commands.Shoot;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterDown;
 import org.usfirst.frc.team4669.robot.commands.Intake;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterUp;
+import org.usfirst.frc.team4669.robot.commands.TurnAroundLeft;
+import org.usfirst.frc.team4669.robot.commands.TurnAroundRight;
 import org.usfirst.frc.team4669.robot.commands.ZeroEncoderDriveTrain;
 import org.usfirst.frc.team4669.robot.commands.ZeroEncoderShooter;
 
@@ -26,20 +28,19 @@ public class OI {
 	public OI() {
     	//Variables for joystick buttons
 		
-    	JoystickButton left1 = new JoystickButton(leftStick, 1); //trigger
-    	JoystickButton left2 = new JoystickButton(leftStick, 2);
-    	JoystickButton left3 = new JoystickButton(leftStick, 3);
+    	JoystickButton left5 = new JoystickButton(leftStick, 5);
     	
-    	JoystickButton right1 = new JoystickButton(rightStick, 1); //trigger
-    	JoystickButton right2 = new JoystickButton(rightStick, 2);
-    	JoystickButton right3 = new JoystickButton(rightStick, 3);
+    	JoystickButton right4 = new JoystickButton(rightStick, 4);
     	
     	Button shooter1 = new JoystickButton(shooterStick, 1); //trigger
     	JoystickButton shooter2 = new JoystickButton(shooterStick, 2); //side button
     	
     	//Button commands
-    			
     	//left1.whenPressed(new ZeroEncoder());
+    	
+    	left5.whenPressed(new TurnAroundLeft());
+    	right4.whenPressed(new TurnAroundRight());
+    	
     	shooter1.whileHeld(new Intake());
     	shooter2.whenPressed(new Shoot());
     	
@@ -47,8 +48,8 @@ public class OI {
     	
     	SmartDashboard.putData("Shoot", new Shoot());
     	SmartDashboard.putData("Intake", new Intake());
-    	SmartDashboard.putData("TiltShooterUp", new TiltShooterUp());
-    	SmartDashboard.putData("TiltShooterDown", new TiltShooterDown());
+    	SmartDashboard.putData("Tilt Shooter Up", new TiltShooterUp());
+    	SmartDashboard.putData("Tilt Shooter Down", new TiltShooterDown());
     	SmartDashboard.putData("Zero Shooter Encoder", new ZeroEncoderShooter());
     	SmartDashboard.putData("Zero DriveTrain Encoder", new ZeroEncoderDriveTrain());
     }
