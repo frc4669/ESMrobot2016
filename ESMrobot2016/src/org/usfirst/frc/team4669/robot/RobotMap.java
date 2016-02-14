@@ -17,40 +17,42 @@ public class RobotMap {
     // public static int rangefinderModule = 1;
 	
 	// DRIVE MOTORS
-	public static final int frontRightDrive = 7; //5
-	public static final int frontLeftDrive = 6; //3
-	public static final int rearRightDrive = 4; //4
-	public static final int rearLeftDrive = 5; //5
+	public static final int frontLeftDrive = 8;
+	public static final int frontRightDrive = 7;
+	public static final int rearLeftDrive = 5;
+	public static final int rearRightDrive = 4;
 	
 	//SHOOTER MOTORS
-	public static final int tiltMotor = 3; //1
-	public static final int leftShooter = 1; //6
-	public static final int rightShooter = 2; //7
+	public static final int tiltMotor = 3;
+	public static final int leftShooter = 1;
+	public static final int rightShooter = 2;
 	
 	public static final int servo = 0;
 	
 	//DRIVE TRAIN SPEED PROPORTION
-	public static final double driveTrainSpeedProportion = 0.5;
+	public static final double driveTrainSpeedProportion = 0.7;
 	
 	//SHOOTER TILT SPEED PROPORTION
-	public static final double shooterTiltSpeedProportion = 0.2;
+	public static final double shooterTiltSpeedProportion = 1;
 	
 	// JOYSTICKS
-	public static final int leftJoy = 1;
-	public static final int rightJoy = 0;
+	public static final int leftJoy = 0;
+	public static final int rightJoy = 1;
+	public static final int armJoy = 2;
 	
 	//SENSORS
 	public static final double encoderCounts = 1440;
 	
 	
 	// OTHER
-	public static final double wheelDiameter = 7.6;
+	public static final double wheelDiameter = 7.65;
 	/**
 	 * Calculates circumference of wheel given diameter.
 	 */
 	public static final double wheelCircumference = Math.PI * wheelDiameter;
 	
 	public static final int distanceToTravel = 6;
+	public static final double distanceToTurnAround = Math.PI * 8.582677;
 	
 	public static final double encoderCountConstant = wheelCircumference / encoderCounts;
 	

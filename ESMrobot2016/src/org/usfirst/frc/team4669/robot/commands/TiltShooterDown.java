@@ -30,7 +30,7 @@ public class TiltShooterDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	shooter.setTiltMotorSpeed(-RobotMap.shooterTiltSpeedProportion);
+    	shooter.setTiltMotorSpeed(-RobotMap.shooterTiltSpeedProportion*0.2);
     }
 
     // Make this return true when this Command no longer needs to run execute()
