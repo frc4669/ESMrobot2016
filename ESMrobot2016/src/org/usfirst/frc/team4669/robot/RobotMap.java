@@ -33,7 +33,7 @@ public class RobotMap {
 	public static final double driveTrainSpeedProportion = 0.7;
 	
 	//SHOOTER TILT SPEED PROPORTION
-	public static final double shooterTiltSpeedProportion = 1;
+	public static final double shooterTiltSpeedProportion = 0.4;
 	
 	// JOYSTICKS
 	public static final int leftJoy = 0;
