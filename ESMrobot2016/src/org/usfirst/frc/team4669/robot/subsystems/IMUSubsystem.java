@@ -20,7 +20,7 @@ public class IMUSubsystem extends Subsystem {
 		imu = new ADIS16448_IMU();
 		imu.startLiveWindowMode();
 		imu.calibrate();
-		initialAngle = imu.getAngle() + 180;
+		reset();
 	}
 	
     public void initDefaultCommand() {
@@ -29,11 +29,18 @@ public class IMUSubsystem extends Subsystem {
     }
 
 	public double getAngle() {
-		return initialAngle - (imu.getAngle() + 180);
+		double angle = imu.getAngle() + 360;
+		if (angle > 360) {
+			angle -= 360;
+		}
+		return angle - initialAngle;
 	}
 	
 	public void reset() {
-		initialAngle = imu.getAngle() + 180;
+		initialAngle = imu.getAngle() + 360;
+		if (initialAngle > 360) {
+			initialAngle -= 360;
+		}
 	}
 
 }
