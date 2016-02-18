@@ -56,7 +56,7 @@ public class Shooter extends Subsystem {
 	}
 	
 	public double getTiltEncoder() {
-		return tiltMotor.getPosition();
+		return tiltMotor.getEncPosition();
 	}
 	
 	public void zeroTiltEncoder() {
@@ -95,9 +95,4 @@ public class Shooter extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     	setDefaultCommand(new TiltShooterWithSticks());
     }
-    
-    public double getTiltPosition() {
-    	return tiltMotor.getPosition();
-    }
 }
-

@@ -1,51 +1,42 @@
-
 package org.usfirst.frc.team4669.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc.team4669.robot.Robot;
-import org.usfirst.frc.team4669.robot.subsystems.Shooter;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class Intake extends Command {
-	
-	private Shooter shooter;
-	private Timer timer;
+public class CameraRun extends Command {
 
-    public Intake() {
-    	shooter = Robot.shooter;
-    	timer = new Timer();
+    public CameraRun() {
         // Use requires() here to declare subsystem dependencies
-        requires(shooter);
+        // eg. requires(chassis);
+    	requires(Robot.camera);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.camera.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	shooter.setLeftShooterSpeed(-1);
-    	shooter.setRightShooterSpeed(1);
+    	Robot.camera.run();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return false;
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	shooter.setLeftShooterSpeed(0);
-    	shooter.setRightShooterSpeed(0);
+    	Robot.camera.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     }
 }
