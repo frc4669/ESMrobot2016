@@ -51,13 +51,7 @@ public class RobotMap {
 	 */
 	public static final double wheelCircumference = Math.PI * wheelDiameter;
 	
-	public static final int distanceToTravel = 6;
-	public static final double distanceToTurnAround = Math.PI * 8.582677;
-	
 	public static final double encoderCountConstant = wheelCircumference / encoderCounts;
-	
-	
-	// VARIABLE DATA
 	
 	
 	

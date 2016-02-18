@@ -9,17 +9,17 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class MoveSixInches extends Command {
+public class MoveForwardInches extends Command {
 	
 	private DriveTrain driveTrain;
 	private double distanceToTravel;
 	private boolean end;
 
-    public MoveSixInches() {
+    public MoveForwardInches(double distance) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	driveTrain = Robot.driveTrain;
-    	distanceToTravel = RobotMap.distanceToTravel / RobotMap.encoderCountConstant;
+    	distanceToTravel = distance / RobotMap.encoderCountConstant;
     	end = false;
     	requires(driveTrain);
     	

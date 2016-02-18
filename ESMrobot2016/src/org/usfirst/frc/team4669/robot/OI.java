@@ -1,6 +1,5 @@
 package org.usfirst.frc.team4669.robot;
 
-import org.usfirst.frc.team4669.robot.commands.MoveSixInches;
 import org.usfirst.frc.team4669.robot.commands.SetShooterAngle;
 import org.usfirst.frc.team4669.robot.commands.Shoot;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterDown;
