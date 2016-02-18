@@ -1,9 +1,10 @@
 package org.usfirst.frc.team4669.robot;
 
 import org.usfirst.frc.team4669.robot.commands.MoveSixInches;
-import org.usfirst.frc.team4669.robot.commands.SetShooterAngle;
 import org.usfirst.frc.team4669.robot.commands.Shoot;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterDown;
+import org.usfirst.frc.team4669.robot.commands.TiltShooterFloor;
+import org.usfirst.frc.team4669.robot.commands.TiltShooterStart;
 import org.usfirst.frc.team4669.robot.commands.CalibrateIMU;
 import org.usfirst.frc.team4669.robot.commands.Intake;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterUp;
@@ -53,6 +54,8 @@ public class OI {
 
     	SmartDashboard.putData("TiltShooterUp", new TiltShooterUp());
     	SmartDashboard.putData("TiltShooterDown", new TiltShooterDown());
+    	SmartDashboard.putData("TiltShooterStart", new TiltShooterStart());
+    	SmartDashboard.putData("TiltShooterFloor", new TiltShooterFloor());
     	
     	//IMU calibrate
     	SmartDashboard.putData("IMU Calibrate", new CalibrateIMU());

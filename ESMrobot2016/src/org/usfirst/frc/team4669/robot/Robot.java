@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team4669.robot;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -8,6 +9,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 import org.usfirst.frc.team4669.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4669.robot.commands.TiltShooterFloor;
+import org.usfirst.frc.team4669.robot.subsystems.Camera;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
@@ -35,6 +38,8 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static DriveTrain driveTrain;
 	public static Shooter shooter;
+	private Timer timer = new Timer();
+	public static final Camera camera = new Camera();
 	
 
     Command autonomousCommand;
@@ -56,20 +61,19 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-    	//Initialize DriveTrain
+    	//Initialize subsystems and variables
 		driveTrain = new DriveTrain();
-		
-        //Initialize Shooter
         shooter = new Shooter();
-        
-        //Initialize operator interface
     	oi = new OI();
     	
-    	visionTable0 = NetworkTable.getTable("GRIP/myContoursReport");
+    	//Zero encoders
+    	driveTrain.zeroEncoders();
+    	
+//    	visionTable0 = NetworkTable.getTable("GRIP/myContoursReport");
 		
         chooser = new SendableChooser();
         chooser.addDefault("Default Auto", new ExampleCommand());
-//      chooser.addObject("My Auto", new MyAutoCommand());
+       // chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
         
 
@@ -110,7 +114,7 @@ public class Robot extends IterativeRobot {
 			autonomousCommand = new ExampleCommand();
 			break;
 		} */
-    	
+        
     	// schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
     }
@@ -120,6 +124,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        
     }
 
     public void teleopInit() {
@@ -128,6 +133,7 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        shooter.zeroTiltEncoder();
     }
 
     /**
