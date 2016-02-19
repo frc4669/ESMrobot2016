@@ -9,6 +9,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 import org.usfirst.frc.team4669.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4669.robot.commands.MoveForwardInches;
+import org.usfirst.frc.team4669.robot.commands.TiltShooterFloor;
 import org.usfirst.frc.team4669.robot.subsystems.Camera;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.ExampleSubsystem;
@@ -114,6 +116,8 @@ public class Robot extends IterativeRobot {
         
     	// schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
+        new TiltShooterFloor();
+        new MoveForwardInches(3);
     }
 
     /**
