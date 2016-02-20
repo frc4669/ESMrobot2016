@@ -10,12 +10,17 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 import org.usfirst.frc.team4669.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4669.robot.commands.MoveForwardInches;
+import org.usfirst.frc.team4669.robot.commands.Shoot;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterFloor;
+import org.usfirst.frc.team4669.robot.commands.TurnClockwise;
+import org.usfirst.frc.team4669.robot.commands.Turn;
 import org.usfirst.frc.team4669.robot.subsystems.Camera;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
 import org.usfirst.frc.team4669.robot.subsystems.Shooter;
+
+import com.ni.vision.NIVision.AIMGrade;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -33,12 +38,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	//public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static DriveTrain driveTrain;
+	public static IMUSubsystem imu = new IMUSubsystem();
 	public static Shooter shooter;
 	private Timer timer = new Timer();
 	public static final Camera camera = new Camera();
+	
 	
 
     Command autonomousCommand;
@@ -49,8 +56,6 @@ public class Robot extends IterativeRobot {
     double[] defaultValue = new double[0];
 	double[] centerX = new double[1];
 	double[] centerY = new double[1];
-	
-	public static IMUSubsystem imu = new IMUSubsystem();
 
     public Robot() {
     	
@@ -67,6 +72,8 @@ public class Robot extends IterativeRobot {
     	
     	//Zero encoders
     	driveTrain.zeroEncoders();
+    	imu.calibrate();
+    	imu.reset();
     	
 //    	visionTable0 = NetworkTable.getTable("GRIP/myContoursReport");
 		
@@ -116,8 +123,26 @@ public class Robot extends IterativeRobot {
         
     	// schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
-        new TiltShooterFloor();
-        new MoveForwardInches(3);
+//        // Low Bar
+//        new TiltShooter(degree); //tilt arm down
+//        new MoveForwardInches(distance); //move past lowbar
+//        new Turn(degree); //face robot towards tower
+//        new TiltShooter(degree); //aim up at high goal
+//        new Shoot(); //shoot
+//        
+//        // Cheval De Frise
+//        new MoveForwardInches(distance); //move onto ramp
+//        new TiltShooter(degree); //push down cdf with arm
+//        new MoveForwardInches(distance); //move past cdf
+//        new Turn(degree); //face robot towards tower
+//        new TiltShooter(); //aim up at high goal
+//        new Shoot(); //shoot
+//        
+//        //Ramparts/moat/rockwall/rough terrain
+//        new MoveForwardInches(distance); //move past obstacle
+//        new Turn(degree); //turn to face towards tower
+//        new TiltShooter(degree); //tilt shooter down and aim at goal
+//        new Shoot(); //shoot
     }
 
     /**

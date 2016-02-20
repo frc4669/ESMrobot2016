@@ -12,15 +12,11 @@ public class IMUSubsystem extends Subsystem {
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	public ADIS16448_IMU imu;
+	public ADIS16448_IMU imu = new ADIS16448_IMU();
 	public double initialAngle;
 	
 	public IMUSubsystem() {
-		
-		imu = new ADIS16448_IMU();
 		imu.startLiveWindowMode();
-		imu.calibrate();
-		reset();
 	}
 	
     public void initDefaultCommand() {
@@ -34,6 +30,10 @@ public class IMUSubsystem extends Subsystem {
 			angle -= 360;
 		}
 		return angle - initialAngle;
+	}
+	
+	public void calibrate() {
+		imu.calibrate();
 	}
 	
 	public void reset() {

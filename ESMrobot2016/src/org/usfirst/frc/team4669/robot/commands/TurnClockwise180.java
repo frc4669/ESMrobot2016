@@ -10,13 +10,13 @@ import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 /**
  *
  */
-public class TurnAroundLeft extends Command {
+public class TurnClockwise180 extends Command {
 	
-	private static final double distanceToTurnAround = 0;
+	private static final double degreesToTurn = 180 * (16.5*Math.PI/2)/180;
 	private DriveTrain driveTrain = Robot.driveTrain;
-	private double distanceToTravel = distanceToTurnAround / RobotMap.encoderCountConstant;
+	private double distanceToTravel = degreesToTurn / RobotMap.encoderCountConstant;
 
-    public TurnAroundLeft() {
+    public TurnClockwise180() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.driveTrain);
     }
@@ -33,12 +33,13 @@ public class TurnAroundLeft extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return driveTrain.getLeftEncoder() < -800;
+        return driveTrain.getLeftEncoder() > distanceToTravel;
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	driveTrain.stopMotors();
+    	driveTrain.zeroEncoders();
     }
 
     // Called when another command which requires one or more of the same
