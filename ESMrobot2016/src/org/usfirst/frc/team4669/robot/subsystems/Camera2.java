@@ -1,6 +1,5 @@
 package org.usfirst.frc.team4669.robot.subsystems;
 
-import org.usfirst.frc.team4669.robot.commands.CameraRun;
 import org.usfirst.frc.team4669.robot.commands.CameraRun2;
 
 import com.ni.vision.NIVision;
