@@ -45,7 +45,6 @@ public class Robot extends IterativeRobot {
 	public static Shooter shooter;
 	private Timer timer = new Timer();
 	public static final Camera camera = new Camera();
-	public static final Camera camera2 = new Camera();
 	
 	
 
