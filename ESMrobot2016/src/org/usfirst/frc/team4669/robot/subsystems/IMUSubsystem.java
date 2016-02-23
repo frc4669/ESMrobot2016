@@ -25,11 +25,14 @@ public class IMUSubsystem extends Subsystem {
     }
 
 	public double getAngle() {
-		double angle = imu.getAngleZ() + 360;
+		double angle = imu.getAngleZ();
 		if (angle > 360) {
 			angle -= 360;
 		}
-		return imu.getAngleZ();
+		else if (angle < -360) {
+			angle += 360;
+		}
+		return angle;
 	}
 	
 	public void calibrate() {
