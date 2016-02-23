@@ -2,19 +2,18 @@ package org.usfirst.frc.team4669.robot.commands;
 
 import org.usfirst.frc.team4669.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
 public class TiltShooter extends Command {
 	private double encoderValueToTurn = 0;
-	private double EncoderValueForOneRevolution = 0;
+	private double encoderValueForOneRevolution = 0;
 	
     public TiltShooter(double degree) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	encoderValueToTurn = degree/360 *(EncoderValueForOneRevolution);
+    	encoderValueToTurn = degree/360 *(encoderValueForOneRevolution);
     	requires(Robot.shooter);
     }
 
