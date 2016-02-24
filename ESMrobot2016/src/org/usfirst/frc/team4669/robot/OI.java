@@ -1,6 +1,5 @@
 package org.usfirst.frc.team4669.robot;
 
-import org.usfirst.frc.team4669.robot.commands.MoveSixInches;
 import org.usfirst.frc.team4669.robot.commands.Shoot;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterDown;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterFloor;
@@ -8,8 +7,9 @@ import org.usfirst.frc.team4669.robot.commands.TiltShooterStart;
 import org.usfirst.frc.team4669.robot.commands.CalibrateIMU;
 import org.usfirst.frc.team4669.robot.commands.Intake;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterUp;
-import org.usfirst.frc.team4669.robot.commands.TurnAroundLeft;
-import org.usfirst.frc.team4669.robot.commands.TurnAroundRight;
+import org.usfirst.frc.team4669.robot.commands.TurnCounterclockwise180;
+import org.usfirst.frc.team4669.robot.commands.TurnClockwise180;
+import org.usfirst.frc.team4669.robot.commands.Turn;
 import org.usfirst.frc.team4669.robot.commands.ZeroEncoderDriveTrain;
 import org.usfirst.frc.team4669.robot.commands.ZeroEncoderShooter;
 
@@ -41,8 +41,8 @@ public class OI {
     	//Button commands
     	//left1.whenPressed(new ZeroEncoder());
     	
-    	left5.whenPressed(new TurnAroundLeft());
-    	right4.whenPressed(new TurnAroundRight());
+    	left5.whenPressed(new TurnClockwise180());
+    	right4.whenPressed(new TurnCounterclockwise180());
     	
     	shooter1.whileHeld(new Intake());
     	shooter2.whenPressed(new Shoot());
@@ -64,6 +64,9 @@ public class OI {
     	
     	SmartDashboard.putData("Zero Shooter Encoder", new ZeroEncoderShooter());
     	SmartDashboard.putData("Zero DriveTrain Encoder", new ZeroEncoderDriveTrain());
+    	
+//    	SmartDashboard.putData("Turn Degrees", new Turn(degree));
+//    	SmartDashboard.putData("Turn Clockwise Degrees", new TurnClockwise(degree));
     }
     
     public double getLeftY() {

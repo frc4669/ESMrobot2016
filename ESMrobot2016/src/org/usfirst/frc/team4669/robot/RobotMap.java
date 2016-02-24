@@ -30,7 +30,8 @@ public class RobotMap {
 	public static final int servo = 0;
 	
 	//DRIVE TRAIN SPEED PROPORTION
-	public static final double driveTrainSpeedProportion = 0.8;
+
+	public static final double driveTrainSpeedProportion = 1;
 	
 	//SHOOTER TILT SPEED PROPORTION
 	public static final double shooterTiltSpeedProportion = 1;
@@ -42,8 +43,7 @@ public class RobotMap {
 	
 	//SENSORS
 	public static final double encoderCounts = 1440;
-	
-	
+
 	// OTHER
 	public static final double wheelDiameter = 7.65;
 	/**
@@ -51,13 +51,7 @@ public class RobotMap {
 	 */
 	public static final double wheelCircumference = Math.PI * wheelDiameter;
 	
-	public static final int distanceToTravel = 6;
-	public static final double distanceToTurnAround = Math.PI * 8.582677;
-	
 	public static final double encoderCountConstant = wheelCircumference / encoderCounts;
-	
-	
-	// VARIABLE DATA
 	
 	
 	
