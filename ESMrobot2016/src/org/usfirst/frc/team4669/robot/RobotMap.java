@@ -30,7 +30,7 @@ public class RobotMap {
 	public static final int servo = 0;
 	
 	//DRIVE TRAIN SPEED PROPORTION
-	public static final double driveTrainSpeedProportion = 0.85;
+	public static final double driveTrainSpeedProportion = 1;
 	
 	//SHOOTER TILT SPEED PROPORTION
 	public static final double shooterTiltSpeedProportion = 1;

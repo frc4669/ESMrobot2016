@@ -8,8 +8,6 @@ import org.usfirst.frc.team4669.robot.Robot;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
 
-import com.sun.org.apache.bcel.internal.generic.IMUL;
-
 /**
  *
  */
@@ -55,5 +53,6 @@ public class AlignToNorth extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }
