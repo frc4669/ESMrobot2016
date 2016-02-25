@@ -184,6 +184,7 @@ public class Robot extends IterativeRobot {
     	
     	//Update IMU values on SmartDashboard
     	SmartDashboard.putNumber("IMU", imu.getAngle());
+    	SmartDashboard.putNumber("TiltEncoder", Robot.shooter.getTiltPosition());
     	
     	//Shooter Tilt Angle Data Stuff
     	//SmartDashboard.putNumber("Current Angle:", (shooter.getTiltPosition()*(360/12288)));
