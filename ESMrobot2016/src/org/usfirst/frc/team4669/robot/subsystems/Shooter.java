@@ -34,7 +34,7 @@ public class Shooter extends Subsystem {
 		
 		// tiltMotor setup
 		tiltMotor = new CANTalon(RobotMap.tiltMotor);
-		tiltMotor.changeControlMode(TalonControlMode.PercentVbus);
+		tiltMotor.changeControlMode(TalonControlMode.Position);
 		tiltMotor.reverseOutput(true);
     	tiltMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
     	tiltMotor.setPosition(0);
