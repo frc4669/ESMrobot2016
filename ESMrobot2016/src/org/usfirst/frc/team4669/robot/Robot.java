@@ -14,6 +14,7 @@ import org.usfirst.frc.team4669.robot.subsystems.Camera;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
+import org.usfirst.frc.team4669.robot.subsystems.LightRelay;
 import org.usfirst.frc.team4669.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -39,6 +40,7 @@ public class Robot extends IterativeRobot {
 	public static Shooter shooter;
 	private Timer timer = new Timer();
 	public static final Camera camera = new Camera();
+	public static LightRelay lightRelay = new LightRelay();
 
     Command autonomousCommand;
     SendableChooser chooser;
@@ -184,6 +186,7 @@ public class Robot extends IterativeRobot {
     	
     	//Update IMU values on SmartDashboard
     	SmartDashboard.putNumber("IMU", imu.getAngle());
+    	SmartDashboard.putNumber("TiltEncoder", Robot.shooter.getTiltPosition());
     	
     	//Shooter Tilt Angle Data Stuff
     	//SmartDashboard.putNumber("Current Angle:", (shooter.getTiltPosition()*(360/12288)));

@@ -13,11 +13,9 @@ import org.usfirst.frc.team4669.robot.subsystems.Shooter;
 public class Intake extends Command {
 	
 	private Shooter shooter;
-	private Timer timer;
 
     public Intake() {
     	shooter = Robot.shooter;
-    	timer = new Timer();
         // Use requires() here to declare subsystem dependencies
         requires(shooter);
     }

@@ -2,6 +2,7 @@
 package org.usfirst.frc.team4669.robot.subsystems;
 
 import org.usfirst.frc.team4669.robot.RobotMap;
+import org.usfirst.frc.team4669.robot.commands.TiltShooterPID;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterWithSticks;
 
 import edu.wpi.first.wpilibj.CANTalon;
@@ -35,13 +36,15 @@ public class Shooter extends Subsystem {
 		// tiltMotor setup
 		tiltMotor = new CANTalon(RobotMap.tiltMotor);
 		tiltMotor.changeControlMode(TalonControlMode.Position);
-		tiltMotor.reverseOutput(true);
+		tiltMotor.reverseOutput(false);
     	tiltMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+    	tiltMotor.setPID(0.5, 0.001, 2.0);
     	tiltMotor.setPosition(0);
+    	tiltMotor.enableBrakeMode(true);
     	
     	// servo setup
     	servo = new Servo(RobotMap.servo);
-    	servo.setAngle(120);
+    	servo.setAngle(90);
 	}
 	
     // Put methods for controlling this subsystem
@@ -83,6 +86,14 @@ public class Shooter extends Subsystem {
 		tiltMotor.set(RobotMap.shooterTiltSpeedProportion*speed);
 	}
 	
+	public void setTilt(double position) {
+		tiltMotor.set(position);
+	}
+	
+	public double getTiltPosition() {
+		return tiltMotor.getPosition();
+	}
+	
 	public void setServoAngle(int angle) {
 		if (angle >= 0 && angle <= 170) {
 			servo.setAngle(angle);
@@ -93,6 +104,6 @@ public class Shooter extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new TiltShooterWithSticks());
+    	setDefaultCommand(new TiltShooterPID());
     }
 }
