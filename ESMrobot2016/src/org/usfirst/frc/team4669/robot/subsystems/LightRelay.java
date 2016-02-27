@@ -15,7 +15,7 @@ public class LightRelay extends Subsystem {
 	
 	public LightRelay() {
 		lightRelay = new Relay(0);
-		lightRelay.set(Relay.Value.kOn);
+		lightRelay.set(Relay.Value.kForward);
 	}
 
     public void initDefaultCommand() {

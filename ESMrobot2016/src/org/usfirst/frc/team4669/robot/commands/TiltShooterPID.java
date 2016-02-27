@@ -23,7 +23,7 @@ public class TiltShooterPID extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooter.setTilt(-1365);
+    	Robot.shooter.setTilt(0);
     	
     }
 
