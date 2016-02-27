@@ -29,6 +29,7 @@ public class Shoot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	shooter.setServoAngle(120);
     	shooter.setLeftShooterSpeed(1);
     	shooter.setRightShooterSpeed(-1);
     	if (timer.get() > 0.5) {
@@ -46,7 +47,7 @@ public class Shoot extends Command {
     	timer.stop();
     	shooter.setLeftShooterSpeed(0);
     	shooter.setRightShooterSpeed(0);
-    	shooter.setServoAngle(120);
+    	shooter.setServoAngle(90);
     }
 
     // Called when another command which requires one or more of the same
