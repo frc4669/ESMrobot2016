@@ -37,6 +37,7 @@ public class Robot extends IterativeRobot {
 	public static Shooter shooter;
 	public static Camera camera = new Camera();
 	public static Vision vision = new Vision();
+	public static OISNES oisnes = new OISNES();
 
 	Command autonomousCommand;
     SendableChooser chooser;

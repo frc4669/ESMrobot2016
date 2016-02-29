@@ -1,24 +1,21 @@
-
 package org.usfirst.frc.team4669.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team4669.robot.OISNES;
 import org.usfirst.frc.team4669.robot.Robot;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class AlignToNorth extends Command {
-
+public class ArcadeDriveWithGamepad extends Command {
 	private DriveTrain driveTrain;
-	private IMUSubsystem imu;
-	
-    public AlignToNorth() {
+	private OISNES oisnes;
+    public ArcadeDriveWithGamepad() {
     	driveTrain = Robot.driveTrain;
-    	imu = Robot.imu;
-        requires(driveTrain);
-        requires(imu);
+    	oisnes = Robot.oisnes;
+    	requires(driveTrain);
     }
 
     // Called just before this Command runs the first time
@@ -27,23 +24,17 @@ public class AlignToNorth extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (imu.getAngle() > 0) {
-    		driveTrain.setMotors(1, 0.5);
-    	}
-    	else if (imu.getAngle() < 0) {
-    		driveTrain.setMotors(0.5, 1);
-    	}
+    	driveTrain.setArcadeDrive(oisnes.getY(), oisnes.getX());;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	double angle = imu.getAngle();
-    	double north = imu.getNorth();
-        return angle<north+1 && angle>north-1;
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	driveTrain.stopMotors();
     }
 
     // Called when another command which requires one or more of the same

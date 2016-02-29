@@ -13,11 +13,12 @@ public class IMUSubsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	public ADIS16448_IMU imu = new ADIS16448_IMU();
-	public double initialAngle;
+	public double north;
 	
 	public IMUSubsystem() {
 		super();
 		imu.startLiveWindowMode();
+		reset();
 	}
 	
     public void initDefaultCommand() {
@@ -26,11 +27,11 @@ public class IMUSubsystem extends Subsystem {
     }
 
 	public double getAngle() {
-		double angle = imu.getAngleZ();
-		if (angle > 360) {
+		double angle = imu.getAngleZ()-north;
+		while (angle >= 360) {
 			angle -= 360;
 		}
-		else if (angle < -360) {
+		while (angle < 0) {
 			angle += 360;
 		}
 		return angle;
@@ -41,10 +42,11 @@ public class IMUSubsystem extends Subsystem {
 	}
 	
 	public void reset() {
-		initialAngle = imu.getAngleZ() + 360;
-		if (initialAngle > 360) {
-			initialAngle -= 360;
-		}
+		north = imu.getAngleZ();
+	}
+	
+	public double getNorth() {
+		return north;
 	}
 
 }

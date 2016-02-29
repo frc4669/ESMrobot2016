@@ -83,10 +83,12 @@ public class Shooter extends Subsystem {
 	}
 	
 	public void setTiltMotorSpeed(double speed) {
+		tiltMotor.changeControlMode(TalonControlMode.PercentVbus);
 		tiltMotor.set(RobotMap.shooterTiltSpeedProportion*speed);
 	}
 	
 	public void setTilt(double position) {
+		tiltMotor.changeControlMode(TalonControlMode.Position);
 		tiltMotor.set(position);
 	}
 	
