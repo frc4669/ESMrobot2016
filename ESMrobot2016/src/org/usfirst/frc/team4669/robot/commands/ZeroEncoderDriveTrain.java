@@ -10,12 +10,10 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ZeroEncoderDriveTrain extends Command {
 	
-	private DriveTrain driveTrain = Robot.driveTrain;
+	private DriveTrain driveTrain;
 	
     public ZeroEncoderDriveTrain() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	
+    	driveTrain = Robot.driveTrain;
     	requires(driveTrain);
     }
 

@@ -16,6 +16,7 @@ public class IMUSubsystem extends Subsystem {
 	public double initialAngle;
 	
 	public IMUSubsystem() {
+		super();
 		imu.startLiveWindowMode();
 	}
 	

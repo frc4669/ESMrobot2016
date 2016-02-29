@@ -34,7 +34,7 @@ public class RobotMap {
 	public static final double driveTrainSpeedProportion = 0.85;
 	
 	//SHOOTER TILT SPEED PROPORTION
-	public static final double shooterTiltSpeedProportion = 1;
+	public static final double shooterTiltSpeedProportion = 0.1;
 	
 	// JOYSTICKS
 	public static final int leftJoy = 0;
@@ -42,7 +42,8 @@ public class RobotMap {
 	public static final int armJoy = 2;
 	
 	//SENSORS
-	public static final double encoderCounts = 1440;
+	public static final double driveTrainEncoderCounts = 1440;
+	public static final double tiltArmEncoderCounts = 4096;
 
 	// OTHER
 	public static final double wheelDiameter = 7.65;
@@ -51,7 +52,7 @@ public class RobotMap {
 	 */
 	public static final double wheelCircumference = Math.PI * wheelDiameter;
 	
-	public static final double encoderCountConstant = wheelCircumference / encoderCounts;
+	public static final double encoderCountConstant = wheelCircumference / driveTrainEncoderCounts;
 	
 	
 	

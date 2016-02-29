@@ -10,11 +10,11 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class TankDriveWithSticks extends Command {
-	private DriveTrain driveTrain = Robot.driveTrain;
-	private OI oi = Robot.oi;
+	private DriveTrain driveTrain;
+	private OI oi;
     public TankDriveWithSticks() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    	driveTrain = Robot.driveTrain;
+    	oi = Robot.oi;
     	requires(driveTrain);
     }
 

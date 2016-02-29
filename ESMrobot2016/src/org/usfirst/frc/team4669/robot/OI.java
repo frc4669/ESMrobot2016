@@ -7,14 +7,10 @@ import org.usfirst.frc.team4669.robot.commands.TiltShooterStart;
 import org.usfirst.frc.team4669.robot.commands.CalibrateIMU;
 import org.usfirst.frc.team4669.robot.commands.Intake;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterUp;
-import org.usfirst.frc.team4669.robot.commands.TurnCounterclockwise180;
-import org.usfirst.frc.team4669.robot.commands.TurnClockwise180;
-import org.usfirst.frc.team4669.robot.commands.Turn;
 import org.usfirst.frc.team4669.robot.commands.ZeroEncoderDriveTrain;
 import org.usfirst.frc.team4669.robot.commands.ZeroEncoderShooter;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -30,19 +26,12 @@ public class OI {
     
 	public OI() {
     	//Variables for joystick buttons
-		
-    	JoystickButton left5 = new JoystickButton(leftStick, 5);
     	
-    	JoystickButton right4 = new JoystickButton(rightStick, 4);
-    	
-    	Button shooter1 = new JoystickButton(shooterStick, 1); //trigger
+    	JoystickButton shooter1 = new JoystickButton(shooterStick, 1); //trigger
     	JoystickButton shooter2 = new JoystickButton(shooterStick, 2); //side button
     	
     	//Button commands
     	//left1.whenPressed(new ZeroEncoder());
-    	
-    	left5.whenPressed(new TurnClockwise180());
-    	right4.whenPressed(new TurnCounterclockwise180());
     	
     	shooter1.whileHeld(new Intake());
     	shooter2.whenPressed(new Shoot());
@@ -60,7 +49,6 @@ public class OI {
     	//IMU calibrate
     	SmartDashboard.putData("IMU Calibrate", new CalibrateIMU());
     	
-    	//SmartDashboard.putData("Set Shooter Angle", new SetShooterAngle());
     	
     	SmartDashboard.putData("Zero Shooter Encoder", new ZeroEncoderShooter());
     	SmartDashboard.putData("Zero DriveTrain Encoder", new ZeroEncoderDriveTrain());

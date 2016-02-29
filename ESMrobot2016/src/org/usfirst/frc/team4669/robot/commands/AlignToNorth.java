@@ -2,8 +2,6 @@
 package org.usfirst.frc.team4669.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import sun.nio.cs.ext.ISCII91;
-
 import org.usfirst.frc.team4669.robot.Robot;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
@@ -13,18 +11,14 @@ import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
  */
 public class AlignToNorth extends Command {
 
-	private IMUSubsystem imu = new IMUSubsystem();
-	private DriveTrain driveTrain = new DriveTrain();
-	private boolean isFinished = false;
+	private DriveTrain driveTrain;
+	private IMUSubsystem imu;
 	
     public AlignToNorth() {
-        // Use requires() here to declare subsystem dependencies
-        requires(Robot.driveTrain);
-        requires(Robot.imu);
-    }
-    
-    public void stop() {
-    	isFinished = true;
+    	driveTrain = Robot.driveTrain;
+    	imu = Robot.imu;
+        requires(driveTrain);
+        requires(imu);
     }
 
     // Called just before this Command runs the first time
@@ -43,7 +37,8 @@ public class AlignToNorth extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (isFinished);
+    	double angle = imu.getAngle();
+        return angle<1 && angle>-1;
     }
 
     // Called once after isFinished returns true

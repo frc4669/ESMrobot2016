@@ -1,21 +1,18 @@
 
 package org.usfirst.frc.team4669.robot;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 import org.usfirst.frc.team4669.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4669.robot.subsystems.Camera;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team4669.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
-import org.usfirst.frc.team4669.robot.subsystems.LightRelay;
 import org.usfirst.frc.team4669.robot.subsystems.Shooter;
+import org.usfirst.frc.team4669.robot.subsystems.Vision;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -38,11 +35,10 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain driveTrain;
 	public static IMUSubsystem imu = new IMUSubsystem();
 	public static Shooter shooter;
-	private Timer timer = new Timer();
-	public static final Camera camera = new Camera();
-	public static LightRelay lightRelay = new LightRelay();
+	public static Camera camera = new Camera();
+	public static Vision vision = new Vision();
 
-    Command autonomousCommand;
+	Command autonomousCommand;
     SendableChooser chooser;
     
     //Initialize GRIP network table arrays;
@@ -63,9 +59,13 @@ public class Robot extends IterativeRobot {
 		driveTrain = new DriveTrain();
         shooter = new Shooter();
     	oi = new OI();
+    	imu = new IMUSubsystem();
+    	camera = new Camera();
+    	vision = new Vision();
     	
     	//Zero encoders
     	driveTrain.zeroEncoders();
+    	shooter.zeroTiltEncoder();
     	imu.calibrate();
     	imu.reset();
     	
@@ -154,7 +154,6 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        shooter.zeroTiltEncoder();
     }
 
     /**

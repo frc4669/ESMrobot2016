@@ -1,13 +1,12 @@
 package org.usfirst.frc.team4669.robot;
 
-import org.usfirst.frc.team4669.robot.commands.RotateLeft;
-import org.usfirst.frc.team4669.robot.commands.RotateRight;
 import org.usfirst.frc.team4669.robot.commands.Shoot;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterDown;
 import org.usfirst.frc.team4669.robot.commands.AlignToGoal;
 import org.usfirst.frc.team4669.robot.commands.CalibrateIMU;
 import org.usfirst.frc.team4669.robot.commands.Intake;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterUp;
+import org.usfirst.frc.team4669.robot.commands.Turn;
 import org.usfirst.frc.team4669.robot.commands.ZeroEncoderDriveTrain;
 import org.usfirst.frc.team4669.robot.commands.ZeroEncoderShooter;
 
@@ -34,8 +33,8 @@ public class OISNES {
 		JoystickButton buttonSelect = new JoystickButton(snesControl, 9);
 		JoystickButton buttonStart = new JoystickButton(snesControl, 10);
 		
-		buttonL.whileHeld(new RotateLeft());
-		buttonR.whileHeld(new RotateRight());
+		buttonL.whileHeld(new Turn(-45));
+		buttonR.whileHeld(new Turn(45));
 		buttonX.whileHeld(new TiltShooterUp());
 		buttonY.whileHeld(new TiltShooterDown());
 		buttonA.whenPressed(new Shoot());

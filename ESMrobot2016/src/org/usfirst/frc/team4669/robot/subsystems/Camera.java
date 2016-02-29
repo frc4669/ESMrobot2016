@@ -22,6 +22,7 @@ public class Camera extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	public Camera() {
+		super();
 		frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
         
 

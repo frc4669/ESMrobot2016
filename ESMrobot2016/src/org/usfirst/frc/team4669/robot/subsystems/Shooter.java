@@ -26,12 +26,12 @@ public class Shooter extends Subsystem {
 		// rightShooter setup.
 		rightShooter = new CANTalon(RobotMap.rightShooter);
 		rightShooter.changeControlMode(TalonControlMode.PercentVbus);
-		rightShooter.configEncoderCodesPerRev((int) RobotMap.encoderCounts);
+		rightShooter.configEncoderCodesPerRev((int) RobotMap.driveTrainEncoderCounts);
 		
 		// leftShooter setup
 		leftShooter = new CANTalon(RobotMap.leftShooter);
 		leftShooter.changeControlMode(TalonControlMode.PercentVbus);
-		leftShooter.configEncoderCodesPerRev((int) RobotMap.encoderCounts);
+		leftShooter.configEncoderCodesPerRev((int) RobotMap.driveTrainEncoderCounts);
 		
 		// tiltMotor setup
 		tiltMotor = new CANTalon(RobotMap.tiltMotor);

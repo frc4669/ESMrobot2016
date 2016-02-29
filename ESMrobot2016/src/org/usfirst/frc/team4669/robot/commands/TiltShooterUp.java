@@ -29,12 +29,12 @@ public class TiltShooterUp extends Command {
    
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	shooter.setTiltMotorSpeed(RobotMap.shooterTiltSpeedProportion*0.1);
+    	shooter.setTiltMotorSpeed(RobotMap.shooterTiltSpeedProportion);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return false;
+    	return timer.get() > 1;
     }
 
     // Called once after isFinished returns true

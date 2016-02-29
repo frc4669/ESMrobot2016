@@ -10,12 +10,10 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ZeroEncoderShooter extends Command {
 	
-	private Shooter shooter = Robot.shooter;
+	private Shooter shooter;
 	
     public ZeroEncoderShooter() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	
+        shooter = Robot.shooter;
     	requires(shooter);
     }
 

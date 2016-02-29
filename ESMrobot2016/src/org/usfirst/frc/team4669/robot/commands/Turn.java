@@ -12,13 +12,12 @@ import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
  */
 public class Turn extends Command {
 	
-	private DriveTrain driveTrain = Robot.driveTrain;
+	private DriveTrain driveTrain;
 	private static double degreesToTurn;
 	private double distanceToTravel;
 
-	//if degree is positive, robot will turn clockwise, else if negative, robot turns counterclockwise
-    public Turn(double degree) {
-        // Use requires() here to declare subsystem dependencies
+	public Turn(double degree) {
+        driveTrain = Robot.driveTrain;
     	degreesToTurn = degree*(16.5*Math.PI/360);
     	distanceToTravel = degreesToTurn / RobotMap.encoderCountConstant;
         requires(Robot.driveTrain);
@@ -31,6 +30,7 @@ public class Turn extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//if degree is positive, robot will turn clockwise, else if negative, robot turns counterclockwise
     	if (degreesToTurn > 0) {
     		driveTrain.setMotors(-1, 1);
     	}
