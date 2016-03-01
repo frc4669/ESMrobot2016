@@ -17,7 +17,7 @@ public class IMUSubsystem extends Subsystem {
 	
 	public IMUSubsystem() {
 		super();
-		imu.startLiveWindowMode();
+		calibrate();
 		reset();
 	}
 	
@@ -35,6 +35,10 @@ public class IMUSubsystem extends Subsystem {
 			angle += 360;
 		}
 		return angle;
+	}
+	
+	public double getAngleZ() {
+		return imu.getAngleZ();
 	}
 	
 	public void calibrate() {

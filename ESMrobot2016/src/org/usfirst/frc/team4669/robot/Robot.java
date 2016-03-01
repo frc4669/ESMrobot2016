@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
-import org.usfirst.frc.team4669.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4669.robot.commands.LowBar;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
@@ -59,9 +58,9 @@ public class Robot extends IterativeRobot {
     	oisnes = new OISNES();
     	
     	server = CameraServer.getInstance();
-        server.setQuality(50);
+        server.setQuality(20);
         //the camera name (ex "cam0") can be found through the roborio web interface
-        server.startAutomaticCapture("cam0");
+        server.startAutomaticCapture("cam2");
     }
     /**
      * This function is run when the robot is first started up and should be
@@ -72,17 +71,13 @@ public class Robot extends IterativeRobot {
     	//Zero encoders
     	driveTrain.zeroEncoders();
     	shooter.zeroTiltEncoder();
-    	imu.calibrate();
-    	imu.reset();
-    	
 		
         chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new ExampleCommand());
+        chooser.addDefault("Default Low Bar", new LowBar());
+        // chooser.addObject("My Auto", new MyAutoCommand());
         chooser.addObject("Low Bar", new LowBar());
-       // chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
         
-
     }
 	
 	/**
@@ -183,19 +178,16 @@ public class Robot extends IterativeRobot {
     public void updateSmartDashboard() {
     	
     	//Update Shooter encoder values on SmartDashboard
-    	SmartDashboard.putNumber("Shooter Encoder", shooter.getTiltEncoder());
+    	SmartDashboard.putNumber("Shooter Tilt Encoder", shooter.getTiltEncoder());
     	
     	//Update driveTrain encoder values on SmartDashboard
-    	SmartDashboard.putNumber("Left Encoder", driveTrain.getLeftEncoder());
-    	SmartDashboard.putNumber("Right Encoder", driveTrain.getRightEncoder());
+    	SmartDashboard.putNumber("Drive Left Encoder", driveTrain.getLeftEncoder());
+    	SmartDashboard.putNumber("Drive Right Encoder", driveTrain.getRightEncoder());
     	
     	//Update IMU values on SmartDashboard
     	SmartDashboard.putNumber("IMU", imu.getAngle());
     	SmartDashboard.putNumber("TiltEncoder", Robot.shooter.getTiltPosition());
     	
-    	//Shooter Tilt Angle Data Stuff
-    	//SmartDashboard.putNumber("Current Angle:", (shooter.getTiltPosition()*(360/12288)));
-    	//SmartDashboard.putNumber("Set Angle:", 0);
     	
     }
 }

@@ -26,12 +26,8 @@ public class OI {
     
 	public OI() {
     	//Variables for joystick buttons
-    	
     	JoystickButton shooter1 = new JoystickButton(shooterStick, 1); //trigger
     	JoystickButton shooter2 = new JoystickButton(shooterStick, 2); //side button
-    	
-    	//Button commands
-    	//left1.whenPressed(new ZeroEncoder());
     	
     	shooter1.whileHeld(new Intake());
     	shooter2.whenPressed(new Shoot());
@@ -47,8 +43,7 @@ public class OI {
     	SmartDashboard.putData("TiltShooterFloor", new TiltShooterFloor());
     	
     	//IMU calibrate
-    	SmartDashboard.putData("IMU Calibrate", new CalibrateIMU());
-    	
+    	SmartDashboard.putData("IMU Zero Reading", new CalibrateIMU());
     	
     	SmartDashboard.putData("Zero Shooter Encoder", new ZeroEncoderShooter());
     	SmartDashboard.putData("Zero DriveTrain Encoder", new ZeroEncoderDriveTrain());

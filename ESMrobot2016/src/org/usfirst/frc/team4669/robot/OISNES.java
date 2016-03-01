@@ -43,21 +43,6 @@ public class OISNES {
 		buttonSelect.whenPressed(new CalibrateIMU());
 		buttonStart.whenPressed(new AlignToGoal());
 		
-    	//SmartDashboard commands
-    	
-    	SmartDashboard.putData("Shoot", new Shoot());
-    	SmartDashboard.putData("Intake", new Intake());
-
-    	SmartDashboard.putData("TiltShooterUp", new TiltShooterUp());
-    	SmartDashboard.putData("TiltShooterDown", new TiltShooterDown());
-    	
-    	//IMU calibrate
-//    	SmartDashboard.putData("IMU Calibrate", new CalibrateIMU());
-    	
-    	//SmartDashboard.putData("Set Shooter Angle", new SetShooterAngle());
-    	
-    	SmartDashboard.putData("Zero Shooter Encoder", new ZeroEncoderShooter());
-    	SmartDashboard.putData("Zero DriveTrain Encoder", new ZeroEncoderDriveTrain());
     }
     
     public double getY() {
