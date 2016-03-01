@@ -1,6 +1,8 @@
 package org.usfirst.frc.team4669.robot.commands;
 
 import org.usfirst.frc.team4669.robot.Robot;
+import org.usfirst.frc.team4669.robot.subsystems.Shooter;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -9,12 +11,14 @@ import edu.wpi.first.wpilibj.command.Command;
 public class TiltShooterPID extends Command {
 	private double encoderValueToTurn = 0;
 	private double encoderValueForOneRevolution = 0;
+	private Shooter shooter;
 	
     public TiltShooterPID() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	shooter = Robot.shooter;
     	//encoderValueToTurn = degree/360 *(encoderValueForOneRevolution);
-    	requires(Robot.shooter);
+    	requires(shooter);
     }
 
     // Called just before this Command runs the first time
@@ -23,7 +27,7 @@ public class TiltShooterPID extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooter.setTilt(0);
+    	shooter.setTilt(shooter.getTiltPosition()-300);
     	
     }
 

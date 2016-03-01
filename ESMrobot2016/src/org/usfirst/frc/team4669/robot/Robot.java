@@ -33,11 +33,11 @@ public class Robot extends IterativeRobot {
 	//public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static DriveTrain driveTrain;
-	public static IMUSubsystem imu = new IMUSubsystem();
+	public static IMUSubsystem imu;
 	public static Shooter shooter;
-	public static Camera camera = new Camera();
-	public static Vision vision = new Vision();
-	public static OISNES oisnes = new OISNES();
+	public static Camera camera;
+	public static Vision vision;
+//	public static OISNES oisnes;
 
 	Command autonomousCommand;
     SendableChooser chooser;
@@ -49,20 +49,21 @@ public class Robot extends IterativeRobot {
 	double[] centerY = new double[1];
 
     public Robot() {
-    	
+    	//Initialize subsystems and variables
+    	driveTrain = new DriveTrain();
+    	shooter = new Shooter();
+    	imu = new IMUSubsystem();
+    	oi = new OI();
+    	camera = new Camera();
+    	vision = new Vision();
+//    	oisnes = new OISNES();
     }
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
-    	//Initialize subsystems and variables
-		driveTrain = new DriveTrain();
-        shooter = new Shooter();
-    	oi = new OI();
-    	imu = new IMUSubsystem();
-    	camera = new Camera();
-    	vision = new Vision();
+    	
     	
     	//Zero encoders
     	driveTrain.zeroEncoders();

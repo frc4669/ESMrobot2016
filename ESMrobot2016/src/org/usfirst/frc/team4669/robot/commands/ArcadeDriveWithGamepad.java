@@ -11,10 +11,10 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ArcadeDriveWithGamepad extends Command {
 	private DriveTrain driveTrain;
-	private OISNES oisnes;
+//	private OISNES oisnes;
     public ArcadeDriveWithGamepad() {
     	driveTrain = Robot.driveTrain;
-    	oisnes = Robot.oisnes;
+//    	oisnes = Robot.oisnes;
     	requires(driveTrain);
     }
 
@@ -24,7 +24,7 @@ public class ArcadeDriveWithGamepad extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveTrain.setArcadeDrive(oisnes.getY(), oisnes.getX());;
+//    	driveTrain.setArcadeDrive(oisnes.getY(), oisnes.getX());;
     }
 
     // Make this return true when this Command no longer needs to run execute()

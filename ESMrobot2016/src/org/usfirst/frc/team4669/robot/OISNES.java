@@ -2,6 +2,7 @@ package org.usfirst.frc.team4669.robot;
 
 import org.usfirst.frc.team4669.robot.commands.Shoot;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterDown;
+import org.usfirst.frc.team4669.robot.commands.TiltShooterPID;
 import org.usfirst.frc.team4669.robot.commands.AlignToGoal;
 import org.usfirst.frc.team4669.robot.commands.CalibrateIMU;
 import org.usfirst.frc.team4669.robot.commands.Intake;
@@ -35,7 +36,7 @@ public class OISNES {
 		
 		buttonL.whileHeld(new Turn(-45));
 		buttonR.whileHeld(new Turn(45));
-		buttonX.whileHeld(new TiltShooterUp());
+		buttonX.whenPressed(new TiltShooterPID());
 		buttonY.whileHeld(new TiltShooterDown());
 		buttonA.whenPressed(new Shoot());
 		buttonB.whenPressed(new Intake());
@@ -51,7 +52,7 @@ public class OISNES {
     	SmartDashboard.putData("TiltShooterDown", new TiltShooterDown());
     	
     	//IMU calibrate
-    	SmartDashboard.putData("IMU Calibrate", new CalibrateIMU());
+//    	SmartDashboard.putData("IMU Calibrate", new CalibrateIMU());
     	
     	//SmartDashboard.putData("Set Shooter Angle", new SetShooterAngle());
     	

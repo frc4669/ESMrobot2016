@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4669.robot.subsystems;
 
 import org.usfirst.frc.team4669.robot.RobotMap;
+import org.usfirst.frc.team4669.robot.commands.ArcadeDriveWithGamepad;
 import org.usfirst.frc.team4669.robot.commands.TankDriveWithSticks;
 
 import edu.wpi.first.wpilibj.CANTalon;
@@ -68,9 +69,9 @@ public class DriveTrain extends Subsystem {
     	driveTrain.tankDrive(-leftMotor * RobotMap.driveTrainSpeedProportion, -rightMotor * RobotMap.driveTrainSpeedProportion, true);
     }
     
-    public void setArcadeDrive(double moveValue, double rotateValue) {
-    	driveTrain.arcadeDrive(moveValue * RobotMap.driveTrainSpeedProportion, rotateValue * RobotMap.driveTrainSpeedProportion);
-    }
+//    public void setArcadeDrive(double moveValue, double rotateValue) {
+//    	driveTrain.arcadeDrive(moveValue * RobotMap.driveTrainSpeedProportion, rotateValue * RobotMap.driveTrainSpeedProportion);
+//    }
     
     /**
      * Stops the motor using the RobotDrive method: stopMotor().
