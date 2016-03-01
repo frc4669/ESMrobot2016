@@ -12,7 +12,6 @@ import org.usfirst.frc.team4669.robot.subsystems.Camera;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
 import org.usfirst.frc.team4669.robot.subsystems.Shooter;
-import org.usfirst.frc.team4669.robot.subsystems.Vision;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -36,7 +35,6 @@ public class Robot extends IterativeRobot {
 	public static IMUSubsystem imu = new IMUSubsystem();
 	public static Shooter shooter;
 	public static Camera camera = new Camera();
-	public static Vision vision = new Vision();
 	public static OISNES oisnes = new OISNES();
 
 	Command autonomousCommand;
@@ -62,7 +60,6 @@ public class Robot extends IterativeRobot {
     	oi = new OI();
     	imu = new IMUSubsystem();
     	camera = new Camera();
-    	vision = new Vision();
     	
     	//Zero encoders
     	driveTrain.zeroEncoders();
