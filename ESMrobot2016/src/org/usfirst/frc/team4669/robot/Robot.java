@@ -35,9 +35,9 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain driveTrain;
 	public static IMUSubsystem imu;
 	public static Shooter shooter;
-	public static Camera camera;
+//	public static Camera camera;
 	public static Vision vision;
-//	public static OISNES oisnes;
+	public static OISNES oisnes;
 
 	Command autonomousCommand;
     SendableChooser chooser;
@@ -54,9 +54,9 @@ public class Robot extends IterativeRobot {
     	shooter = new Shooter();
     	imu = new IMUSubsystem();
     	oi = new OI();
-    	camera = new Camera();
+//    	camera = new Camera();
     	vision = new Vision();
-//    	oisnes = new OISNES();
+    	oisnes = new OISNES();
     }
     /**
      * This function is run when the robot is first started up and should be

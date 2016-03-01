@@ -69,9 +69,9 @@ public class DriveTrain extends Subsystem {
     	driveTrain.tankDrive(-leftMotor * RobotMap.driveTrainSpeedProportion, -rightMotor * RobotMap.driveTrainSpeedProportion, true);
     }
     
-//    public void setArcadeDrive(double moveValue, double rotateValue) {
-//    	driveTrain.arcadeDrive(moveValue * RobotMap.driveTrainSpeedProportion, rotateValue * RobotMap.driveTrainSpeedProportion);
-//    }
+    public void setArcadeDrive(double moveValue, double rotateValue) {
+    	driveTrain.arcadeDrive(moveValue * RobotMap.driveTrainSpeedProportion, rotateValue * RobotMap.driveTrainSpeedProportion);
+    }
     
     /**
      * Stops the motor using the RobotDrive method: stopMotor().
@@ -125,7 +125,7 @@ public class DriveTrain extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new TankDriveWithSticks());
+    	setDefaultCommand(new ArcadeDriveWithGamepad());
     }
 }
 

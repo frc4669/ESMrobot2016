@@ -27,8 +27,8 @@ public class TiltShooterPID extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	shooter.setTilt(shooter.getTiltPosition()-300);
-    	
+    	shooter.setTilt(shooter.getTiltPosition()+300);
+//    	shooter.setTilt(0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
