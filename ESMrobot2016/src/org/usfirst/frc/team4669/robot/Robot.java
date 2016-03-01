@@ -36,7 +36,7 @@ public class Robot extends IterativeRobot {
 	public static IMUSubsystem imu;
 	public static Shooter shooter;
 //	public static Camera camera;
-	public static Vision vision;
+//	public static Vision vision;
 	public static OISNES oisnes;
 
 	Command autonomousCommand;
@@ -55,7 +55,7 @@ public class Robot extends IterativeRobot {
     	imu = new IMUSubsystem();
     	oi = new OI();
 //    	camera = new Camera();
-    	vision = new Vision();
+//    	vision = new Vision();
     	oisnes = new OISNES();
     }
     /**
@@ -63,7 +63,6 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-    	
     	
     	//Zero encoders
     	driveTrain.zeroEncoders();
