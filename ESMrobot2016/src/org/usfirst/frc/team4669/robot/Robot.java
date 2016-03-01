@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team4669.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -8,7 +9,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 import org.usfirst.frc.team4669.robot.commands.ExampleCommand;
-import org.usfirst.frc.team4669.robot.subsystems.Camera;
+import org.usfirst.frc.team4669.robot.commands.LowBar;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
 import org.usfirst.frc.team4669.robot.subsystems.Shooter;
@@ -35,9 +36,9 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain driveTrain;
 	public static IMUSubsystem imu;
 	public static Shooter shooter;
-//	public static Camera camera;
 //	public static Vision vision;
 	public static OISNES oisnes;
+	public static CameraServer server;
 
 	Command autonomousCommand;
     SendableChooser chooser;
@@ -54,9 +55,13 @@ public class Robot extends IterativeRobot {
     	shooter = new Shooter();
     	imu = new IMUSubsystem();
     	oi = new OI();
-//    	camera = new Camera();
 //    	vision = new Vision();
     	oisnes = new OISNES();
+    	
+    	server = CameraServer.getInstance();
+        server.setQuality(50);
+        //the camera name (ex "cam0") can be found through the roborio web interface
+        server.startAutomaticCapture("cam0");
     }
     /**
      * This function is run when the robot is first started up and should be
@@ -70,10 +75,10 @@ public class Robot extends IterativeRobot {
     	imu.calibrate();
     	imu.reset();
     	
-//    	visionTable0 = NetworkTable.getTable("GRIP/myContoursReport");
 		
         chooser = new SendableChooser();
         chooser.addDefault("Default Auto", new ExampleCommand());
+        chooser.addObject("Low Bar", new LowBar());
        // chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
         
@@ -192,13 +197,5 @@ public class Robot extends IterativeRobot {
     	//SmartDashboard.putNumber("Current Angle:", (shooter.getTiltPosition()*(360/12288)));
     	//SmartDashboard.putNumber("Set Angle:", 0);
     	
-    	//Get centerX and centerY from GRIP network tables
-//    	centerX = visionTable0.getNumberArray("centerX", defaultValue);
-//    	centerY = visionTable0.getNumberArray("centerY", defaultValue);
-//    	for(int i = 0; i<centerX.length; i++){ 
-//    		SmartDashboard.putNumber("Center X", centerX[0]);
-//    		SmartDashboard.putNumber("Center Y", centerY[0]);
-//    		
-//    	}
     }
 }
