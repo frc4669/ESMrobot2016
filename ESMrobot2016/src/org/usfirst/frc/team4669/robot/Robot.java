@@ -71,6 +71,8 @@ public class Robot extends IterativeRobot {
     	//Zero encoders
     	driveTrain.zeroEncoders();
     	shooter.zeroTiltEncoder();
+    	
+    	visionTable = NetworkTable.getTable("vision");
 		
         chooser = new SendableChooser();
         chooser.addDefault("Default Low Bar", new LowBar());

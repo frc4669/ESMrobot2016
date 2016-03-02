@@ -21,7 +21,7 @@ public class GetVisionValues extends Command {
     	getValuesDone = false;
         // Use requires() here to declare subsystem dependencies
         requires(lightRelay);
-        setRunVision();
+        setRunVision(true);
     }
 
 	// Called just before this Command runs the first time
@@ -41,34 +41,35 @@ public class GetVisionValues extends Command {
     		}
     	}
     	else if (!getRunVision()) {
+    		getValuesOnVisionTable();
     		getValuesDone = true;
     	}
     }
     
     
-    private void setRunVision() {
+    private void getValuesOnVisionTable() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	private void setRunVision(boolean b) {
+		visionTable.putBoolean("runVision", b);
 	}
     
     private boolean getRunVision() {
-		// TODO Auto-generated method stub
-		return false;
+		return visionTable.getBoolean("runVision", false);
 	}
 
     private void setLightOnDone(boolean b) {
-		// TODO Auto-generated method stub
-		
+		visionTable.putBoolean("lightOnDone", b);
 	}
 
 	private boolean getLightOnDone() {
-		// TODO Auto-generated method stub
-		return false;
+		return visionTable.getBoolean("lightOnDone", false);
 	}
 
 	private boolean getLightOn() {
-		// TODO Auto-generated method stub
-		return false;
+		return visionTable.getBoolean("lightOn", false);
 	}
 	
 
