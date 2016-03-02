@@ -39,7 +39,7 @@ public class OISNES {
 		buttonX.whenPressed(new TiltShooterPID());
 		buttonY.whileHeld(new TiltShooterDown());
 		buttonA.whenPressed(new Shoot());
-		buttonB.whenPressed(new Intake());
+		buttonB.whileHeld(new Intake());
 		buttonSelect.whenPressed(new CalibrateIMU());
 		buttonStart.whenPressed(new AlignToGoal());
 		

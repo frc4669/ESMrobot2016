@@ -12,7 +12,7 @@ import org.usfirst.frc.team4669.robot.commands.LowBar;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
 import org.usfirst.frc.team4669.robot.subsystems.Shooter;
-import org.usfirst.frc.team4669.robot.subsystems.Vision;
+import org.usfirst.frc.team4669.robot.subsystems.LightRelay;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -35,7 +35,7 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain driveTrain;
 	public static IMUSubsystem imu;
 	public static Shooter shooter;
-//	public static Vision vision;
+	public static LightRelay lightRelay;
 	public static OISNES oisnes;
 	public static CameraServer server;
 
@@ -43,10 +43,10 @@ public class Robot extends IterativeRobot {
     SendableChooser chooser;
     
     //Initialize GRIP network table arrays;
-    NetworkTable visionTable0;
-    double[] defaultValue = new double[0];
-	double[] centerX = new double[1];
-	double[] centerY = new double[1];
+    public static NetworkTable visionTable;
+//  double[] defaultValue = new double[0];
+//	double[] centerX = new double[1];
+//	double[] centerY = new double[1];
 
     public Robot() {
     	//Initialize subsystems and variables
@@ -54,7 +54,7 @@ public class Robot extends IterativeRobot {
     	shooter = new Shooter();
     	imu = new IMUSubsystem();
     	oi = new OI();
-//    	vision = new Vision();
+    	lightRelay = new LightRelay();
     	oisnes = new OISNES();
     	
     	server = CameraServer.getInstance();

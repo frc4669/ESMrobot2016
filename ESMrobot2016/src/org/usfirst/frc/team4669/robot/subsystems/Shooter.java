@@ -35,10 +35,10 @@ public class Shooter extends Subsystem {
 		
 		// tiltMotor setup
 		tiltMotor = new CANTalon(RobotMap.tiltMotor);
-		tiltMotor.changeControlMode(TalonControlMode.PercentVbus);
+		tiltMotor.changeControlMode(TalonControlMode.Position);
 		tiltMotor.reverseOutput(false);
     	tiltMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-    	tiltMotor.setPID(0.5, 0.001, 2.0);
+    	tiltMotor.setPID(0.1, 0.001, 30.0);
     	tiltMotor.setPosition(0);
     	tiltMotor.enableBrakeMode(true);
     	
@@ -106,6 +106,6 @@ public class Shooter extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new TiltShooterWithSticks());
+//    	setDefaultCommand(new TiltShooterPID());
     }
 }
