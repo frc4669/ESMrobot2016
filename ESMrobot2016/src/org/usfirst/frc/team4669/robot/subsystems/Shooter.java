@@ -38,7 +38,7 @@ public class Shooter extends Subsystem {
 		tiltMotor.changeControlMode(TalonControlMode.Position);
 		tiltMotor.reverseOutput(false);
     	tiltMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-    	tiltMotor.setPID(0.1, 0.001, 30.0);
+    	tiltMotor.setPID(0.1, 0, 30.0);
     	tiltMotor.setPosition(0);
     	tiltMotor.enableBrakeMode(true);
     	

@@ -21,11 +21,11 @@ public class GetVisionValues extends Command {
     	getValuesDone = false;
         // Use requires() here to declare subsystem dependencies
         requires(lightRelay);
-        setRunVision(true);
     }
 
 	// Called just before this Command runs the first time
     protected void initialize() {
+    	setRunVision(true);
     }
 
     // Called repeatedly when this Command is scheduled to run

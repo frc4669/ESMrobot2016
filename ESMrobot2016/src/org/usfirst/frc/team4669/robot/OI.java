@@ -5,6 +5,7 @@ import org.usfirst.frc.team4669.robot.commands.TiltShooterDown;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterFloor;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterStart;
 import org.usfirst.frc.team4669.robot.commands.CalibrateIMU;
+import org.usfirst.frc.team4669.robot.commands.GetVisionValues;
 import org.usfirst.frc.team4669.robot.commands.Intake;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterUp;
 import org.usfirst.frc.team4669.robot.commands.ZeroEncoderDriveTrain;
@@ -33,10 +34,10 @@ public class OI {
     	shooter2.whenPressed(new Shoot());
     	
     	//SmartDashboard commands
-    	
+    	SmartDashboard.putData("GetVisionValues", new GetVisionValues());
     	SmartDashboard.putData("Shoot", new Shoot());
     	SmartDashboard.putData("Intake", new Intake());
-
+    	
     	SmartDashboard.putData("TiltShooterUp", new TiltShooterUp());
     	SmartDashboard.putData("TiltShooterDown", new TiltShooterDown());
     	SmartDashboard.putData("TiltShooterStart", new TiltShooterStart());

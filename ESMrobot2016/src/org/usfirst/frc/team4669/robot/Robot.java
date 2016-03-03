@@ -49,12 +49,15 @@ public class Robot extends IterativeRobot {
 //	double[] centerY = new double[1];
 
     public Robot() {
+
+    	visionTable = NetworkTable.getTable("vision");
+    	
     	//Initialize subsystems and variables
     	driveTrain = new DriveTrain();
     	shooter = new Shooter();
     	imu = new IMUSubsystem();
-    	oi = new OI();
     	lightRelay = new LightRelay();
+    	oi = new OI();
     	oisnes = new OISNES();
     	
     	server = CameraServer.getInstance();
@@ -71,8 +74,6 @@ public class Robot extends IterativeRobot {
     	//Zero encoders
     	driveTrain.zeroEncoders();
     	shooter.zeroTiltEncoder();
-    	
-    	visionTable = NetworkTable.getTable("vision");
 		
         chooser = new SendableChooser();
         chooser.addDefault("Default Low Bar", new LowBar());
