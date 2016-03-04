@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4669.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -23,6 +24,10 @@ public class LightRelay extends Subsystem {
 	
 	public void turnOffLight() {
 		lightRelay.set(Relay.Value.kOff);
+	}
+	
+	public Value getRelayState() {
+		return lightRelay.get();
 	}
 
     public void initDefaultCommand() {

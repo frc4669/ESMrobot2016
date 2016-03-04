@@ -3,6 +3,7 @@ package org.usfirst.frc.team4669.robot.commands;
 import org.usfirst.frc.team4669.robot.Robot;
 import org.usfirst.frc.team4669.robot.subsystems.LightRelay;
 
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
@@ -30,14 +31,19 @@ public class GetVisionValues extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	NetworkTable.flush();
     	if (getRunVision()) {
     		if (getLightOn() && !getLightOnDone()) {
     			lightRelay.turnOnLight();
-    			setLightOnDone(true);
+    			if (!lightRelay.getRelayState().equals(Relay.Value.kOff)){
+    				setLightOnDone(true);
+    			}
     		}
     		else if (getLightOnDone() && !getLightOn()) {
     			lightRelay.turnOffLight();
-    			setLightOnDone(false);
+    			if (lightRelay.getRelayState().equals(Relay.Value.kOff)){
+    				setLightOnDone(false);
+    			}
     		}
     	}
     	else if (!getRunVision()) {
