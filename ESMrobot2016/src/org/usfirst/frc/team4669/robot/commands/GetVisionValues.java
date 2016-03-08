@@ -19,13 +19,13 @@ public class GetVisionValues extends Command {
     public GetVisionValues() {
     	lightRelay = Robot.lightRelay;
     	visionTable = Robot.visionTable;
-    	getValuesDone = false;
         // Use requires() here to declare subsystem dependencies
         requires(lightRelay);
     }
 
 	// Called just before this Command runs the first time
     protected void initialize() {
+    	getValuesDone = false;
     	setRunVision(true);
     }
 
@@ -55,7 +55,7 @@ public class GetVisionValues extends Command {
     
     private void getValuesOnVisionTable() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("getValuesOnVisionTable");
 	}
 
 	private void setRunVision(boolean b) {

@@ -24,7 +24,7 @@ public class TiltShooterPID extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	encoderValueToTurn = shooter.getTiltPosition()-300;//+2116;
+    	encoderValueToTurn = shooter.getTiltPosition()+50;//+2116;
     }
 
     // Called repeatedly when this Command is scheduled to run

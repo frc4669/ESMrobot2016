@@ -3,11 +3,14 @@ package org.usfirst.frc.team4669.robot;
 import org.usfirst.frc.team4669.robot.commands.Shoot;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterDown;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterFloor;
+import org.usfirst.frc.team4669.robot.commands.TiltShooterPID;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterStart;
 import org.usfirst.frc.team4669.robot.commands.CalibrateIMU;
 import org.usfirst.frc.team4669.robot.commands.GetVisionValues;
 import org.usfirst.frc.team4669.robot.commands.Intake;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterUp;
+import org.usfirst.frc.team4669.robot.commands.TurnOffLight;
+import org.usfirst.frc.team4669.robot.commands.TurnOnLight;
 import org.usfirst.frc.team4669.robot.commands.ZeroEncoderDriveTrain;
 import org.usfirst.frc.team4669.robot.commands.ZeroEncoderShooter;
 
@@ -35,6 +38,11 @@ public class OI {
     	
     	//SmartDashboard commands
     	SmartDashboard.putData("GetVisionValues", new GetVisionValues());
+    	SmartDashboard.putData("TurnOnLight", new TurnOnLight());
+    	SmartDashboard.putData("TurnOffLight", new TurnOffLight());
+    	
+    	SmartDashboard.putData("TiltShooterPID", new TiltShooterPID());
+    	
     	SmartDashboard.putData("Shoot", new Shoot());
     	SmartDashboard.putData("Intake", new Intake());
     	
