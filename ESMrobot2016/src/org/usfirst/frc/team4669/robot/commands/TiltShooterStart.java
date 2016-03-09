@@ -23,14 +23,14 @@ public class TiltShooterStart extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.shooter.getTiltEncoder() < (-1250)) {
+    	if (Robot.shooter.getTiltEncoder() < 0) {
     		Robot.shooter.setTiltMotorSpeed(1.0);
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.shooter.getTiltEncoder() >= (-1250);
+        return (Robot.shooter.getTiltEncoder() >= 0);
     }
 
     // Called once after isFinished returns true
