@@ -9,6 +9,7 @@ import org.usfirst.frc.team4669.robot.commands.CalibrateIMU;
 import org.usfirst.frc.team4669.robot.commands.GetVisionValues;
 import org.usfirst.frc.team4669.robot.commands.Intake;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterUp;
+import org.usfirst.frc.team4669.robot.commands.Turn;
 import org.usfirst.frc.team4669.robot.commands.TurnOffLight;
 import org.usfirst.frc.team4669.robot.commands.TurnOnLight;
 import org.usfirst.frc.team4669.robot.commands.ZeroEncoderDriveTrain;
@@ -32,9 +33,24 @@ public class OI {
     	//Variables for joystick buttons
     	JoystickButton shooter1 = new JoystickButton(shooterStick, 1); //trigger
     	JoystickButton shooter2 = new JoystickButton(shooterStick, 2); //side button
+    	JoystickButton right1 = new JoystickButton(rightStick, 1); //RIGHT 1
+    	JoystickButton right2 = new JoystickButton(rightStick, 2); //RIGHT 2 
+    	JoystickButton right4 = new JoystickButton(leftStick, 4); //RIGHT 4
+    	JoystickButton left3 = new JoystickButton(leftStick, 3); //LEFT 3
+    	JoystickButton left2 = new JoystickButton(leftStick, 2); //LEFT 2
+    	JoystickButton left5 = new JoystickButton(leftStick, 5); //LEFT 5
     	
     	shooter1.whileHeld(new Intake());
     	shooter2.whenPressed(new Shoot());
+    	right1.whileHeld(new Intake());
+    	right2.whenPressed(new Shoot());
+    	
+    	left3.whileHeld(new TiltShooterDown());
+    	left2.whileHeld(new TiltShooterUp());
+    	
+    	left5.whenPressed(new Turn(180));
+    	right4.whenPressed(new Turn(180));
+    	
     	
     	//SmartDashboard commands
     	SmartDashboard.putData("GetVisionValues", new GetVisionValues());
