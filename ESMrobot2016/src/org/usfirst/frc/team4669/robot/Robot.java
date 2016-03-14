@@ -9,10 +9,10 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
+import org.usfirst.frc.team4669.robot.commands.BorDdefense;
 import org.usfirst.frc.team4669.robot.commands.ChevalDeFrise;
 import org.usfirst.frc.team4669.robot.commands.DoNothing;
 import org.usfirst.frc.team4669.robot.commands.LowBar;
-import org.usfirst.frc.team4669.robot.commands.MoveForwardInches;
 import org.usfirst.frc.team4669.robot.commands.Pos1MoveForwardTurnAndShoot;
 import org.usfirst.frc.team4669.robot.commands.Pos2LMoveForwardTurnAndShoot;
 import org.usfirst.frc.team4669.robot.commands.Pos2RMoveForwardTurnAndShoot;
@@ -88,7 +88,7 @@ public class Robot extends IterativeRobot {
         defenseType.addDefault("Do Nothing", new DoNothing());
         defenseType.addObject("Low Bar", new LowBar());
         defenseType.addObject("Cheval de Frise", new ChevalDeFrise());
-        defenseType.addObject("B or D", new MoveForwardInches(120));
+        defenseType.addObject("B or D", new BorDdefense());
         SmartDashboard.putData("Auto type", defenseType);
         
         defensePosition = new SendableChooser();

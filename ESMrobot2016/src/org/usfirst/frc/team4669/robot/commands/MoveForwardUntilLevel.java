@@ -1,41 +1,40 @@
 package org.usfirst.frc.team4669.robot.commands;
 
 import org.usfirst.frc.team4669.robot.Robot;
-import org.usfirst.frc.team4669.robot.RobotMap;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class MoveForwardInches extends Command {
+public class MoveForwardUntilLevel extends Command {
 	
 	private DriveTrain driveTrain;
-	private double distanceToTravel;
+	private IMUSubsystem imu;
 
-    public MoveForwardInches(double distance) {
+    public MoveForwardUntilLevel() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	driveTrain = Robot.driveTrain;
-    	distanceToTravel = distance / RobotMap.encoderCountConstant;
+    	imu = Robot.imu;
     	requires(driveTrain);
-    	
+    	requires(imu);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	driveTrain.zeroEncoders();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveTrain.setMotors(-1, -1);
+    	driveTrain.setMotors(1, 1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return distanceToTravel < driveTrain.getLeftEncoder();
+        return imu.isLevel();
     }
 
     // Called once after isFinished returns true
