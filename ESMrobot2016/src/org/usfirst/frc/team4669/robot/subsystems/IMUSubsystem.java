@@ -14,6 +14,8 @@ public class IMUSubsystem extends Subsystem {
     // here. Call these from Commands.
 	public ADIS16448_IMU imu = new ADIS16448_IMU();
 	public double north;
+	public double levelX;
+	public double levelY;
 	
 	public IMUSubsystem() {
 		super();
@@ -46,11 +48,45 @@ public class IMUSubsystem extends Subsystem {
 	}
 	
 	public void reset() {
+		levelX = imu.getAngleX();
+		levelY = imu.getAngleY();
 		north = imu.getAngleZ();
+		while (north >= 360) {
+			north -= 360;
+		}
+		while (north < 0) {
+			north += 360;
+		}
 	}
 	
 	public double getNorth() {
 		return north;
+	}
+	
+	public double getAngleX() {
+		return imu.getAngleX();
+	}
+	
+	public double getAngleY() {
+		return imu.getAngleY();
+	}
+	
+	public double getInitialLevelX() {
+		return levelX;
+	}
+	
+	public double getInitialLevelY() {
+		return levelY;
+	}
+	
+	public boolean isLevel() {
+		if (Math.abs(levelX-getAngleX()) > 5) {
+			return false;
+		}
+		else if (Math.abs(levelY-getAngleY()) > 5) {
+			return false;
+		}
+		return true;
 	}
 
 }

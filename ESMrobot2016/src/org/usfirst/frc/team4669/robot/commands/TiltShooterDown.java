@@ -22,6 +22,7 @@ public class TiltShooterDown extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	shooter.disableLimitSwitch();
     }
 
     // Called repeatedly when this Command is scheduled to run
