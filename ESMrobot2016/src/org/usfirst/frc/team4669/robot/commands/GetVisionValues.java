@@ -6,6 +6,7 @@ import org.usfirst.frc.team4669.robot.subsystems.LightRelay;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -56,6 +57,10 @@ public class GetVisionValues extends Command {
     private void getValuesOnVisionTable() {
 		// TODO Auto-generated method stub
 		System.out.println("getValuesOnVisionTable");
+		SmartDashboard.putNumber("VisionX", visionTable.getNumber("x", 0));
+		SmartDashboard.putNumber("VisionY", visionTable.getNumber("y", 0));
+		SmartDashboard.putNumber("VisionWidth", visionTable.getNumber("w", 0));
+		SmartDashboard.putNumber("VisionHeight", visionTable.getNumber("h", 0));
 	}
 
 	private void setRunVision(boolean b) {

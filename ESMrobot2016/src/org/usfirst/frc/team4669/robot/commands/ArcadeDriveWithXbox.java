@@ -24,7 +24,7 @@ public class ArcadeDriveWithXbox extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveTrain.setArcadeDrive(oixbox.getLeftY(), oixbox.getLeftX());
+    	driveTrain.setArcadeDrive(-oixbox.getLeftY(), -oixbox.getLeftX());
     }
 
     // Make this return true when this Command no longer needs to run execute()

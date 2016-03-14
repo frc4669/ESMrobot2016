@@ -28,7 +28,17 @@ public class TiltShooterWithXbox extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	shooter.setTiltMotorSpeed(RobotMap.shooterTiltSpeedProportion*oixbox.getRightY());
+    	shooter.enableLimitSwitch();
+    	if (!shooter.getLimitSwitchClosed()) {
+    		shooter.setTiltMotorSpeed(RobotMap.shooterTiltSpeedProportion*oixbox.getRightY());
+    	}
+    	else if (shooter.getLimitSwitchClosed() && oixbox.getRightY() > 0.0) {
+    		shooter.setTiltMotorSpeed(0);
+    	}
+    	else {
+    		shooter.disableLimitSwitch();
+    		shooter.setTiltMotorSpeed(RobotMap.shooterTiltSpeedProportion*oixbox.getRightY());
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
