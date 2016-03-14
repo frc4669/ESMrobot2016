@@ -18,8 +18,8 @@ public class Turn extends Command {
 
 	public Turn(double degree) {
         driveTrain = Robot.driveTrain;
-    	degreesToTurn = degree*(16.5*Math.PI/360);
-    	distanceToTravel = degreesToTurn / RobotMap.encoderCountConstant;
+    	degreesToTurn = degree*(16.5*Math.PI/360); //16.5 distance between wheels
+    	distanceToTravel = 0.5 * degreesToTurn / RobotMap.encoderCountConstant;
         requires(Robot.driveTrain);
     }
 

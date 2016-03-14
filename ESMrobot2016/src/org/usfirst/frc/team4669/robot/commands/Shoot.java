@@ -32,14 +32,14 @@ public class Shoot extends Command {
     	shooter.setServoAngle(120);
     	shooter.setLeftShooterSpeed(1);
     	shooter.setRightShooterSpeed(-1);
-    	if (timer.get() > 1) {
+    	if (timer.get() > 0.5) {
     		shooter.setServoAngle(0);
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return timer.get() > 3;
+        return timer.get() > 1.5;
     }
 
     // Called once after isFinished returns true

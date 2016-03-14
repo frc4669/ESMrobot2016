@@ -1,7 +1,6 @@
 
 package org.usfirst.frc.team4669.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4669.robot.Robot;
@@ -14,11 +13,9 @@ import org.usfirst.frc.team4669.robot.subsystems.Shooter;
 public class TiltShooterDown extends Command {
 	
 	private Shooter shooter;
-	private Timer timer;
 
     public TiltShooterDown() {
     	shooter = Robot.shooter;
-    	timer = new Timer();
         // Use requires() here to declare subsystem dependencies
         requires(shooter);
     }
@@ -34,6 +31,9 @@ public class TiltShooterDown extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	if (shooter.getTiltPosition() <= -4096) {
+    		return true;
+    	}
     	return false;
     }
 

@@ -103,6 +103,9 @@ public class Shooter extends Subsystem {
 		}
 	}
 
+	public boolean getLimitSwitchClosed() {
+		return tiltMotor.isRevLimitSwitchClosed();
+	}
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

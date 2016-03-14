@@ -4,12 +4,21 @@ package org.usfirst.frc.team4669.robot;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
+import org.usfirst.frc.team4669.robot.commands.ChevalDeFrise;
+import org.usfirst.frc.team4669.robot.commands.DoNothing;
 import org.usfirst.frc.team4669.robot.commands.LowBar;
 import org.usfirst.frc.team4669.robot.commands.MoveForwardInches;
+import org.usfirst.frc.team4669.robot.commands.Pos1MoveForwardTurnAndShoot;
+import org.usfirst.frc.team4669.robot.commands.Pos2LMoveForwardTurnAndShoot;
+import org.usfirst.frc.team4669.robot.commands.Pos2RMoveForwardTurnAndShoot;
+import org.usfirst.frc.team4669.robot.commands.Pos3MoveForwardTurnAndShoot;
+import org.usfirst.frc.team4669.robot.commands.Pos4MoveForwardTurnAndShoot;
+import org.usfirst.frc.team4669.robot.commands.Pos5MoveForwardTurnAndShoot;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
 import org.usfirst.frc.team4669.robot.subsystems.Shooter;
@@ -41,7 +50,7 @@ public class Robot extends IterativeRobot {
 	public static OIXbox oixbox;
 	public static CameraServer server;
 
-	Command autonomousCommand;
+	CommandGroup autonomousCommand;
     SendableChooser defenseType;
     SendableChooser defensePosition;
     
@@ -76,11 +85,21 @@ public class Robot extends IterativeRobot {
     	shooter.zeroTiltEncoder();
 		
         defenseType = new SendableChooser();
-        defenseType.addDefault("Default Low Bar", new LowBar());
-        // chooser.addObject("My Auto", new MyAutoCommand());
+        defenseType.addDefault("Do Nothing", new DoNothing());
         defenseType.addObject("Low Bar", new LowBar());
-        defenseType.addObject("B or D", new MoveForwardInches(100));
-        SmartDashboard.putData("Auto mode", defenseType);
+        defenseType.addObject("Cheval de Frise", new ChevalDeFrise());
+        defenseType.addObject("B or D", new MoveForwardInches(120));
+        SmartDashboard.putData("Auto type", defenseType);
+        
+        defensePosition = new SendableChooser();
+        defensePosition.addDefault("Do Nothing", new DoNothing());
+        defensePosition.addObject("Position1 Low Bar", new Pos1MoveForwardTurnAndShoot());
+        defensePosition.addObject("Position2L", new Pos2LMoveForwardTurnAndShoot());
+        defensePosition.addObject("Position2R", new Pos2RMoveForwardTurnAndShoot());
+        defensePosition.addObject("Position3", new Pos3MoveForwardTurnAndShoot());
+        defensePosition.addObject("Position4", new Pos4MoveForwardTurnAndShoot());
+        defensePosition.addObject("Position5", new Pos5MoveForwardTurnAndShoot());
+        SmartDashboard.putData("Auto position", defensePosition);
         
     }
 	
@@ -107,9 +126,11 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-        autonomousCommand = (Command) defenseType.getSelected();
+        autonomousCommand = new CommandGroup();
+        autonomousCommand.addSequential((Command) defenseType.getSelected());
+        autonomousCommand.addSequential((Command) defensePosition.getSelected());
         
-		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
+        /* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		switch(autoSelected) {
 		case "My Auto":
 			autonomousCommand = new MyAutoCommand();
@@ -162,7 +183,7 @@ public class Robot extends IterativeRobot {
     public void updateSmartDashboard() {
     	
     	//Update Shooter encoder values on SmartDashboard
-    	SmartDashboard.putNumber("Shooter Tilt Encoder", shooter.getTiltEncoder());
+    	SmartDashboard.putNumber("Shooter Tilt Encoder", shooter.getTiltPosition());
     	
     	//Update driveTrain encoder values on SmartDashboard
     	SmartDashboard.putNumber("Drive Left Encoder", driveTrain.getLeftEncoder());
@@ -170,8 +191,6 @@ public class Robot extends IterativeRobot {
     	
     	//Update IMU values on SmartDashboard
     	SmartDashboard.putNumber("IMU", imu.getAngle());
-    	SmartDashboard.putNumber("TiltEncoder", Robot.shooter.getTiltPosition());
-    	
     	
     }
 }

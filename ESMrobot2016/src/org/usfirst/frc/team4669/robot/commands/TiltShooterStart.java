@@ -4,7 +4,6 @@ package org.usfirst.frc.team4669.robot.commands;
 import org.usfirst.frc.team4669.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -30,7 +29,7 @@ public class TiltShooterStart extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (Robot.shooter.getTiltEncoder() >= 0);
+        return Robot.shooter.getLimitSwitchClosed() || Robot.shooter.getTiltEncoder() >= 0;
     }
 
     // Called once after isFinished returns true
