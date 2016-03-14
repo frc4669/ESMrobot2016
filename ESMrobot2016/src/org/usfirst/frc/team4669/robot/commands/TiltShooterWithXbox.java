@@ -1,7 +1,6 @@
 
 package org.usfirst.frc.team4669.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4669.robot.OIXbox;
@@ -15,12 +14,10 @@ import org.usfirst.frc.team4669.robot.subsystems.Shooter;
 public class TiltShooterWithXbox extends Command {
 	
 	private Shooter shooter;
-	private Timer timer;
 	private OIXbox oixbox = Robot.oixbox;
 
     public TiltShooterWithXbox() {
     	shooter = Robot.shooter;
-    	timer = new Timer();
         // Use requires() here to declare subsystem dependencies
         requires(shooter);
     }
