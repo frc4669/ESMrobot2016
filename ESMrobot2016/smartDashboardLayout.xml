@@ -1,0 +1,89 @@
+<xml version="1.0">
+<dashboard>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="333" y="297"/>
+		<property name="Text" value="Vision"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="104" y="301"/>
+		<property name="Text" value="IMU"/>
+	</static-widget>
+	<widget field="Drive Right Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="32" y="233"/>
+	</widget>
+	<widget field="Drive Left Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="38" y="213"/>
+	</widget>
+	<widget field="Shooter Tilt Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="269" y="27"/>
+	</widget>
+	<widget field="Auto position" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="108" y="17"/>
+	</widget>
+	<widget field="Auto type" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="1" y="18"/>
+	</widget>
+	<widget field="TurnOffLight" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="291" y="369"/>
+	</widget>
+	<widget field="Zero DriveTrain Encoder" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="1" y="254"/>
+	</widget>
+	<widget field="IMU Zero Reading" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="28" y="372"/>
+	</widget>
+	<widget field="Zero Shooter Encoder" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="251" y="49"/>
+	</widget>
+	<widget field="TiltShooterFloor" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="465" y="133"/>
+	</widget>
+	<widget field="TiltShooterPID" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="472" y="162"/>
+	</widget>
+	<widget field="TurnOnLight" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="293" y="342"/>
+	</widget>
+	<widget field="TiltShooterStart" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="464" y="105"/>
+	</widget>
+	<widget field="GetVisionValues" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="278" y="314"/>
+	</widget>
+	<widget field="IMU Calibrate" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="49" y="344"/>
+	</widget>
+	<widget field="TiltShooterDown" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="461" y="77"/>
+	</widget>
+	<widget field="TiltShooterUp" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="474" y="48"/>
+	</widget>
+	<widget field="Intake" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="325" y="78"/>
+	</widget>
+	<widget field="IMU" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="105" y="324"/>
+	</widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="78" y="194"/>
+		<property name="Text" value="DriveTrain"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="329" y="2"/>
+		<property name="Text" value="Shooter"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="64" y="3"/>
+		<property name="Text" value="Autonomous"/>
+	</static-widget>
+	<widget field="Shoot" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="328" y="106"/>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+	<hidden field="Left Encoder Position"/>
+	<hidden field="Auto mode"/>
+	<hidden field="Right Encoder Position"/>
+</xml>
