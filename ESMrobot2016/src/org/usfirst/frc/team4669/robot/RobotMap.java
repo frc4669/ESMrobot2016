@@ -43,7 +43,7 @@ public class RobotMap {
 	
 	//SENSORS
 	public static final double driveTrainEncoderCounts = 1440;
-	public static final double tiltArmEncoderCounts = 4096;
+	public static final double tiltArmEncoderCounts = 4096*3;
 
 	// OTHER
 	public static final double wheelDiameter = 7.65;
@@ -54,6 +54,34 @@ public class RobotMap {
 	
 	public static final double encoderCountConstant = wheelCircumference / driveTrainEncoderCounts;
 	
+	//Position 1
+	public static final double p1Distance = 108.5;
+	public static final double p1Turn = 69.0;
+	public static final double p1Shoot = 45;
 	
+	//Position 2L
+	public static final double p2LDistance = 132.5;
+	public static final double p2LTurn = 73.9;
+	public static final double p2LShoot = 45;
 	
+	//Position 2L
+	public static final double p2RTurn = 18.1; //-18
+	public static final double p2RDistance = 78.9;
+	public static final double p2RShoot = 45;	
+	
+	//Position 3
+	public static final double p3Distance = 24.5;
+	public static final double p3Turn = 10.7;
+	public static final double p3Shoot = 45;	
+	
+	//Position 4
+	public static final double p4Distance = 24.5;
+	public static final double p4Turn = -10.7;
+	public static final double p4Shoot = 45;	
+
+	//Position 5
+	public static final double p5Distance = 120.5;
+	public static final double p5Turn = -64.4;
+	public static final double p5Shoot = 45;	
+
 }

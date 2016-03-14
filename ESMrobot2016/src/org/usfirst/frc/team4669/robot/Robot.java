@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 import org.usfirst.frc.team4669.robot.commands.LowBar;
+import org.usfirst.frc.team4669.robot.commands.MoveForwardInches;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
 import org.usfirst.frc.team4669.robot.subsystems.Shooter;
@@ -40,13 +41,11 @@ public class Robot extends IterativeRobot {
 	public static CameraServer server;
 
 	Command autonomousCommand;
-    SendableChooser chooser;
+    SendableChooser defenseType;
+    SendableChooser defensePosition;
     
     //Initialize GRIP network table arrays;
     public static NetworkTable visionTable;
-//  double[] defaultValue = new double[0];
-//	double[] centerX = new double[1];
-//	double[] centerY = new double[1];
 
     public Robot() {
 
@@ -75,11 +74,12 @@ public class Robot extends IterativeRobot {
     	driveTrain.zeroEncoders();
     	shooter.zeroTiltEncoder();
 		
-        chooser = new SendableChooser();
-        chooser.addDefault("Default Low Bar", new LowBar());
+        defenseType = new SendableChooser();
+        defenseType.addDefault("Default Low Bar", new LowBar());
         // chooser.addObject("My Auto", new MyAutoCommand());
-        chooser.addObject("Low Bar", new LowBar());
-        SmartDashboard.putData("Auto mode", chooser);
+        defenseType.addObject("Low Bar", new LowBar());
+        defenseType.addObject("B or D", new MoveForwardInches(100));
+        SmartDashboard.putData("Auto mode", defenseType);
         
     }
 	
@@ -106,7 +106,7 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-        autonomousCommand = (Command) chooser.getSelected();
+        autonomousCommand = (Command) defenseType.getSelected();
         
 		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		switch(autoSelected) {
@@ -121,26 +121,6 @@ public class Robot extends IterativeRobot {
         
     	// schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
-        // Low Bar
-//        new TiltShooter(degree); //tilt arm down
-//        new MoveForwardInches(distance); //move past lowbar
-//        new Turn(degree); //face robot towards tower
-//        new TiltShooter(degree); //aim up at high goal
-//        new Shoot(); //shoot
-//        
-//        // Cheval De Frise
-//        new MoveForwardInches(distance); //move onto ramp
-//        new TiltShooter(degree); //push down cdf with arm
-//        new MoveForwardInches(distance); //move past cdf
-//        new Turn(degree); //face robot towards tower
-//        new TiltShooter(); //aim up at high goal
-//        new Shoot(); //shoot
-//        
-//        //Ramparts/moat/rockwall/rough terrain
-//        new MoveForwardInches(distance); //move past obstacle
-//        new Turn(degree); //turn to face towards tower
-//        new TiltShooter(degree); //tilt shooter down and aim at goal
-//        new Shoot(); //shoot
         
     }
 
