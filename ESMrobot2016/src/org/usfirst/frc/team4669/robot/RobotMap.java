@@ -40,6 +40,9 @@ public class RobotMap {
 	public static final int leftJoy = 0;
 	public static final int rightJoy = 1;
 	public static final int armJoy = 2;
+	public static final int xbox = 3;
+	public static final int snes1 = 4;
+	public static final int snes2 = 5;
 	
 	//SENSORS
 	public static final double driveTrainEncoderCounts = 1440;
@@ -54,32 +57,44 @@ public class RobotMap {
 	
 	public static final double encoderCountConstant = wheelCircumference / driveTrainEncoderCounts;
 	
-	//Position 1
+	
+	//Defense Type Low Bar
+	public static final double autoToLowBar = 40;
+	public static final double lowBarTilt = -120;
+	public static final double lowBarDistance = 60;
+	
+	//Defense Type Cheval de Frise
+	public static final double autoToCheval = 40;
+	public static final double chevalTilt = -110;
+	public static final double chevalDistance = 60;
+	
+	
+	//Defense Position 1 (low bar)
 	public static final double p1Distance = 108.5;
 	public static final double p1Turn = 69.0;
 	public static final double p1Shoot = 45;
 	
-	//Position 2L
+	//Defense Position 2L
 	public static final double p2LDistance = 132.5;
 	public static final double p2LTurn = 73.9;
 	public static final double p2LShoot = 45;
 	
-	//Position 2L
+	//Defense Position 2L
 	public static final double p2RTurn = 18.1; //-18
 	public static final double p2RDistance = 78.9;
 	public static final double p2RShoot = 45;	
 	
-	//Position 3
+	//Defense Position 3
 	public static final double p3Distance = 24.5;
 	public static final double p3Turn = 10.7;
 	public static final double p3Shoot = 45;	
 	
-	//Position 4
+	//Defense Position 4
 	public static final double p4Distance = 24.5;
 	public static final double p4Turn = -10.7;
 	public static final double p4Shoot = 45;	
 
-	//Position 5
+	//Defense Position 5
 	public static final double p5Distance = 120.5;
 	public static final double p5Turn = -64.4;
 	public static final double p5Shoot = 45;	

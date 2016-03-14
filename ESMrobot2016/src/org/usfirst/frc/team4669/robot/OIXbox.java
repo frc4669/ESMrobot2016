@@ -8,8 +8,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OIXbox {
-	//Add joysticks
-    private Joystick xboxControl = new Joystick(5);
+	
+    private Joystick xboxControl = new Joystick(RobotMap.xbox);
     
 	public OIXbox() {
 
@@ -27,27 +27,61 @@ public class OIXbox {
     }
 	
 	public int getPOV() {
+		//DPad
 		return xboxControl.getPOV();
 	}
 	
-	public double getTriggers() {
+//	public double getTriggers() {
+//		//0 to 1, right - left
+//		return xboxControl.getRawAxis(3);
+//	}
+	
+	public double getLeftTrigger() {
+		return xboxControl.getRawAxis(2);
+	}
+	
+	public double getRightTrigger() {
 		return xboxControl.getRawAxis(3);
 	}
     
-    public double getLeftY() {
-		return xboxControl.getRawAxis(2);
+	public double getLeftY() {
+		double leftY = xboxControl.getRawAxis(1); //2?
+		if (Math.abs(leftY) > 0.2) {
+			return leftY; 
+		}
+		else {
+			return 0;
+		}
     }
     
     public double getLeftX() {
-    	return xboxControl.getRawAxis(1);
+    	double leftX = xboxControl.getRawAxis(0); //1?
+    	if (Math.abs(leftX) > 0.2) {
+			return leftX; 
+		}
+		else {
+			return 0;
+		}
     }
     
     public double getRightY() {
-		return xboxControl.getRawAxis(5);
+		double rightY = xboxControl.getRawAxis(5);
+		if (Math.abs(rightY) > 0.2) {
+			return rightY; 
+		}
+		else {
+			return 0;
+		}
     }
     
     public double getRightX() {
-    	return xboxControl.getRawAxis(4);
+    	double rightX = xboxControl.getRawAxis(4);
+    	if (Math.abs(rightX) > 0.2) {
+			return rightX; 
+		}
+		else {
+			return 0;
+		}
     }
     
 }

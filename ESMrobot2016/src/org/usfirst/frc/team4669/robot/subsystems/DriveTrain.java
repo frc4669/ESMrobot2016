@@ -1,7 +1,8 @@
 package org.usfirst.frc.team4669.robot.subsystems;
 
 import org.usfirst.frc.team4669.robot.RobotMap;
-import org.usfirst.frc.team4669.robot.commands.ArcadeDriveWithGamepad;
+import org.usfirst.frc.team4669.robot.commands.ArcadeDriveWithSNES;
+import org.usfirst.frc.team4669.robot.commands.ArcadeDriveWithXbox;
 import org.usfirst.frc.team4669.robot.commands.TankDriveWithSticks;
 
 import edu.wpi.first.wpilibj.CANTalon;
@@ -125,7 +126,7 @@ public class DriveTrain extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new TankDriveWithSticks());
+    	setDefaultCommand(new ArcadeDriveWithXbox());
     }
 }
 

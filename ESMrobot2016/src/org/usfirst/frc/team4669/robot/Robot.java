@@ -38,13 +38,13 @@ public class Robot extends IterativeRobot {
 	public static Shooter shooter;
 	public static LightRelay lightRelay;
 	public static OISNES oisnes;
+	public static OIXbox oixbox;
 	public static CameraServer server;
 
 	Command autonomousCommand;
     SendableChooser defenseType;
     SendableChooser defensePosition;
     
-    //Initialize GRIP network table arrays;
     public static NetworkTable visionTable;
 
     public Robot() {
@@ -58,6 +58,7 @@ public class Robot extends IterativeRobot {
     	lightRelay = new LightRelay();
     	oi = new OI();
     	oisnes = new OISNES();
+    	oixbox = new OIXbox();
     	
     	server = CameraServer.getInstance();
         server.setQuality(20);

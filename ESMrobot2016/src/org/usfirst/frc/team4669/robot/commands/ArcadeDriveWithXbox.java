@@ -1,6 +1,6 @@
 package org.usfirst.frc.team4669.robot.commands;
 
-import org.usfirst.frc.team4669.robot.OISNES;
+import org.usfirst.frc.team4669.robot.OIXbox;
 import org.usfirst.frc.team4669.robot.Robot;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 
@@ -9,12 +9,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ArcadeDriveWithGamepad extends Command {
+public class ArcadeDriveWithXbox extends Command {
 	private DriveTrain driveTrain;
-	private OISNES oisnes;
-    public ArcadeDriveWithGamepad() {
+	private OIXbox oixbox;
+    public ArcadeDriveWithXbox() {
     	driveTrain = Robot.driveTrain;
-    	oisnes = Robot.oisnes;
+    	oixbox = Robot.oixbox;
     	requires(driveTrain);
     }
 
@@ -24,7 +24,7 @@ public class ArcadeDriveWithGamepad extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveTrain.setArcadeDrive(-oisnes.getY(), -oisnes.getX());
+    	driveTrain.setArcadeDrive(-oixbox.getLeftY(), -oixbox.getLeftX());
     }
 
     // Make this return true when this Command no longer needs to run execute()
