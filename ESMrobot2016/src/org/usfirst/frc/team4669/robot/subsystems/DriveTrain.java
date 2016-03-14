@@ -34,25 +34,25 @@ public class DriveTrain extends Subsystem {
     	// Configuring the Talons
     	frontLeftDrive.changeControlMode(TalonControlMode.PercentVbus);
     	frontLeftDrive.enableBrakeMode(true);
-    	frontLeftDrive.reverseOutput(true);
+    	frontLeftDrive.reverseOutput(false);
     	frontLeftDrive.setFeedbackDevice(FeedbackDevice.QuadEncoder);
     	frontLeftDrive.setPosition(0);
     	
     	rearLeftDrive.changeControlMode(TalonControlMode.PercentVbus);
     	rearLeftDrive.enableBrakeMode(true);
-    	rearLeftDrive.reverseOutput(true);
+    	rearLeftDrive.reverseOutput(false);
     	rearLeftDrive.setFeedbackDevice(FeedbackDevice.QuadEncoder);
     	rearLeftDrive.setPosition(0);
     	
     	frontRightDrive.changeControlMode(TalonControlMode.PercentVbus);
     	frontRightDrive.enableBrakeMode(true);
-    	frontRightDrive.reverseOutput(true);
+    	frontRightDrive.reverseOutput(false);
     	frontRightDrive.setFeedbackDevice(FeedbackDevice.QuadEncoder);
     	frontRightDrive.setPosition(0);
     	
     	rearRightDrive.changeControlMode(TalonControlMode.PercentVbus);
     	rearRightDrive.enableBrakeMode(true);
-    	rearRightDrive.reverseOutput(true);
+    	rearRightDrive.reverseOutput(false);
     	rearRightDrive.setFeedbackDevice(FeedbackDevice.QuadEncoder);
     	rearRightDrive.setPosition(0);
     }
@@ -67,7 +67,7 @@ public class DriveTrain extends Subsystem {
      * @param rightMotor Sets the speed of the right motor.
      */
     public void setMotors(double leftMotor, double rightMotor) {
-    	driveTrain.tankDrive(-leftMotor * RobotMap.driveTrainSpeedProportion, -rightMotor * RobotMap.driveTrainSpeedProportion, true);
+    	driveTrain.tankDrive(leftMotor * RobotMap.driveTrainSpeedProportion, rightMotor * RobotMap.driveTrainSpeedProportion, true);
     }
     
     public void setArcadeDrive(double moveValue, double rotateValue) {
