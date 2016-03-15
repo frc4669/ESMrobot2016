@@ -5,9 +5,11 @@ import org.usfirst.frc.team4669.robot.commands.TiltShooterDown;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterFloor;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterPID;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterStart;
+import org.usfirst.frc.team4669.robot.commands.AlignToNorth;
 import org.usfirst.frc.team4669.robot.commands.CalibrateIMU;
 import org.usfirst.frc.team4669.robot.commands.GetVisionValues;
 import org.usfirst.frc.team4669.robot.commands.Intake;
+import org.usfirst.frc.team4669.robot.commands.MoveForwardUntilLevel;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterUp;
 import org.usfirst.frc.team4669.robot.commands.Turn;
 import org.usfirst.frc.team4669.robot.commands.TurnOffLight;
@@ -72,6 +74,9 @@ public class OI {
     	
     	SmartDashboard.putData("Zero Shooter Encoder", new ZeroEncoderShooter());
     	SmartDashboard.putData("Zero DriveTrain Encoder", new ZeroEncoderDriveTrain());
+    	
+    	SmartDashboard.putData("AlignToNorth", new AlignToNorth());
+    	SmartDashboard.putData("MoveForwardUntilLevel", new MoveForwardUntilLevel());
     	
 //    	SmartDashboard.putData("Turn Degrees", new Turn(degree));
 //    	SmartDashboard.putData("Turn Clockwise Degrees", new TurnClockwise(degree));
