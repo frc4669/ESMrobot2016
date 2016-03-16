@@ -97,7 +97,7 @@ public class DriveTrain extends Subsystem {
      * @return The encoder's position
      */
     public double getRightEncoder() {
-    	return frontRightDrive.getPosition();
+    	return -frontRightDrive.getPosition();
     }
     
     public double avgEncoderPosition() {

@@ -1,14 +1,5 @@
 <xml version="1.0">
 <dashboard>
-	<widget field="Auto mode" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
-		<location x="861" y="372"/>
-	</widget>
-	<widget field="Align to North" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="837" y="340"/>
-	</widget>
-	<widget field="MoveUntilLevel" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="831" y="312"/>
-	</widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.WebcamViewerExtension">
 		<location x="639" y="25"/>
 	</static-widget>
@@ -101,4 +92,7 @@
 </dashboard>
 <live-window>
 </live-window>
+	<hidden field="Align to North"/>
+	<hidden field="Auto mode"/>
+	<hidden field="MoveUntilLevel"/>
 </xml>

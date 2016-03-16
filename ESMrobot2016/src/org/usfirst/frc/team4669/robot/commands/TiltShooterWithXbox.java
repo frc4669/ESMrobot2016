@@ -34,6 +34,7 @@ public class TiltShooterWithXbox extends Command {
     	}
     	else if (shooter.getLimitSwitchClosed() && oixbox.getRightY() > 0.0) {
     		shooter.setTiltMotorSpeed(0);
+    		shooter.zeroTiltEncoder();
     	}
     	else {
     		shooter.disableLimitSwitch();

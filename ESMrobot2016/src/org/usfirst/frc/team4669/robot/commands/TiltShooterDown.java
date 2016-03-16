@@ -32,10 +32,7 @@ public class TiltShooterDown extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (shooter.getTiltPosition() <= -4096) {
-    		return true;
-    	}
-    	return false;
+    	return shooter.getTiltPosition() <= -4096;
     }
 
     // Called once after isFinished returns true
