@@ -74,6 +74,10 @@ public class DriveTrain extends Subsystem {
     	driveTrain.arcadeDrive(moveValue * RobotMap.driveTrainSpeedProportion, rotateValue * RobotMap.driveTrainSpeedProportion);
     }
     
+    public void setDrive(double speed, double turnrate) {
+    	driveTrain.drive(speed, turnrate);
+    }
+    
     /**
      * Stops the motor using the RobotDrive method: stopMotor().
      */

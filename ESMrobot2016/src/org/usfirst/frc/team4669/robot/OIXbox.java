@@ -1,5 +1,11 @@
 package org.usfirst.frc.team4669.robot;
 
+import org.usfirst.frc.team4669.robot.commands.Intake;
+import org.usfirst.frc.team4669.robot.commands.MoveForwardNorth;
+import org.usfirst.frc.team4669.robot.commands.Shoot;
+import org.usfirst.frc.team4669.robot.commands.TiltShooterDown;
+import org.usfirst.frc.team4669.robot.commands.TiltShooterUp;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -23,6 +29,12 @@ public class OIXbox {
 		JoystickButton buttonStart = new JoystickButton(xboxControl, 8);
 		JoystickButton buttonLeftJoy = new JoystickButton(xboxControl, 9);
 		JoystickButton buttonRightJoy = new JoystickButton(xboxControl, 10);
+		
+		buttonX.whileHeld(new TiltShooterUp());
+		buttonY.whileHeld(new TiltShooterDown());
+		buttonA.whileHeld(new Intake());
+		buttonB.whenPressed(new Shoot());
+		buttonStart.whenPressed(new MoveForwardNorth(120));
 		
     }
 	
