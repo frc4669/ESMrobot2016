@@ -1,5 +1,12 @@
 <xml version="1.0">
 <dashboard>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="55" y="405"/>
+		<property name="Text" value="Robot Connection"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.ConnectionIndicator">
+		<location x="14" y="396"/>
+	</static-widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.WebcamViewerExtension">
 		<location x="639" y="25"/>
 	</static-widget>
@@ -92,7 +99,4 @@
 </dashboard>
 <live-window>
 </live-window>
-	<hidden field="Align to North"/>
-	<hidden field="Auto mode"/>
-	<hidden field="MoveUntilLevel"/>
 </xml>
