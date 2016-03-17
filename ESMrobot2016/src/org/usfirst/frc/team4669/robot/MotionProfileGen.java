@@ -88,7 +88,7 @@ public class MotionProfileGen {
 		return profile;
 	}
 	
-	public static void main(String[] args) {
+	public static void exampleGenerate(String[] args) {
 		double profile[][] = MotionProfileGen.generate(2,1,10,0,6,.01);
 		for (int x = 0; x < profile.length; ++x) {
 			System.out.println(Double.toString(profile[x][0])+" "+Double.toString(profile[x][1])+" "+Double.toString(profile[x][2]));
