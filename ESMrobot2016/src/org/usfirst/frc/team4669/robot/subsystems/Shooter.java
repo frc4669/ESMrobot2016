@@ -26,13 +26,17 @@ public class Shooter extends Subsystem {
 		super();
 		// rightShooter setup.
 		rightShooter = new CANTalon(RobotMap.rightShooter);
-		rightShooter.changeControlMode(TalonControlMode.PercentVbus);
-		rightShooter.configEncoderCodesPerRev((int) RobotMap.driveTrainEncoderCounts);
+		rightShooter.changeControlMode(TalonControlMode.Speed);
+		rightShooter.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+		rightShooter.configEncoderCodesPerRev(RobotMap.shooterEncoderCounts);
+		rightShooter.setPID(0,0,0,0.1,0,12, 0);
 		
 		// leftShooter setup
 		leftShooter = new CANTalon(RobotMap.leftShooter);
-		leftShooter.changeControlMode(TalonControlMode.PercentVbus);
-		leftShooter.configEncoderCodesPerRev((int) RobotMap.driveTrainEncoderCounts);
+		leftShooter.changeControlMode(TalonControlMode.Speed);
+		leftShooter.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+		leftShooter.configEncoderCodesPerRev(RobotMap.shooterEncoderCounts);
+		leftShooter.setPID(0,0,0,0.1,0,12, 0);
 		
 		// tiltMotor setup
 		tiltMotor = new CANTalon(RobotMap.tiltMotor);
@@ -57,6 +61,19 @@ public class Shooter extends Subsystem {
 	
 	public int getLeftShooterRPM() {
 		return leftShooter.getEncVelocity();
+	}
+	
+	public void setRightShooterRPM(double velocity) {
+		rightShooter.set(velocity);
+	}
+	
+	public void setLeftShooterRPM(double velocity) {
+		leftShooter.set(velocity);
+	}
+	
+	public void setShootingRPM(double velocity) {
+		setRightShooterRPM(-velocity);
+		setLeftShooterRPM(velocity);
 	}
 	
 	public double getTiltEncoder() {
@@ -102,6 +119,10 @@ public class Shooter extends Subsystem {
 			servo.setAngle(angle);
 		}
 	}
+	
+	public double getServoAngle() {
+		return servo.getAngle();
+	}
 
 	public boolean getLimitSwitchClosed() {
 		return tiltMotor.isRevLimitSwitchClosed();
@@ -120,4 +141,9 @@ public class Shooter extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     	setDefaultCommand(new TiltShooterWithXbox());
     }
+
+	public void changeToShootingSpeedMode() {
+
+		
+	}
 }

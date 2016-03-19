@@ -78,6 +78,11 @@ public class DriveTrain extends Subsystem {
     	driveTrain.drive(speed, turnrate);
     }
     
+    public static double convertDistanceToRotations(double inches) {
+    	return inches/RobotMap.wheelCircumference;
+    }
+    
+    
     /**
      * Stops the motor using the RobotDrive method: stopMotor().
      */

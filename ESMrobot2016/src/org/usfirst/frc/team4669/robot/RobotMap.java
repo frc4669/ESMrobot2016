@@ -47,6 +47,7 @@ public class RobotMap {
 	//SENSORS
 	public static final double driveTrainEncoderCounts = 1440;
 	public static final double tiltArmEncoderCounts = 4096*3;
+	public static final int shooterEncoderCounts = 4096;
 
 	// OTHER
 	public static final double wheelDiameter = 7.65;

@@ -192,5 +192,11 @@ public class Robot extends IterativeRobot {
     	//Update IMU values on SmartDashboard
     	SmartDashboard.putNumber("IMU", imu.getAngle());
     	
+    	SmartDashboard.putNumber("Shooter Left Encoder", shooter.getLeftShooterRPM());
+    	SmartDashboard.putNumber("Shooter Right Encoder", shooter.getRightShooterRPM());
+    	
+    	SmartDashboard.putNumber("POV", oixbox.getPOV());
+    	
+    	
     }
 }

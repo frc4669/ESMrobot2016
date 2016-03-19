@@ -1,5 +1,26 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="VisionHeight" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="430" y="383"/>
+	</widget>
+	<widget field="VisionWidth" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="433" y="362"/>
+	</widget>
+	<widget field="VisionY" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="455" y="341"/>
+	</widget>
+	<widget field="VisionX" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="455" y="321"/>
+	</widget>
+	<widget field="POV" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="108" y="345"/>
+	</widget>
+	<widget field="Shooter Right Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="258" y="69"/>
+	</widget>
+	<widget field="Shooter Left Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="264" y="48"/>
+	</widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
 		<location x="55" y="405"/>
 		<property name="Text" value="Robot Connection"/>
@@ -49,7 +70,7 @@
 		<location x="267" y="253"/>
 	</widget>
 	<widget field="Zero Shooter Encoder" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="251" y="49"/>
+		<location x="251" y="145"/>
 	</widget>
 	<widget field="TiltShooterFloor" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="465" y="133"/>
@@ -76,7 +97,7 @@
 		<location x="474" y="48"/>
 	</widget>
 	<widget field="Intake" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="325" y="78"/>
+		<location x="324" y="90"/>
 	</widget>
 	<widget field="IMU" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="344" y="208"/>
@@ -94,7 +115,7 @@
 		<property name="Text" value="Autonomous"/>
 	</static-widget>
 	<widget field="Shoot" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="328" y="106"/>
+		<location x="328" y="117"/>
 	</widget>
 </dashboard>
 <live-window>
