@@ -3,8 +3,9 @@ package org.usfirst.frc.team4669.robot;
 import org.usfirst.frc.team4669.robot.commands.Intake;
 import org.usfirst.frc.team4669.robot.commands.MoveForwardNorth;
 import org.usfirst.frc.team4669.robot.commands.Shoot;
-import org.usfirst.frc.team4669.robot.commands.TiltShooterDown;
-import org.usfirst.frc.team4669.robot.commands.TiltShooterUp;
+import org.usfirst.frc.team4669.robot.commands.TiltDown;
+import org.usfirst.frc.team4669.robot.commands.TiltUp;
+import org.usfirst.frc.team4669.robot.commands.TurnToDegree;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -30,11 +31,11 @@ public class OIXbox {
 		JoystickButton buttonLeftJoy = new JoystickButton(xboxControl, 9);
 		JoystickButton buttonRightJoy = new JoystickButton(xboxControl, 10);
 		
-		buttonX.whileHeld(new TiltShooterUp());
-		buttonY.whileHeld(new TiltShooterDown());
+		buttonX.whileHeld(new TiltUp());
+		buttonY.whileHeld(new TiltDown());
 		buttonA.whileHeld(new Intake());
 		buttonB.whenPressed(new Shoot());
-		buttonStart.whenPressed(new MoveForwardNorth(120));
+		buttonStart.whenPressed(new TurnToDegree(180));
 		
     }
 	

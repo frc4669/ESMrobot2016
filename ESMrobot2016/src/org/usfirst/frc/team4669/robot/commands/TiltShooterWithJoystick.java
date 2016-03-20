@@ -11,12 +11,12 @@ import org.usfirst.frc.team4669.robot.subsystems.Shooter;
 /**
  *
  */
-public class TiltShooterWithSticks extends Command {
+public class TiltShooterWithJoystick extends Command {
 	
 	private Shooter shooter;
 	private OI oi = Robot.oi;
 
-    public TiltShooterWithSticks() {
+    public TiltShooterWithJoystick() {
     	shooter = Robot.shooter;
         // Use requires() here to declare subsystem dependencies
         requires(shooter);
@@ -28,7 +28,18 @@ public class TiltShooterWithSticks extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	shooter.setTiltMotorSpeed(RobotMap.shooterTiltSpeedProportion*oi.getShooterY());
+    	shooter.enableLimitSwitch();
+    	if (!shooter.getLimitSwitchClosed()) {
+    		shooter.setTiltMotorSpeed(RobotMap.shooterTiltSpeedProportion*oi.getShooterY());
+    	}
+    	else if (shooter.getLimitSwitchClosed() && oi.getShooterY() > 0.0) {
+    		shooter.setTiltMotorSpeed(0);
+    		shooter.zeroTiltEncoder();
+    	}
+    	else {
+    		shooter.disableLimitSwitch();
+    		shooter.setTiltMotorSpeed(RobotMap.shooterTiltSpeedProportion*oi.getShooterY());
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

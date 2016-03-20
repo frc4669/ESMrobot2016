@@ -51,6 +51,7 @@ public class RobotMap {
 
 	// OTHER
 	public static final double wheelDiameter = 7.65;
+	public static final double wheelBase = 16.5;
 	/**
 	 * Calculates circumference of wheel given diameter.
 	 */

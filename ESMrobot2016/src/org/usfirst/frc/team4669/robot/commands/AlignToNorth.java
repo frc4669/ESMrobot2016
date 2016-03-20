@@ -27,10 +27,10 @@ public class AlignToNorth extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (imu.getAngle() - imu.getNorth() > 180) {
+    	if (Math.abs(imu.getAngle() - imu.getNorth()) > 180) {
     		driveTrain.setMotors(0.6, -0.6);
     	}
-    	else if (imu.getAngle() - imu.getNorth() <= 180) {
+    	else if (Math.abs(imu.getAngle() - imu.getNorth()) <= 180) {
     		driveTrain.setMotors(-0.6, 0.6);
     	}
     }

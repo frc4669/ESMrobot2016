@@ -1,11 +1,11 @@
 package org.usfirst.frc.team4669.robot;
 
 import org.usfirst.frc.team4669.robot.commands.Shoot;
-import org.usfirst.frc.team4669.robot.commands.TiltShooterDown;
+import org.usfirst.frc.team4669.robot.commands.TiltDown;
 import org.usfirst.frc.team4669.robot.commands.AlignToGoal;
 import org.usfirst.frc.team4669.robot.commands.CalibrateIMU;
 import org.usfirst.frc.team4669.robot.commands.Intake;
-import org.usfirst.frc.team4669.robot.commands.TiltShooterUp;
+import org.usfirst.frc.team4669.robot.commands.TiltUp;
 import org.usfirst.frc.team4669.robot.commands.Turn;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -32,8 +32,8 @@ public class OISNES {
 		
 		buttonL.whileHeld(new Turn(-45));
 		buttonR.whileHeld(new Turn(45));
-		buttonX.whileHeld(new TiltShooterUp());
-		buttonY.whileHeld(new TiltShooterDown());
+		buttonX.whileHeld(new TiltUp());
+		buttonY.whileHeld(new TiltDown());
 		buttonA.whenPressed(new Shoot());
 		buttonB.whileHeld(new Intake());
 		buttonSelect.whenPressed(new CalibrateIMU());
@@ -50,8 +50,8 @@ public class OISNES {
 		
 		buttonL2.whileHeld(new Turn(-45));
 		buttonR2.whileHeld(new Turn(45));
-		buttonX2.whileHeld(new TiltShooterUp());
-		buttonY2.whileHeld(new TiltShooterDown());
+		buttonX2.whileHeld(new TiltUp());
+		buttonY2.whileHeld(new TiltDown());
 		buttonA2.whenPressed(new Shoot());
 		buttonB2.whileHeld(new Intake());
 		buttonSelect2.whenPressed(new CalibrateIMU());

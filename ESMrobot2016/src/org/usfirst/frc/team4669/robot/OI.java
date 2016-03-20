@@ -1,16 +1,18 @@
 package org.usfirst.frc.team4669.robot;
 
 import org.usfirst.frc.team4669.robot.commands.Shoot;
-import org.usfirst.frc.team4669.robot.commands.TiltShooterDown;
-import org.usfirst.frc.team4669.robot.commands.TiltShooterFloor;
+import org.usfirst.frc.team4669.robot.commands.TiltShooter;
+import org.usfirst.frc.team4669.robot.commands.TiltDown;
+import org.usfirst.frc.team4669.robot.commands.TiltToFloor;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterPID;
-import org.usfirst.frc.team4669.robot.commands.TiltShooterStart;
+import org.usfirst.frc.team4669.robot.commands.TiltToStart;
+import org.usfirst.frc.team4669.robot.commands.AlignToGoal;
 import org.usfirst.frc.team4669.robot.commands.AlignToNorth;
 import org.usfirst.frc.team4669.robot.commands.CalibrateIMU;
 import org.usfirst.frc.team4669.robot.commands.GetVisionValues;
 import org.usfirst.frc.team4669.robot.commands.Intake;
 import org.usfirst.frc.team4669.robot.commands.MoveForwardUntilLevel;
-import org.usfirst.frc.team4669.robot.commands.TiltShooterUp;
+import org.usfirst.frc.team4669.robot.commands.TiltUp;
 import org.usfirst.frc.team4669.robot.commands.Turn;
 import org.usfirst.frc.team4669.robot.commands.TurnOffLight;
 import org.usfirst.frc.team4669.robot.commands.TurnOnLight;
@@ -34,24 +36,41 @@ public class OI {
 	public OI() {
     	//Variables for joystick buttons
     	JoystickButton shooter1 = new JoystickButton(shooterStick, 1); //trigger
-    	JoystickButton shooter2 = new JoystickButton(shooterStick, 2); //side button
-    	JoystickButton right1 = new JoystickButton(rightStick, 1); //RIGHT 1
-    	JoystickButton right2 = new JoystickButton(rightStick, 2); //RIGHT 2 
-    	JoystickButton right4 = new JoystickButton(leftStick, 4); //RIGHT 4
-    	JoystickButton left3 = new JoystickButton(leftStick, 3); //LEFT 3
-    	JoystickButton left2 = new JoystickButton(leftStick, 2); //LEFT 2
-    	JoystickButton left5 = new JoystickButton(leftStick, 5); //LEFT 5
+    	JoystickButton shooter2 = new JoystickButton(shooterStick, 2);
+    	JoystickButton shooter3 = new JoystickButton(shooterStick, 3);
+    	JoystickButton shooter4 = new JoystickButton(shooterStick, 4);
+    	JoystickButton shooter5 = new JoystickButton(shooterStick, 5);
+    	JoystickButton shooter6 = new JoystickButton(shooterStick, 6);
+    	JoystickButton shooter7 = new JoystickButton(shooterStick, 7);
+    	JoystickButton shooter8 = new JoystickButton(shooterStick, 8);
+    	JoystickButton shooter9 = new JoystickButton(shooterStick, 9);
+    	JoystickButton shooter10 = new JoystickButton(shooterStick, 10);
+    	JoystickButton shooter11 = new JoystickButton(shooterStick, 11);
+//    	JoystickButton right1 = new JoystickButton(rightStick, 1); //RIGHT 1
+//    	JoystickButton right2 = new JoystickButton(rightStick, 2); //RIGHT 2 
+//    	JoystickButton right4 = new JoystickButton(leftStick, 4); //RIGHT 4
+//    	JoystickButton left3 = new JoystickButton(leftStick, 3); //LEFT 3
+//    	JoystickButton left2 = new JoystickButton(leftStick, 2); //LEFT 2
+//    	JoystickButton left5 = new JoystickButton(leftStick, 5); //LEFT 5
     	
     	shooter1.whileHeld(new Intake());
-    	shooter2.whenPressed(new Shoot());
-    	right1.whileHeld(new Intake());
-    	right2.whenPressed(new Shoot());
+    	shooter2.whenPressed(new TiltToStart());
+    	shooter3.whenPressed(new TiltToFloor());
+    	shooter4.whenPressed(new Turn(-5));
+    	shooter5.whenPressed(new Turn(5));
+    	shooter6.whenPressed(new Shoot());
+    	shooter7.whenPressed(new AlignToGoal());
+    	shooter10.whenPressed(new TiltShooter(30));
+    	shooter11.whenPressed(new TiltShooter(90));
     	
-    	left3.whileHeld(new TiltShooterDown());
-    	left2.whileHeld(new TiltShooterUp());
-    	
-    	left5.whenPressed(new Turn(180));
-    	right4.whenPressed(new Turn(180));
+//    	right1.whileHeld(new Intake());
+//    	right2.whenPressed(new Shoot());
+//    	
+//    	left3.whileHeld(new TiltShooterDown());
+//    	left2.whileHeld(new TiltShooterUp());
+//    	
+//    	left5.whenPressed(new Turn(180));
+//    	right4.whenPressed(new Turn(180));
     	
     	
     	//SmartDashboard commands
@@ -64,10 +83,10 @@ public class OI {
     	SmartDashboard.putData("Shoot", new Shoot());
     	SmartDashboard.putData("Intake", new Intake());
     	
-    	SmartDashboard.putData("TiltShooterUp", new TiltShooterUp());
-    	SmartDashboard.putData("TiltShooterDown", new TiltShooterDown());
-    	SmartDashboard.putData("TiltShooterStart", new TiltShooterStart());
-    	SmartDashboard.putData("TiltShooterFloor", new TiltShooterFloor());
+    	SmartDashboard.putData("TiltShooterUp", new TiltUp());
+    	SmartDashboard.putData("TiltShooterDown", new TiltDown());
+    	SmartDashboard.putData("TiltShooterStart", new TiltToStart());
+    	SmartDashboard.putData("TiltShooterFloor", new TiltToFloor());
     	
     	//IMU calibrate
     	SmartDashboard.putData("IMU Zero Reading", new CalibrateIMU());

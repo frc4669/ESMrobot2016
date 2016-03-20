@@ -3,7 +3,7 @@ package org.usfirst.frc.team4669.robot.subsystems;
 
 import org.usfirst.frc.team4669.robot.RobotMap;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterPID;
-import org.usfirst.frc.team4669.robot.commands.TiltShooterWithSticks;
+import org.usfirst.frc.team4669.robot.commands.TiltShooterWithJoystick;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterWithXbox;
 
 import edu.wpi.first.wpilibj.CANTalon;
@@ -139,11 +139,7 @@ public class Shooter extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new TiltShooterWithXbox());
+    	setDefaultCommand(new TiltShooterWithJoystick());
     }
 
-	public void changeToShootingSpeedMode() {
-
-		
-	}
 }

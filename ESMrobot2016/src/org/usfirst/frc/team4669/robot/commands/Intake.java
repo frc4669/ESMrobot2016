@@ -1,7 +1,6 @@
 
 package org.usfirst.frc.team4669.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4669.robot.Robot;
@@ -26,8 +25,9 @@ public class Intake extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	shooter.setLeftShooterSpeed(-1);
-    	shooter.setRightShooterSpeed(1);
+//    	shooter.setLeftShooterSpeed(-1);
+//    	shooter.setRightShooterSpeed(1);
+    	shooter.setShootingRPM(-2000);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -37,8 +37,9 @@ public class Intake extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	shooter.setLeftShooterSpeed(0);
-    	shooter.setRightShooterSpeed(0);
+//    	shooter.setLeftShooterSpeed(0);
+//    	shooter.setRightShooterSpeed(0);
+    	shooter.setShootingRPM(0);
     }
 
     // Called when another command which requires one or more of the same

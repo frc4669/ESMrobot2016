@@ -1,40 +1,43 @@
+
 package org.usfirst.frc.team4669.robot.commands;
 
-import org.usfirst.frc.team4669.robot.OIXbox;
-import org.usfirst.frc.team4669.robot.Robot;
-import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
-
 import edu.wpi.first.wpilibj.command.Command;
+
+import org.usfirst.frc.team4669.robot.Robot;
+import org.usfirst.frc.team4669.robot.RobotMap;
+import org.usfirst.frc.team4669.robot.subsystems.Shooter;
 
 /**
  *
  */
-public class ArcadeDriveWithXbox extends Command {
-	private DriveTrain driveTrain;
-	private OIXbox oixbox;
-    public ArcadeDriveWithXbox() {
-    	driveTrain = Robot.driveTrain;
-    	oixbox = Robot.oixbox;
-    	requires(driveTrain);
+public class TiltDown extends Command {
+	
+	private Shooter shooter;
+
+    public TiltDown() {
+    	shooter = Robot.shooter;
+        // Use requires() here to declare subsystem dependencies
+        requires(shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	shooter.disableLimitSwitch();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveTrain.setArcadeDrive(-oixbox.getLeftY(), -oixbox.getLeftX());
+    	shooter.setTiltMotorSpeed(-RobotMap.shooterTiltSpeedProportion);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	return shooter.getTiltPosition() <= -4096;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	driveTrain.stopMotors();
+    	shooter.setTiltMotorSpeed(0);
     }
 
     // Called when another command which requires one or more of the same

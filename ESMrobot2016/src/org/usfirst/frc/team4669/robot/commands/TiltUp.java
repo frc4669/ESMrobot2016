@@ -10,11 +10,11 @@ import org.usfirst.frc.team4669.robot.subsystems.Shooter;
 /**
  *
  */
-public class TiltShooterUp extends Command {
+public class TiltUp extends Command {
 	
 	private Shooter shooter;
 
-    public TiltShooterUp() {
+    public TiltUp() {
     	shooter = Robot.shooter;
         // Use requires() here to declare subsystem dependencies
         requires(shooter);

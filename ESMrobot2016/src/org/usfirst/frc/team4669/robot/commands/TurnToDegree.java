@@ -6,50 +6,58 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team4669.robot.Robot;
 import org.usfirst.frc.team4669.robot.RobotMap;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
 
 /**
  *
  */
-public class Turn extends Command {
+public class TurnToDegree extends Command {
 	
 	private DriveTrain driveTrain;
+	private IMUSubsystem imu;
 	private static double degreesToTurn;
 	private double distanceToTravel;
+	private double degree;
 
-	public Turn(double degree) {
+	public TurnToDegree(double degree) {
         driveTrain = Robot.driveTrain;
-    	degreesToTurn = degree*(RobotMap.wheelBase*Math.PI/360); //16.5 distance between wheels
-    	distanceToTravel = degreesToTurn / RobotMap.encoderCountConstant;
-        requires(Robot.driveTrain);
+        imu = Robot.imu;
+        this.degree = degree;
+    	requires(driveTrain);
+    	requires(imu);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	driveTrain.zeroEncoders();
+    	degreesToTurn =  (imu.getAngle() - degree -180)*(RobotMap.wheelBase*Math.PI/360); //16.5 distance between wheels
+    	distanceToTravel = 0.5*degreesToTurn / RobotMap.encoderCountConstant;
+        driveTrain.zeroEncoders();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//if degree is positive, robot will turn clockwise, else if negative, robot turns counterclockwise
-    	if (degreesToTurn > 0) {
-    		driveTrain.setMotors(-1, 1);
+    	if (Math.abs(imu.getAngle() -degree) > 180) {
+    		driveTrain.setMotors(0.6, -0.6);
     	}
-    	else if (degreesToTurn < 0) {
-    		driveTrain.setMotors(1, -1);
+    	else if (Math.abs(imu.getAngle() -degree) <= 180) {
+    		driveTrain.setMotors(-0.6, 0.6);
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (degreesToTurn > 0) {
-    		return driveTrain.getLeftEncoder() > distanceToTravel;
-    	}
-    	else if (degreesToTurn < 0) {
-    		return driveTrain.getRightEncoder() > distanceToTravel;
-    	}
-    	else {
-    		return true;
-    	}
+//    	if (degreesToTurn > 0) {
+//    		return driveTrain.getLeftEncoder() > distanceToTravel;
+//    	}
+//    	else if (degreesToTurn < 0) {
+//    		return driveTrain.getRightEncoder() > distanceToTravel;
+//    	}
+//    	else {
+//    		return true;
+//    	}
+
+    	double angle = imu.getAngle();
+        return angle<degree+2 && angle>degree-2;
     }
 
     // Called once after isFinished returns true
