@@ -1,10 +1,13 @@
 package org.usfirst.frc.team4669.robot;
 
 import org.usfirst.frc.team4669.robot.commands.Intake;
-import org.usfirst.frc.team4669.robot.commands.MoveForwardNorth;
 import org.usfirst.frc.team4669.robot.commands.Shoot;
 import org.usfirst.frc.team4669.robot.commands.TiltDown;
+import org.usfirst.frc.team4669.robot.commands.TiltShooterLowBar;
+import org.usfirst.frc.team4669.robot.commands.TiltToFloor;
+import org.usfirst.frc.team4669.robot.commands.TiltToStart;
 import org.usfirst.frc.team4669.robot.commands.TiltUp;
+import org.usfirst.frc.team4669.robot.commands.Turn;
 import org.usfirst.frc.team4669.robot.commands.TurnToDegree;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -31,11 +34,16 @@ public class OIXbox {
 		JoystickButton buttonLeftJoy = new JoystickButton(xboxControl, 9);
 		JoystickButton buttonRightJoy = new JoystickButton(xboxControl, 10);
 		
-		buttonX.whileHeld(new TiltUp());
-		buttonY.whileHeld(new TiltDown());
-		buttonA.whileHeld(new Intake());
-		buttonB.whenPressed(new Shoot());
+		buttonLB.whenPressed(new TiltDown());
+		buttonRB.whenPressed(new TiltUp());
+		buttonX.whenPressed(new TiltShooterLowBar());
+		buttonY.whenPressed(new TiltToStart());
+		buttonA.whenPressed(new Turn(180));
+		buttonB.whenPressed(new TiltToFloor());
 		buttonStart.whenPressed(new TurnToDegree(180));
+		buttonBack.whenPressed(new TurnToDegree(0));
+		buttonLeftJoy.whileHeld(new Intake());
+		buttonRightJoy.whenPressed(new Shoot());
 		
     }
 	

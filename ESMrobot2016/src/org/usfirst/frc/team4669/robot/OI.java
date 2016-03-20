@@ -2,9 +2,10 @@ package org.usfirst.frc.team4669.robot;
 
 import org.usfirst.frc.team4669.robot.commands.Shoot;
 import org.usfirst.frc.team4669.robot.commands.TiltShooter;
+import org.usfirst.frc.team4669.robot.commands.TiltShooterLowBar;
 import org.usfirst.frc.team4669.robot.commands.TiltDown;
 import org.usfirst.frc.team4669.robot.commands.TiltToFloor;
-import org.usfirst.frc.team4669.robot.commands.TiltShooterPID;
+import org.usfirst.frc.team4669.robot.commands.TiltAtBatter;
 import org.usfirst.frc.team4669.robot.commands.TiltToStart;
 import org.usfirst.frc.team4669.robot.commands.AlignToGoal;
 import org.usfirst.frc.team4669.robot.commands.AlignToNorth;
@@ -60,6 +61,8 @@ public class OI {
     	shooter5.whenPressed(new Turn(5));
     	shooter6.whenPressed(new Shoot());
     	shooter7.whenPressed(new AlignToGoal());
+    	shooter8.whenPressed(new TiltAtBatter());
+    	shooter9.whenPressed(new TiltShooterLowBar());
     	shooter10.whenPressed(new TiltShooter(30));
     	shooter11.whenPressed(new TiltShooter(90));
     	
@@ -78,15 +81,14 @@ public class OI {
     	SmartDashboard.putData("TurnOnLight", new TurnOnLight());
     	SmartDashboard.putData("TurnOffLight", new TurnOffLight());
     	
-    	SmartDashboard.putData("TiltShooterPID", new TiltShooterPID());
-    	
     	SmartDashboard.putData("Shoot", new Shoot());
     	SmartDashboard.putData("Intake", new Intake());
     	
-    	SmartDashboard.putData("TiltShooterUp", new TiltUp());
-    	SmartDashboard.putData("TiltShooterDown", new TiltDown());
-    	SmartDashboard.putData("TiltShooterStart", new TiltToStart());
-    	SmartDashboard.putData("TiltShooterFloor", new TiltToFloor());
+    	SmartDashboard.putData("TiltUp", new TiltUp());
+    	SmartDashboard.putData("TiltDown", new TiltDown());
+    	SmartDashboard.putData("TiltToStart", new TiltToStart());
+    	SmartDashboard.putData("TiltToFloor", new TiltToFloor());
+    	SmartDashboard.putData("TiltToBaseAngle", new TiltAtBatter());
     	
     	//IMU calibrate
     	SmartDashboard.putData("IMU Zero Reading", new CalibrateIMU());
@@ -97,8 +99,6 @@ public class OI {
     	SmartDashboard.putData("AlignToNorth", new AlignToNorth());
     	SmartDashboard.putData("MoveForwardUntilLevel", new MoveForwardUntilLevel());
     	
-//    	SmartDashboard.putData("Turn Degrees", new Turn(degree));
-//    	SmartDashboard.putData("Turn Clockwise Degrees", new TurnClockwise(degree));
     }
     
     public double getLeftY() {
@@ -110,7 +110,14 @@ public class OI {
     }
     
     public double getShooterY() {
-    	return shooterStick.getY();
+    	double y = shooterStick.getY();
+		if (Math.abs(y) > 0.2) {
+			return y; 
+		}
+		else {
+			return 0;
+		}
     }
+    
 }
 

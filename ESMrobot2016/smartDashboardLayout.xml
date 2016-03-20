@@ -1,5 +1,20 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="TiltToBaseAngle" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="464" y="184"/>
+	</widget>
+	<widget field="TiltToFloor" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="490" y="130"/>
+	</widget>
+	<widget field="TiltToStart" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="490" y="103"/>
+	</widget>
+	<widget field="TiltDown" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="499" y="76"/>
+	</widget>
+	<widget field="TiltUp" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="513" y="49"/>
+	</widget>
 	<widget field="VisionHeight" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="430" y="383"/>
 	</widget>
@@ -72,29 +87,17 @@
 	<widget field="Zero Shooter Encoder" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="251" y="145"/>
 	</widget>
-	<widget field="TiltShooterFloor" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="465" y="133"/>
-	</widget>
 	<widget field="TiltShooterPID" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="472" y="162"/>
+		<location x="471" y="157"/>
 	</widget>
 	<widget field="TurnOnLight" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="293" y="342"/>
-	</widget>
-	<widget field="TiltShooterStart" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="464" y="105"/>
 	</widget>
 	<widget field="GetVisionValues" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="278" y="314"/>
 	</widget>
 	<widget field="IMU Calibrate" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="288" y="226"/>
-	</widget>
-	<widget field="TiltShooterDown" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="461" y="77"/>
-	</widget>
-	<widget field="TiltShooterUp" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="474" y="48"/>
 	</widget>
 	<widget field="Intake" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="324" y="90"/>
@@ -120,4 +123,8 @@
 </dashboard>
 <live-window>
 </live-window>
+	<hidden field="TiltShooterFloor"/>
+	<hidden field="TiltShooterDown"/>
+	<hidden field="TiltShooterStart"/>
+	<hidden field="TiltShooterUp"/>
 </xml>
