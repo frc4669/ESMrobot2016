@@ -6,7 +6,7 @@ package org.usfirst.frc.team4669.robot.commands;
 public class TiltAtBatter extends TiltShooter {
 	
     public TiltAtBatter() {
-        super(2.4);
+        super(10);
     }
 
 }

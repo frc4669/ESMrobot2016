@@ -66,7 +66,7 @@ public class Robot extends IterativeRobot {
     	imu = new IMUSubsystem();
     	lightRelay = new LightRelay();
     	oi = new OI();
-    	oisnes = new OISNES();
+//    	oisnes = new OISNES();
     	oixbox = new OIXbox();
     	
     	server = CameraServer.getInstance();

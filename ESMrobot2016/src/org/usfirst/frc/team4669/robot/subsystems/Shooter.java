@@ -2,7 +2,6 @@
 package org.usfirst.frc.team4669.robot.subsystems;
 
 import org.usfirst.frc.team4669.robot.RobotMap;
-import org.usfirst.frc.team4669.robot.commands.TiltShooterPID;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterWithJoystick;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterWithXbox;
 

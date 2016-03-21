@@ -18,6 +18,8 @@ public class TurnToDegree extends Command {
 	private static double degreesToTurn;
 	private double distanceToTravel;
 	private double degree;
+	private boolean rotateLeft = false;
+	private boolean rotateRight = false;
 
 	public TurnToDegree(double degree) {
         driveTrain = Robot.driveTrain;
@@ -32,15 +34,23 @@ public class TurnToDegree extends Command {
     	degreesToTurn =  (imu.getAngle() - degree -180)*(RobotMap.wheelBase*Math.PI/360); //16.5 distance between wheels
     	distanceToTravel = 0.5*degreesToTurn / RobotMap.encoderCountConstant;
         driveTrain.zeroEncoders();
+        if (Math.abs(imu.getAngle() -degree) > 180) {
+    		rotateRight = true;
+    		rotateLeft = false;
+    	}
+    	else if (Math.abs(imu.getAngle() -degree) <= 180) {
+    		rotateLeft = true;
+    		rotateRight = false;
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Math.abs(imu.getAngle() -degree) > 180) {
-    		driveTrain.setMotors(0.8, -0.8);
+    	if (rotateRight) {
+    		driveTrain.setMotors(0.7, -0.7);
     	}
-    	else if (Math.abs(imu.getAngle() -degree) <= 180) {
-    		driveTrain.setMotors(-0.8, 0.8);
+    	else if (rotateLeft) {
+    		driveTrain.setMotors(-0.7, 0.7);
     	}
     }
 
@@ -50,20 +60,22 @@ public class TurnToDegree extends Command {
 //    		return driveTrain.getLeftEncoder() > distanceToTravel;
 //    	}
 //    	else if (degreesToTurn < 0) {
-//    		return driveTrain.getRightEncoder() > distanceToTravel;
+//    		return driveTrain.getRightEncoder() > -distanceToTravel;
 //    	}
 //    	else {
 //    		return true;
 //    	}
 
     	double angle = imu.getAngle();
-        return angle<degree+2 && angle>degree-2;
+        return angle<degree+5 && angle>degree-5;
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	driveTrain.stopMotors();
     	driveTrain.zeroEncoders();
+    	rotateLeft = false;
+    	rotateRight = false;
     }
 
     // Called when another command which requires one or more of the same

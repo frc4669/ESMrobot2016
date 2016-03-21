@@ -2,7 +2,6 @@
 package org.usfirst.frc.team4669.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc.team4669.robot.Robot;
 import org.usfirst.frc.team4669.robot.RobotMap;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
@@ -32,20 +31,20 @@ public class Turn extends Command {
     protected void execute() {
     	//if degree is positive, robot will turn clockwise, else if negative, robot turns counterclockwise
     	if (degreesToTurn > 0) {
-    		driveTrain.setMotors(-1, 1);
+    		driveTrain.setArcadeDrive(0, -RobotMap.driveTrainSpeedProportion);
     	}
     	else if (degreesToTurn < 0) {
-    		driveTrain.setMotors(1, -1);
+    		driveTrain.setArcadeDrive(0, RobotMap.driveTrainSpeedProportion);
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	if (degreesToTurn > 0) {
-    		return driveTrain.getLeftEncoder() > distanceToTravel;
+    		return driveTrain.getLeftEncoder() > distanceToTravel || driveTrain.getRightEncoder() < -distanceToTravel;
     	}
     	else if (degreesToTurn < 0) {
-    		return driveTrain.getRightEncoder() > distanceToTravel;
+    		return driveTrain.getLeftEncoder() < distanceToTravel ||driveTrain.getRightEncoder() > -distanceToTravel;
     	}
     	else {
     		return true;

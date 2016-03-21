@@ -22,14 +22,14 @@ public class TiltToFloor extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.shooter.getTiltEncoder() > -3615) {
+    	if (Robot.shooter.getTiltEncoder() > -3850) {
     		Robot.shooter.setTiltMotorSpeed(-1.0);
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.shooter.getTiltEncoder() <=  -3615;
+        return Robot.shooter.getTiltEncoder() <=  -3850;
     }
 
     // Called once after isFinished returns true

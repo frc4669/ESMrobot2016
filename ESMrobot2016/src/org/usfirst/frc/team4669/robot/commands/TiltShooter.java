@@ -28,13 +28,13 @@ public class TiltShooter extends Command {
     		Robot.shooter.setTiltMotorSpeed(-1.0);
     	}
     	else if (Robot.shooter.getTiltEncoder() < encoderValueToTurn) {
-    		Robot.shooter.setTiltMotorSpeed(-1.0);
+    		Robot.shooter.setTiltMotorSpeed(1.0);
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Math.abs(Robot.shooter.getTiltEncoder() - encoderValueToTurn) < 20;
+        return Math.abs(Robot.shooter.getTiltEncoder() - encoderValueToTurn) < 100;
     }
 
     // Called once after isFinished returns true

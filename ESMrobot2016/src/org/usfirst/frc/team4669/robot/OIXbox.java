@@ -34,14 +34,14 @@ public class OIXbox {
 		JoystickButton buttonLeftJoy = new JoystickButton(xboxControl, 9);
 		JoystickButton buttonRightJoy = new JoystickButton(xboxControl, 10);
 		
-		buttonLB.whenPressed(new TiltDown());
-		buttonRB.whenPressed(new TiltUp());
+		buttonLB.whileHeld(new TiltDown());
+		buttonRB.whileHeld(new TiltUp());
 		buttonX.whenPressed(new TiltShooterLowBar());
 		buttonY.whenPressed(new TiltToStart());
-		buttonA.whenPressed(new Turn(180));
+		buttonA.whenPressed(new TurnToDegree(180));
 		buttonB.whenPressed(new TiltToFloor());
-		buttonStart.whenPressed(new TurnToDegree(180));
-		buttonBack.whenPressed(new TurnToDegree(0));
+		buttonStart.whenPressed(new TurnToDegree(0));
+		buttonBack.whenPressed(new Turn(45));
 		buttonLeftJoy.whileHeld(new Intake());
 		buttonRightJoy.whenPressed(new Shoot());
 		

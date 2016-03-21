@@ -80,10 +80,10 @@ public class IMUSubsystem extends Subsystem {
 	}
 	
 	public boolean isLevel() {
-		if (Math.abs(levelX-getAngleX()) > 5) {
+		if (Math.abs(levelX-getAngleX()) > 10) {
 			return false;
 		}
-		else if (Math.abs(levelY-getAngleY()) > 5) {
+		else if (Math.abs(levelY-getAngleY()) > 10) {
 			return false;
 		}
 		return true;

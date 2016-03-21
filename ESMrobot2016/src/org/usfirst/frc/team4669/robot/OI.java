@@ -1,10 +1,11 @@
 package org.usfirst.frc.team4669.robot;
 
 import org.usfirst.frc.team4669.robot.commands.Shoot;
-import org.usfirst.frc.team4669.robot.commands.TiltShooter;
 import org.usfirst.frc.team4669.robot.commands.TiltShooterLowBar;
 import org.usfirst.frc.team4669.robot.commands.TiltDown;
 import org.usfirst.frc.team4669.robot.commands.TiltToFloor;
+import org.usfirst.frc.team4669.robot.commands.TiltToHighGoal;
+import org.usfirst.frc.team4669.robot.commands.TiltToLowGoal;
 import org.usfirst.frc.team4669.robot.commands.TiltAtBatter;
 import org.usfirst.frc.team4669.robot.commands.TiltToStart;
 import org.usfirst.frc.team4669.robot.commands.AlignToGoal;
@@ -57,14 +58,14 @@ public class OI {
     	shooter1.whileHeld(new Intake());
     	shooter2.whenPressed(new TiltToStart());
     	shooter3.whenPressed(new TiltToFloor());
-    	shooter4.whenPressed(new Turn(-5));
-    	shooter5.whenPressed(new Turn(5));
+    	shooter4.whenPressed(new Turn(-45));
+    	shooter5.whenPressed(new Turn(45));
     	shooter6.whenPressed(new Shoot());
     	shooter7.whenPressed(new AlignToGoal());
     	shooter8.whenPressed(new TiltAtBatter());
     	shooter9.whenPressed(new TiltShooterLowBar());
-    	shooter10.whenPressed(new TiltShooter(30));
-    	shooter11.whenPressed(new TiltShooter(90));
+    	shooter10.whenPressed(new TiltToLowGoal());
+    	shooter11.whenPressed(new TiltToHighGoal());
     	
 //    	right1.whileHeld(new Intake());
 //    	right2.whenPressed(new Shoot());
