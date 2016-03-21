@@ -23,7 +23,7 @@ public class TurnToDegree extends Command {
 
 	public TurnToDegree(double degree) {
         driveTrain = Robot.driveTrain;
-        imu = Robot.imu;
+        imu = Robot.imuSubsystem;
         this.degree = degree;
     	requires(driveTrain);
     	requires(imu);

@@ -43,7 +43,7 @@ public class Robot extends IterativeRobot {
 	//public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static DriveTrain driveTrain;
-	public static IMUSubsystem imu;
+	public static IMUSubsystem imuSubsystem = new IMUSubsystem();
 	public static Shooter shooter;
 	public static LightRelay lightRelay;
 	public static OISNES oisnes;
@@ -63,7 +63,6 @@ public class Robot extends IterativeRobot {
     	//Initialize subsystems and variables
     	driveTrain = new DriveTrain();
     	shooter = new Shooter();
-    	imu = new IMUSubsystem();
     	lightRelay = new LightRelay();
     	oi = new OI();
 //    	oisnes = new OISNES();
@@ -190,7 +189,7 @@ public class Robot extends IterativeRobot {
     	SmartDashboard.putNumber("Drive Right Encoder", driveTrain.getRightEncoder());
     	
     	//Update IMU values on SmartDashboard
-    	SmartDashboard.putNumber("IMU", imu.getAngle());
+    	SmartDashboard.putNumber("IMU", imuSubsystem.getAngle());
     	
     	SmartDashboard.putNumber("Shooter Left Encoder", shooter.getLeftShooterRPM());
     	SmartDashboard.putNumber("Shooter Right Encoder", shooter.getRightShooterRPM());

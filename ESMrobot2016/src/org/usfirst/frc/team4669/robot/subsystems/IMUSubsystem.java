@@ -12,13 +12,14 @@ public class IMUSubsystem extends Subsystem {
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	public ADIS16448_IMU imu = new ADIS16448_IMU();
+	public ADIS16448_IMU imu;
 	public double north;
 	public double levelX;
 	public double levelY;
 	
 	public IMUSubsystem() {
 		super();
+		imu =  new ADIS16448_IMU();
 		calibrate();
 		reset();
 	}

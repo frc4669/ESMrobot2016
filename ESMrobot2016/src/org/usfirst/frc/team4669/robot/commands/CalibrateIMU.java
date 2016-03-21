@@ -14,7 +14,7 @@ public class CalibrateIMU extends Command {
 	private IMUSubsystem imuSubsystem;
 
     public CalibrateIMU() {
-    	imuSubsystem = Robot.imu;
+    	imuSubsystem = Robot.imuSubsystem;
         // Use requires() here to declare subsystem dependencies
         requires(imuSubsystem);
     }

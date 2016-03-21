@@ -23,7 +23,7 @@ public class MoveForwardNorth extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	driveTrain = Robot.driveTrain;
-    	imu = Robot.imu;
+    	imu = Robot.imuSubsystem;
     	distanceToTravel = distance / RobotMap.encoderCountConstant;
     	requires(driveTrain);
     	requires(imu);

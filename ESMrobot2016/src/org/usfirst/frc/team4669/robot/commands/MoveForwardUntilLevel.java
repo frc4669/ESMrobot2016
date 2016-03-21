@@ -18,7 +18,7 @@ public class MoveForwardUntilLevel extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	driveTrain = Robot.driveTrain;
-    	imu = Robot.imu;
+    	imu = Robot.imuSubsystem;
     	requires(driveTrain);
     	requires(imu);
     }

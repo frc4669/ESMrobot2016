@@ -16,7 +16,7 @@ public class AlignToNorth extends Command {
 	
     public AlignToNorth() {
     	driveTrain = Robot.driveTrain;
-    	imu = Robot.imu;
+    	imu = Robot.imuSubsystem;
         requires(driveTrain);
         requires(imu);
     }
