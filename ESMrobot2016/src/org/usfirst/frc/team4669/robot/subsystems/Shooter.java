@@ -26,16 +26,17 @@ public class Shooter extends Subsystem {
 		// rightShooter setup.
 		rightShooter = new CANTalon(RobotMap.rightShooter);
 		rightShooter.changeControlMode(TalonControlMode.Speed);
+		rightShooter.reverseSensor(true);
 		rightShooter.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
 		rightShooter.configEncoderCodesPerRev(RobotMap.shooterEncoderCounts);
-		rightShooter.setPID(0,0,0,0.1,0,12, 0);
+		rightShooter.setPID(0,0,0,0.05,0,12, 0);
 		
 		// leftShooter setup
 		leftShooter = new CANTalon(RobotMap.leftShooter);
 		leftShooter.changeControlMode(TalonControlMode.Speed);
 		leftShooter.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
 		leftShooter.configEncoderCodesPerRev(RobotMap.shooterEncoderCounts);
-		leftShooter.setPID(0,0,0,0.1,0,12, 0);
+		leftShooter.setPID(0,0,0,0.05,0,12, 0);
 		
 		// tiltMotor setup
 		tiltMotor = new CANTalon(RobotMap.tiltMotor);
@@ -55,19 +56,19 @@ public class Shooter extends Subsystem {
     // here. Call these from Commands.
 	
 	public int getRightShooterRPM() {
-		return rightShooter.getEncVelocity();
+		return rightShooter.getEncVelocity()*600/RobotMap.shooterEncoderCounts;
 	}
 	
 	public int getLeftShooterRPM() {
-		return leftShooter.getEncVelocity();
+		return leftShooter.getEncVelocity()*600/RobotMap.shooterEncoderCounts;
 	}
 	
 	public void setRightShooterRPM(double velocity) {
-		rightShooter.set(velocity);
+		rightShooter.set(velocity*RobotMap.shooterEncoderCounts/6000);
 	}
 	
 	public void setLeftShooterRPM(double velocity) {
-		leftShooter.set(velocity);
+		leftShooter.set(velocity*RobotMap.shooterEncoderCounts/6000);
 	}
 	
 	public void setShootingRPM(double velocity) {

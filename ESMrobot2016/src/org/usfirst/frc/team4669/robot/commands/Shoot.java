@@ -34,10 +34,10 @@ public class Shoot extends Command {
     	if (timer.get()==0) {
     		shooter.setServoAngle(120);
     	}
-    	shooter.setShootingRPM(2000);
+    	shooter.setShootingRPM(5000);
 //    	shooter.setLeftShooterSpeed(1);
 //    	shooter.setRightShooterSpeed(-1);
-    	if (!done && shooter.getRightShooterRPM()<=-35000) {
+    	if (!done && shooter.getRightShooterRPM()<=-5000) {
     		timer.start();
     		shooter.setServoAngle(0);
     		done = true;

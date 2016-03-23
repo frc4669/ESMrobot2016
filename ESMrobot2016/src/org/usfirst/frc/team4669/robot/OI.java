@@ -58,8 +58,8 @@ public class OI {
     	shooter1.whileHeld(new Intake());
     	shooter2.whenPressed(new TiltToStart());
     	shooter3.whenPressed(new TiltToFloor());
-    	shooter4.whenPressed(new Turn(-45));
-    	shooter5.whenPressed(new Turn(45));
+    	shooter4.whenPressed(new Turn(-5));
+    	shooter5.whenPressed(new Turn(5));
     	shooter6.whenPressed(new Shoot());
     	shooter7.whenPressed(new AlignToGoal());
     	shooter8.whenPressed(new TiltAtBatter());

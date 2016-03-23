@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class LowBar extends CommandGroup{
 	public LowBar() {
-		addSequential(new MoveForwardInches(RobotMap.autoToLowBar));
+		addSequential(new MoveForwardNorth(RobotMap.autoToLowBar));
 		addSequential(new TiltShooter(RobotMap.lowBarTilt));
-		addSequential(new MoveForwardInches(RobotMap.lowBarDistance));
+		addSequential(new MoveForwardNorth(RobotMap.lowBarDistance));
 		addSequential(new MoveForwardUntilLevel());
 		addSequential(new AlignToNorth());
 	}

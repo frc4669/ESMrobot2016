@@ -13,7 +13,7 @@ import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 public class TurnToGoal extends Command {
 	
 	private DriveTrain driveTrain;
-	private static double degreesToTurn;
+	private double degreesToTurn;
 	private double distanceToTravel;
 	private double degree = 0;
 

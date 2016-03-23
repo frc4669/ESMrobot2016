@@ -15,7 +15,7 @@ public class TurnToDegree extends Command {
 	
 	private DriveTrain driveTrain;
 	private IMUSubsystem imu;
-	private static double degreesToTurn;
+	private double degreesToTurn;
 	private double distanceToTravel;
 	private double degree;
 	private boolean rotateLeft = false;
@@ -32,7 +32,7 @@ public class TurnToDegree extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	degreesToTurn =  (imu.getAngle() - degree -180)*(RobotMap.wheelBase*Math.PI/360); //16.5 distance between wheels
-    	distanceToTravel = 0.5*degreesToTurn / RobotMap.encoderCountConstant;
+    	distanceToTravel = degreesToTurn / RobotMap.encoderCountConstant;
         driveTrain.zeroEncoders();
         if (Math.abs(imu.getAngle() -degree) > 180) {
     		rotateRight = true;
@@ -47,10 +47,10 @@ public class TurnToDegree extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if (rotateRight) {
-    		driveTrain.setMotors(0.7, -0.7);
+    		driveTrain.setArcadeDrive(0, -RobotMap.driveTrainSpeedProportion);
     	}
     	else if (rotateLeft) {
-    		driveTrain.setMotors(-0.7, 0.7);
+    		driveTrain.setArcadeDrive(0, RobotMap.driveTrainSpeedProportion);
     	}
     }
 
