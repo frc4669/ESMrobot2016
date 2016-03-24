@@ -23,7 +23,7 @@ public class TurnToGoal extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	driveTrain.zeroEncoders();
-    	double distance = -0.15*Robot.visionTable.getNumber("w", 130)+28.5;
+    	double distance = -0.154*Robot.visionTable.getNumber("w", 130)+28.3;
     	double degree = Math.atan((Robot.visionTable.getNumber("x", 320)-320)/distance);
     	degreesToTurn = degree*(RobotMap.wheelBase*Math.PI/360); //16.5 distance between wheels
     	distanceToTravel = degreesToTurn / RobotMap.encoderCountConstant;
