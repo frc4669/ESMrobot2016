@@ -62,12 +62,12 @@ public class RobotMap {
 	
 	//Defense Type Low Bar
 	public static final double autoToLowBar = 40;
-	public static final double lowBarTilt = -120;
+	public static final double lowBarTilt = 120;
 	public static final double lowBarDistance = 60;
 	
 	//Defense Type Cheval de Frise
 	public static final double autoToCheval = 40;
-	public static final double chevalTilt = -110;
+	public static final double chevalTilt = 110;
 	public static final double chevalDistance = 60;
 	
 	
