@@ -9,7 +9,6 @@ public class ChevalDeFrise extends CommandGroup{
 		addSequential(new MoveForwardNorth(RobotMap.autoToCheval));
 		addSequential(new TiltShooter(RobotMap.chevalTilt));
 		addSequential(new MoveForwardNorth(RobotMap.chevalDistance));
-		addSequential(new MoveForwardUntilLevel());
 		addSequential(new AlignToNorth());
 	}
 }

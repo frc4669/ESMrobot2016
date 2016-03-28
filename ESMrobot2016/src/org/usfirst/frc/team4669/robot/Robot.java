@@ -1,13 +1,13 @@
 
 package org.usfirst.frc.team4669.robot;
 
-import edu.wpi.first.wpilibj.CameraServer;
+//import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.networktables.NetworkTable;
+//import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 import org.usfirst.frc.team4669.robot.commands.BorDdefense;
 import org.usfirst.frc.team4669.robot.commands.ChevalDeFrise;
@@ -19,6 +19,7 @@ import org.usfirst.frc.team4669.robot.commands.Pos2RMoveForwardTurnAndShoot;
 import org.usfirst.frc.team4669.robot.commands.Pos3MoveForwardTurnAndShoot;
 import org.usfirst.frc.team4669.robot.commands.Pos4MoveForwardTurnAndShoot;
 import org.usfirst.frc.team4669.robot.commands.Pos5MoveForwardTurnAndShoot;
+import org.usfirst.frc.team4669.robot.commands.Ramparts;
 import org.usfirst.frc.team4669.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4669.robot.subsystems.IMUSubsystem;
 import org.usfirst.frc.team4669.robot.subsystems.Shooter;
@@ -45,33 +46,33 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain driveTrain;
 	public static IMUSubsystem imuSubsystem = new IMUSubsystem();
 	public static Shooter shooter;
-	public static LightRelay lightRelay;
-	public static OISNES oisnes;
+//	public static LightRelay lightRelay;
+//	public static OISNES oisnes;
 	public static OIXbox oixbox;
-	public static CameraServer server;
+	//public static CameraServer server;
 
 	CommandGroup autonomousCommand;
     SendableChooser defenseType;
     SendableChooser defensePosition;
     
-    public static NetworkTable visionTable;
+//    public static NetworkTable visionTable;
 
     public Robot() {
 
-    	visionTable = NetworkTable.getTable("vision");
+//    	visionTable = NetworkTable.getTable("vision");
     	
     	//Initialize subsystems and variables
     	driveTrain = new DriveTrain();
     	shooter = new Shooter();
-    	lightRelay = new LightRelay();
+//    	lightRelay = new LightRelay();
     	oi = new OI();
 //    	oisnes = new OISNES();
     	oixbox = new OIXbox();
     	
-    	server = CameraServer.getInstance();
-        server.setQuality(20);
+//    	server = CameraServer.getInstance();
+//        server.setQuality(20);
         //the camera name (ex "cam0") can be found through the roborio web interface
-        server.startAutomaticCapture("cam2");
+//        server.startAutomaticCapture("cam2");
     }
     /**
      * This function is run when the robot is first started up and should be
@@ -88,6 +89,7 @@ public class Robot extends IterativeRobot {
         defenseType.addObject("Low Bar", new LowBar());
         defenseType.addObject("Cheval de Frise", new ChevalDeFrise());
         defenseType.addObject("B or D", new BorDdefense());
+        defenseType.addObject("Ramparts", new Ramparts());
         SmartDashboard.putData("Auto type", defenseType);
         
         defensePosition = new SendableChooser();
@@ -189,7 +191,7 @@ public class Robot extends IterativeRobot {
     	SmartDashboard.putNumber("Drive Right Encoder", driveTrain.getRightEncoder());
     	
     	//Update IMU values on SmartDashboard
-    	SmartDashboard.putNumber("IMU", imuSubsystem.getAngle());
+//    	SmartDashboard.putNumber("IMU", imuSubsystem.getAngle());
     	
     	SmartDashboard.putNumber("Shooter Left Encoder", shooter.getLeftShooterRPM());
     	SmartDashboard.putNumber("Shooter Right Encoder", shooter.getRightShooterRPM());

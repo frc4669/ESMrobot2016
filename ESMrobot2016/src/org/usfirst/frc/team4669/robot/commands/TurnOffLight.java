@@ -13,7 +13,7 @@ public class TurnOffLight extends Command {
     public TurnOffLight() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.lightRelay);
+//    	requires(Robot.lightRelay);
     }
 
     // Called just before this Command runs the first time
@@ -22,12 +22,13 @@ public class TurnOffLight extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lightRelay.turnOffLight();
+//    	Robot.lightRelay.turnOffLight();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.lightRelay.getRelayState().equals(Relay.Value.kOff);
+//        return Robot.lightRelay.getRelayState().equals(Relay.Value.kOff);
+    	return true;
     }
 
     // Called once after isFinished returns true

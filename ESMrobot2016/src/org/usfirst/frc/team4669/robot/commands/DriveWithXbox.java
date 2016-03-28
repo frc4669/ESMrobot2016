@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveWithXbox extends Command {
 	private DriveTrain driveTrain;
 	private OIXbox oixbox;
-	private TurnToDegree  turn = new TurnToDegree(0);
-	private int pov;
+//	private TurnToDegree  turn = new TurnToDegree(0);
+//	private int pov;
 	
     public DriveWithXbox() {
     	driveTrain = Robot.driveTrain;
@@ -23,27 +23,27 @@ public class DriveWithXbox extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	pov = oixbox.getPOV();
+//    	pov = oixbox.getPOV();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (oixbox.getPOV() > -1) { //pov used
-    		if (!turn.isRunning() && pov == oixbox.getPOV()) { //no change in POV
-    			driveTrain.setArcadeDrive(oixbox.getRightTrigger()-oixbox.getLeftTrigger(), 0);
-    		}
-    		else if (!turn.isRunning() && pov != oixbox.getPOV()) { //change in POV
-    			pov = oixbox.getPOV();
-    			turn = new TurnToDegree(pov);
-    			turn.start();
-    		}
-    	}
-    	else if (turn.isRunning()) {
-    		turn.end();
-    	}
-    	else { //tank drive
+//    	if (oixbox.getPOV() > -1) { //pov used
+//    		if (!turn.isRunning() && pov == oixbox.getPOV()) { //no change in POV
+//    			driveTrain.setArcadeDrive(oixbox.getRightTrigger()-oixbox.getLeftTrigger(), 0);
+//    		}
+//    		else if (!turn.isRunning() && pov != oixbox.getPOV()) { //change in POV
+//    			pov = oixbox.getPOV();
+//    			turn = new TurnToDegree(pov);
+//    			turn.start();
+//    		}
+//    	}
+//    	else if (turn.isRunning()) {
+//    		turn.end();
+//    	}
+//    	else { //tank drive
     		driveTrain.setMotors(-oixbox.getLeftY(), -oixbox.getRightY());
-    	}
+//    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -9,7 +9,7 @@ public class LowBar extends CommandGroup{
 		addSequential(new MoveForwardNorth(RobotMap.autoToLowBar));
 		addSequential(new TiltShooterLowBar());
 		addSequential(new MoveForwardNorth(RobotMap.lowBarDistance));
-		addSequential(new MoveForwardUntilLevel());
+		addSequential(new TiltToStart());
 		addSequential(new AlignToNorth());
 	}
 }

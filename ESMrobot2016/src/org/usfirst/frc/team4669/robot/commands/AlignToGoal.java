@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AlignToGoal extends CommandGroup{
 	public AlignToGoal() {
-		addSequential(new GetVisionValues());
-		addSequential(new TurnToGoal());
+//		addSequential(new GetVisionValues());
+//		addSequential(new TurnToGoal());
 	}
 }

@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class MoveForwardNorth extends Command {
+public class MoveForwardNorthSlow extends Command {
 	
 	private DriveTrain driveTrain;
 	private IMUSubsystem imu;
@@ -19,7 +19,7 @@ public class MoveForwardNorth extends Command {
 	
 	private static final double kP = 0.03;
 
-    public MoveForwardNorth(double distance) {
+    public MoveForwardNorthSlow(double distance) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	driveTrain = Robot.driveTrain;
@@ -39,7 +39,7 @@ public class MoveForwardNorth extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 //    	driveTrain.setDrive(0.5*RobotMap.driveTrainSpeedProportion, -(imu.getAngle()-direction)*kP);
-    	driveTrain.setDrive(RobotMap.driveTrainSpeedProportion, 0);
+    	driveTrain.setDrive(0.25*RobotMap.driveTrainSpeedProportion, 0);
         }
 
     // Make this return true when this Command no longer needs to run execute()

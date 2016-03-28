@@ -40,8 +40,8 @@ public class OIXbox {
 		buttonY.whenPressed(new TiltToStart());
 		buttonA.whenPressed(new Turn(180));
 		buttonB.whenPressed(new TiltToFloor());
-		buttonStart.whenPressed(new TurnToDegree(0));
-		buttonBack.whenPressed(new TurnToDegree(180));
+//		buttonStart.whenPressed(new TurnToDegree(0));
+//		buttonBack.whenPressed(new TurnToDegree(180));
 		buttonLeftJoy.whileHeld(new Intake());
 		buttonRightJoy.whenPressed(new Shoot());
 		

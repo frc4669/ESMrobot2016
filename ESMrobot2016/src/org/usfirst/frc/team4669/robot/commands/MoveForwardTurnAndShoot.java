@@ -4,10 +4,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class MoveForwardTurnAndShoot extends CommandGroup{
 	public MoveForwardTurnAndShoot(double distance, double turn, double shooter){
+		addSequential(new TiltToHighGoal());
 		addSequential(new MoveForwardInches(distance));	
 		addSequential(new Turn(turn));
-		addSequential(new TiltToHighGoal());
-		addSequential(new AlignToGoal());
+//		addSequential(new AlignToGoal());
 		addSequential(new Shoot());
 	}
 }

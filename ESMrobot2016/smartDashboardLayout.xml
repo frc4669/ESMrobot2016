@@ -43,9 +43,6 @@
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.ConnectionIndicator">
 		<location x="14" y="396"/>
 	</static-widget>
-	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.WebcamViewerExtension">
-		<location x="639" y="25"/>
-	</static-widget>
 	<widget field="MoveForwardUntilLevel" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="5" y="310"/>
 	</widget>
@@ -123,8 +120,4 @@
 </dashboard>
 <live-window>
 </live-window>
-	<hidden field="TiltShooterFloor"/>
-	<hidden field="TiltShooterDown"/>
-	<hidden field="TiltShooterStart"/>
-	<hidden field="TiltShooterUp"/>
 </xml>

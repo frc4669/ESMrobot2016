@@ -8,12 +8,12 @@ import org.usfirst.frc.team4669.robot.commands.TiltToHighGoal;
 import org.usfirst.frc.team4669.robot.commands.TiltToLowGoal;
 import org.usfirst.frc.team4669.robot.commands.TiltAtBatter;
 import org.usfirst.frc.team4669.robot.commands.TiltToStart;
-import org.usfirst.frc.team4669.robot.commands.AlignToGoal;
+//import org.usfirst.frc.team4669.robot.commands.AlignToGoal;
 import org.usfirst.frc.team4669.robot.commands.AlignToNorth;
-import org.usfirst.frc.team4669.robot.commands.CalibrateIMU;
-import org.usfirst.frc.team4669.robot.commands.GetVisionValues;
+//import org.usfirst.frc.team4669.robot.commands.CalibrateIMU;
+//import org.usfirst.frc.team4669.robot.commands.GetVisionValues;
 import org.usfirst.frc.team4669.robot.commands.Intake;
-import org.usfirst.frc.team4669.robot.commands.MoveForwardUntilLevel;
+//import org.usfirst.frc.team4669.robot.commands.MoveForwardUntilLevel;
 import org.usfirst.frc.team4669.robot.commands.TiltUp;
 import org.usfirst.frc.team4669.robot.commands.Turn;
 import org.usfirst.frc.team4669.robot.commands.TurnOffLight;
@@ -43,7 +43,7 @@ public class OI {
     	JoystickButton shooter4 = new JoystickButton(shooterStick, 4);
     	JoystickButton shooter5 = new JoystickButton(shooterStick, 5);
     	JoystickButton shooter6 = new JoystickButton(shooterStick, 6);
-    	JoystickButton shooter7 = new JoystickButton(shooterStick, 7);
+//    	JoystickButton shooter7 = new JoystickButton(shooterStick, 7);
     	JoystickButton shooter8 = new JoystickButton(shooterStick, 8);
     	JoystickButton shooter9 = new JoystickButton(shooterStick, 9);
     	JoystickButton shooter10 = new JoystickButton(shooterStick, 10);
@@ -61,7 +61,7 @@ public class OI {
     	shooter4.whenPressed(new Turn(-5));
     	shooter5.whenPressed(new Turn(5));
     	shooter6.whenPressed(new Shoot());
-    	shooter7.whenPressed(new AlignToGoal());
+//    	shooter7.whenPressed(new AlignToGoal());
     	shooter8.whenPressed(new TiltAtBatter());
     	shooter9.whenPressed(new TiltShooterLowBar());
     	shooter10.whenPressed(new TiltToLowGoal());
@@ -78,9 +78,9 @@ public class OI {
     	
     	
     	//SmartDashboard commands
-    	SmartDashboard.putData("GetVisionValues", new GetVisionValues());
-    	SmartDashboard.putData("TurnOnLight", new TurnOnLight());
-    	SmartDashboard.putData("TurnOffLight", new TurnOffLight());
+//    	SmartDashboard.putData("GetVisionValues", new GetVisionValues());
+//    	SmartDashboard.putData("TurnOnLight", new TurnOnLight());
+//    	SmartDashboard.putData("TurnOffLight", new TurnOffLight());
     	
     	SmartDashboard.putData("Shoot", new Shoot());
     	SmartDashboard.putData("Intake", new Intake());
@@ -92,13 +92,13 @@ public class OI {
     	SmartDashboard.putData("TiltToBaseAngle", new TiltAtBatter());
     	
     	//IMU calibrate
-    	SmartDashboard.putData("IMU Zero Reading", new CalibrateIMU());
+//    	SmartDashboard.putData("IMU Zero Reading", new CalibrateIMU());
     	
     	SmartDashboard.putData("Zero Shooter Encoder", new ZeroEncoderShooter());
     	SmartDashboard.putData("Zero DriveTrain Encoder", new ZeroEncoderDriveTrain());
     	
     	SmartDashboard.putData("AlignToNorth", new AlignToNorth());
-    	SmartDashboard.putData("MoveForwardUntilLevel", new MoveForwardUntilLevel());
+//    	SmartDashboard.putData("MoveForwardUntilLevel", new MoveForwardUntilLevel());
     	
     }
     

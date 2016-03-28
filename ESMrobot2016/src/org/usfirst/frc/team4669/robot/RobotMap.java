@@ -37,10 +37,10 @@ public class RobotMap {
 	public static final double shooterTiltSpeedProportion = 1;
 	
 	// JOYSTICKS
-	public static final int leftJoy = 0;
-	public static final int rightJoy = 1;
-	public static final int armJoy = 2;
-	public static final int xbox = 3;
+	public static final int leftJoy = 2;
+	public static final int rightJoy = 3;
+	public static final int armJoy = 1;
+	public static final int xbox = 0;
 	public static final int snes1 = 4;
 	public static final int snes2 = 5;
 	
@@ -62,12 +62,12 @@ public class RobotMap {
 	
 	//Defense Type Low Bar
 	public static final double autoToLowBar = 40;
-	public static final double lowBarTilt = 120;
+	public static final double lowBarTilt = 100;
 	public static final double lowBarDistance = 60;
 	
 	//Defense Type Cheval de Frise
-	public static final double autoToCheval = 40;
-	public static final double chevalTilt = 110;
+	public static final double autoToCheval = 45;
+	public static final double chevalTilt = 100;
 	public static final double chevalDistance = 60;
 	
 	
